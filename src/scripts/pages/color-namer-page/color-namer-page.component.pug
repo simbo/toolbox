@@ -24,9 +24,13 @@
         :style = "{'background-color': color.hex}"
       )
         .closest-color__details
-          input.readonly-textfield.closest-color__name(:value = "color.name")
-          input.readonly-textfield.closest-color__hex(:value = "color.hex")
-          input.readonly-textfield.closest-color__rgb(:value = "color.color.string()")
+          readonly-textfield.closest-color__name(:value = "color.name")
+          readonly-textfield.closest-color__name(:value = "color.name | kebabCase")
+          readonly-textfield.closest-color__name(:value = "color.name | camelCase")
+          readonly-textfield.closest-color__name(:value = "color.name | snakeCase")
+          readonly-textfield.closest-color__name(:value = "color.name | pascalCase")
+          readonly-textfield.closest-color__hex(:value = "color.hex")
+          readonly-textfield.closest-color__rgb(:value = "color.color.string()")
           .closest-color__distance {{ color.distance | intlNumberFormat({ minimumFractionDigits: 3 }) }}
 
   //- .page-section

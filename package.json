@@ -24,10 +24,12 @@
     "node": ">=8"
   },
   "dependencies": {
+    "camelcase": "^5.0.0",
     "color": "^3.0.0",
     "crypto-browserify": "^3.12.0",
     "css-reset-and-normalize": "^1.0.1",
     "random-int": "^1.0.0",
+    "slug": "^0.9.1",
     "vue": "^2.5.16",
     "vue-router": "^3.0.1"
   },
