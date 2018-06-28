@@ -1,0 +1,32 @@
+$fontFamilies: (
+  'system': #{'-apple-system', 'system-ui', 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'},
+  'systemMono': #{SFMono-Regular, Consolas, 'Liberation Mono', Menlo, Courier, monospace},
+  'serif': #{Georgia, Cambria, "Times New Roman", Times, serif},
+  'sans': #{"Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif}
+);
+
+$terminalColors: (
+  'black':    #2e2e2e,
+  'red':      #eb3f29,
+  'green':    #abdf47,
+  'yellow':   #f8c444,
+  'blue':     #41a2f3,
+  'magenta':  #7b60af,
+  'cyan':     #61dbec,
+  'white':    #ffffff
+);
+
+$colors: (
+  'white':        #ffffff,
+  'porcelain':    #f5f6f7,
+  'athensGray':   #fafbfc,
+  'alto':         #dcddde,
+  'iron':         #cdcecf,
+  'rollingStone': #808182,
+  'boulder':      #757677,
+  'emperor':      #555657,
+  'abbey':        #444546,
+  'capeCod':      #3d3e3f,
+  'charade':      #2c2d2e,
+  'shark':        #1b1c1d
+);

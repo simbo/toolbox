@@ -1,0 +1,11 @@
+nav.site-menu
+
+  ul.site-menu__list
+
+    li.site-menu__list-item(
+      v-for = "item in menuItems"
+    )
+
+      router-link.site-menu__link(
+        :to = "item.link"
+      ) {{ item.label }}

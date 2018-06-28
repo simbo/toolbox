@@ -1,0 +1,27 @@
+mixin readonlyTextfield(element)
+  - var multiline = element === 'textarea';
+  #{element}(
+    class = `readonly-textfield__${element}`,
+    v-if = `${multiline ? '' : '!'}multiline`,
+    v-bind = "$attrs",
+    v-on = "listeners",
+    :value = "value",
+    :id = "id || false",
+    :placeholder = "placeholder || false",
+    readonly = true,
+    autocomplete = "off",
+    autocorrect = "off",
+    autocapitalize = "off"
+  )
+
+.readonly-textfield(
+  :class = "classNames"
+)
+
+  label.readonly-textfield__label(
+    v-if = "label",
+    :for = "id || false"
+  ) {{ label }}
+
+  +readonlyTextfield('input')
+  +readonlyTextfield('textarea')

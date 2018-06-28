@@ -1,0 +1,55 @@
+.closest-color {
+  $gridGap: 1rem;
+
+  @mixin columns($count: 1) {
+    @if ($count <= 1) {
+      grid-template-columns: 100%;
+    }
+    @else {
+      grid-template-columns: repeat($count, calc(#{100% / $count} - #{$gridGap * ($count - 1) / $count}));
+    }
+  }
+
+  &s {
+    display: grid;
+    gap: $gridGap;
+    @include columns(1);
+
+    @include mq('mobile-landscape') {
+      @include columns(2);
+    }
+
+    @include mq('tablet-portrait') {
+      @include columns(3);
+    }
+
+    @include mq('tablet-landscape') {
+      @include columns(4);
+    }
+
+    @include mq('desktop') {
+      @include columns(5);
+    }
+
+  }
+
+  & {
+  }
+
+  &__name {
+
+  }
+
+  &__hex {
+
+  }
+
+  &__rgb {
+
+  }
+
+  &__distance {
+
+  }
+
+}

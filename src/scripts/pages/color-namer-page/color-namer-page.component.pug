@@ -1,0 +1,37 @@
+.page--color-namer
+
+  .page-section
+
+  .page-section
+    div(
+      :style = "{'background-color': hex, height: '4em'}"
+    )
+
+    textfield(
+      ref = "input",
+      v-model = "hexInput"
+    )
+
+  .page-section {{ hex }}
+
+  .page-section {{ color.string() }}
+
+  .page-section
+    .closest-colors
+      .closest-color(
+        v-for = "color in closestColors.slice(0, 25)",
+        :key = "color.name",
+        :style = "{'background-color': color.hex}"
+      )
+        .closest-color__details
+          input.readonly-textfield.closest-color__name(:value = "color.name")
+          input.readonly-textfield.closest-color__hex(:value = "color.hex")
+          input.readonly-textfield.closest-color__rgb(:value = "color.color.string()")
+          .closest-color__distance {{ color.distance | intlNumberFormat({ minimumFractionDigits: 3 }) }}
+
+  //- .page-section
+  //-   selector(
+  //-     v-model = "colorNameSelected",
+  //-     :choices = "colorNames",
+  //-     @change = "hexInput = colorNameSelected"
+  //-   )

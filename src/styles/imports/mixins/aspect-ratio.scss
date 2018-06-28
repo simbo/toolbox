@@ -1,0 +1,16 @@
+@import './clearfix';
+
+@mixin aspect-ratio($ratio: 1) {
+
+  &::before {
+    content: '';
+    width: 1px;
+    margin-left: -1px;
+    float: left;
+    height: 0;
+    padding-top: ($ratio * 100%);
+  }
+
+  @include clearfix();
+
+}

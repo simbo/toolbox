@@ -1,0 +1,42 @@
+.textfield {
+  $lineHeight: 1.5;
+  $paddingX: .6em;
+  $paddingY: .4em;
+  $background: white;
+  $borderWidth: 2px;
+  $borderRadius: 4px;
+  $rows: 3;
+  $minRows: 1;
+  $maxRows: 8;
+
+  @function textfieldHeight($rows: 1) {
+    @return calc(#{2 * $paddingY + $lineHeight * $rows} + #{$borderWidth * 2});
+  }
+
+  &__label {
+    display: block;
+    line-height: 1.5;
+    margin-bottom: .25em;
+  }
+
+  &__input,
+  &__textarea {
+    display: block;
+    width: 100%;
+    padding: $paddingY $paddingX;
+    line-height: $lineHeight;
+    background: $background;
+    border: $borderWidth solid _($colors, 'alto');
+    border-radius: $borderRadius;
+    outline: none;
+  }
+
+  &__textarea {
+    min-width: 100%;
+    max-width: 100%;
+    height: textfieldHeight($rows);
+    min-height: textfieldHeight($minRows);
+    max-height: textfieldHeight($maxRows);
+  }
+
+}
