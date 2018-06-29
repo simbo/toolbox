@@ -1,1 +1,34 @@
-p hash-generator-page works!
+.page--hash
+
+  .page-section
+
+    c-textfield#input(
+      [(ngModel)] = "input",
+      label = "Input",
+      placeholder = "Place your data here…",
+      multiline = true
+    )
+
+  //- .page-section
+
+  //-   c-select#algorithm(
+  //-     label = "Algorithm",
+  //-     :choices = "algorithms"
+  //-   )
+
+  //- .page-section
+
+  //-   c-select#encoding(
+  //-     label = "Encoding",
+  //-     :choices = "encodings"
+  //-   )
+
+  .page-section
+
+    c-textfield#output(
+      [(ngModel)] = "output",
+      label = "Output",
+      placeholder = "Nothing to hash…",
+      readonly = true,
+      multiline = true
+    )

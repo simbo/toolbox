@@ -13,7 +13,6 @@ import { TextfieldComponent } from './textfield/textfield.component';
     TextfieldComponent
   ],
   exports: [
-    FormsModule,
     TextfieldComponent
   ]
 })
