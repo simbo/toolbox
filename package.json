@@ -29,10 +29,13 @@
     "@angular/platform-browser": "^6.0.3",
     "@angular/platform-browser-dynamic": "^6.0.3",
     "@angular/router": "^6.0.3",
+    "color": "^3.0.0",
     "core-js": "^2.5.4",
     "css-reset-and-normalize": "^1.0.1",
     "ng-cli-pug-loader": "^0.1.3",
+    "random-int": "^1.0.0",
     "rxjs": "^6.0.0",
+    "slug": "^0.9.1",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {
