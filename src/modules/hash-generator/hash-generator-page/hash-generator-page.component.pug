@@ -4,9 +4,9 @@
 
     c-textfield#input(
       [(ngModel)] = "input",
+      [multiline] = "true",
       label = "Input",
-      placeholder = "Place your data here…",
-      multiline = true
+      placeholder = "Place your data here…"
     )
 
   .page-section
@@ -29,8 +29,8 @@
 
     c-textfield#output(
       [(ngModel)] = "output",
+      [readonly] = "true",
+      [multiline] = "true",
       label = "Output",
-      placeholder = "Nothing to hash…",
-      readonly = true,
-      multiline = true
+      placeholder = "Nothing to hash…"
     )
