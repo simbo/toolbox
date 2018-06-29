@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { ColorNamerModule } from '../color-namer/color-namer.module';
 import { HashGeneratorModule } from '../hash-generator/hash-generator.module';
 import { AppRoutingModule } from './app-routing.module';
-import { GenericsModule } from '../generics/generics.module';
 
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './home-page/home-page.component';
@@ -17,7 +16,6 @@ import { MessageBusService } from './message-bus/message-bus.service';
     BrowserModule,
     ColorNamerModule,
     HashGeneratorModule,
-    GenericsModule,
     AppRoutingModule
   ],
   declarations: [
