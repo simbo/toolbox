@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { hashAlgorithms, HashAlgorithm } from '../hash/hash-algorithms';
 import { hashEncodings, HashEncoding } from '../hash/hash-encodings';
 import { Hash } from '../hash/hash';
+import { SelectChoices } from '../../controls/select/select.component';
 
 @Component({
   selector: 'c-hash-generator-page',
@@ -11,11 +12,19 @@ import { Hash } from '../hash/hash';
 })
 export class HashGeneratorPageComponent {
 
-  public algorithms: {[key: string]: string} = hashAlgorithms;
+  public algorithms: SelectChoices = Object.entries(hashAlgorithms)
+    .reduce((algorithms, [label, value]) => ([
+      ...algorithms,
+      { label, value }
+    ]), []);
 
   public algorithm: HashAlgorithm = HashAlgorithm.SHA256;
 
-  public encodings: {[key: string]: string} = hashEncodings;
+  public encodings: SelectChoices = Object.entries(hashEncodings)
+    .reduce((algorithms, [label, value]) => ([
+      ...algorithms,
+      { label, value }
+    ]), []);
 
   public encoding: HashEncoding = HashEncoding.Hex;
 

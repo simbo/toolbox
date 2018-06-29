@@ -9,19 +9,21 @@
       multiline = true
     )
 
-  //- .page-section
+  .page-section
 
-  //-   c-select#algorithm(
-  //-     label = "Algorithm",
-  //-     :choices = "algorithms"
-  //-   )
+    c-select#algorithm(
+      [(ngModel)] = "algorithm",
+      [choices] = "algorithms",
+      label = "Algorithm"
+    )
 
-  //- .page-section
+  .page-section
 
-  //-   c-select#encoding(
-  //-     label = "Encoding",
-  //-     :choices = "encodings"
-  //-   )
+    c-select#encoding(
+      [(ngModel)] = "encoding",
+      [choices] = "encodings",
+      label = "Encoding"
+    )
 
   .page-section
 
