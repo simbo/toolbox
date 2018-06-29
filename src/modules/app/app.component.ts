@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'app';
+  public siteTitle = 'Toolbox';
+
+  constructor() {
+    console.log('Hello World!');
+  }
+
 }
