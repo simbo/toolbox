@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'hash-generator-page',
+  selector: 'c-hash-generator-page',
   templateUrl: './hash-generator-page.component.pug',
   styleUrls: ['./hash-generator-page.component.scss']
 })
