@@ -1,0 +1,16 @@
+.readonly-textfield {
+
+  &__input {
+    display: block;
+    border: none;
+    width: 100%;
+    height: auto;
+    background: transparent;
+    color: inherit;
+    line-height: inherit;
+    font-family: inherit;
+    outline: none;
+    padding: 0;
+  }
+
+}

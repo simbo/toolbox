@@ -1,0 +1,81 @@
+$mediaqueryThresholds: (
+  'mobile'          : (   0,  767),
+  'mobile-portrait' : (   0,  559),
+  'mobile-landscape': ( 560,  767),
+  'tablet'          : ( 768, 1024),
+  'tablet-portrait' : ( 768,  896),
+  'tablet-landscape': ( 896, 1024),
+  'desktop'         : (1025,    0)
+) !default;
+
+@mixin mqMinMax($min, $max) {
+  @media screen and (min-width: $min * 1px) and (max-width: $max * 1px) { @content; }
+}
+
+@mixin mqMin($min) {
+  @media screen and (min-width: $min * 1px) { @content; }
+}
+
+@mixin mqMax($max) {
+  @media screen and (max-width: $max * 1px) { @content; }
+}
+
+@mixin mq($val) {
+
+  $mq: $mediaqueryThresholds;
+
+  @if type-of($val) == 'string' {
+
+    $lte: false;
+    $gte: false;
+
+    @if str-index($val, '<=') == 1 {
+      $lte: true;
+      $val: str-slice($val, 3);
+    }
+    @else if str-index($val, '>=') == 1 {
+      $gte: true;
+      $val: str-slice($val, 3);
+    }
+
+    @if not map-has-key($mq, $val) {
+      @error "#{$val} is not a known mediaquery threshold key";
+    }
+
+    $threshold: map-get($mq, $val);
+    $min: nth($threshold, 1);
+    $max: nth($threshold, 2);
+
+    @if $lte or $gte {
+      @if $lte and $max > 0 {
+        @include mqMax($max) { @content; }
+      }
+      @else if $gte and $min > 0 {
+        @include mqMin($min) { @content; }
+      }
+      @else {
+        @error "#{if($gte, 'gte', 'lte')} values for mediaquery key #{$val} are invalid";
+      }
+    }
+
+    @else if $min > 0 and $max > 0 {
+      @include mqMinMax($min, $max) { @content; }
+    }
+    @else if $min > 0 {
+      @include mqMin($min) { @content; }
+    }
+    @else if $max > 0 {
+      @include mqMax($max) { @content; }
+    }
+
+    @else {
+      @error "threshold values for mediaquery key #{$val} are invalid";
+    }
+
+  }
+
+  @else {
+    @error "#{$val} could not be resolved to a mediaquery";
+  }
+
+}

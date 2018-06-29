@@ -1,4 +1,8 @@
-/* You can add global styles to this file, and also import other style files */
-body {
-  background: red;
-}
+@import '~css-reset-and-normalize/scss/reset-and-normalize';
+
+@import 'functions/index';
+@import 'mixins/index';
+
+@import 'vars';
+
+@import 'modules/index';

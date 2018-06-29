@@ -1,0 +1,18 @@
+html {
+  font-size: 16px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    font-size: 20px;
+  }
+
+}
+
+body {
+  font-family: map-get($fontFamilies, system);
+  background: #fafbfc;
+  text-rendering: optimizeLegibility;
+}

@@ -1,0 +1,27 @@
+.site-menu {
+  margin: 2em;
+
+  &__list {
+    display: flex;
+  }
+
+  &__list-item {
+    flex: 0 0 auto;
+    margin: 0 0 0 1em;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+
+  &__link {
+    display: block;
+    line-height: 1.5;
+    text-decoration: none;
+
+    &.is-exact-active {
+      font-weight: bold;
+    }
+  }
+
+}

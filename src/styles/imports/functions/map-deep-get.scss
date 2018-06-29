@@ -1,0 +1,18 @@
+@function map-deep-get($map, $keys...) {
+  @each $key in $keys {
+    @if (type-of($key) == 'number') {
+      $map: nth($map, $key);
+    }
+    @else {
+      $map: map-get($map, $key);
+    }
+    @if (type-of($map) == 'null') {
+      @return $map;
+    }
+  }
+  @return $map;
+}
+
+@function _($map, $keys...) {
+  @return map-deep-get($map, $keys...);
+}
