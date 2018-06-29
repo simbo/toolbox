@@ -1,16 +1,23 @@
 {
-  "name": "toolbox-ng",
-  "version": "0.0.0",
+  "name": "toolbox",
+  "version": "0.1.0",
+  "description": "Some online tools.",
+  "author": "Simon Lepel <simbo@simbo.de> (http://simbo.de)",
+  "homepage": "https://simbo.codes/toolbox",
+  "license": "MIT",
+  "private": true,
+  "repository": "github:simbo/toolbox",
+  "bugs": "https://github.com/simbo/toolbox/issues",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "ci": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "postinstall": "node ./ng-add-pug-loader.js"
   },
-  "private": true,
   "dependencies": {
     "@angular/animations": "^6.0.3",
     "@angular/common": "^6.0.3",
