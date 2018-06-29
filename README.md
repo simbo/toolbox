@@ -1,27 +1,47 @@
-# ToolboxNg
+toolbox
+=======
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
+  > Some online tools.
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+Development
+-----------
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+### Requirements
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+  - node >= 8.11.2
 
-## Running unit tests
+  - [`yarn`](https://yarnpkg.com/lang/en/) for package management
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+  - globally installed [`@angular/cli`
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+### Usage
 
-## Further help
+  - `ng serve [--prod]`  
+    builds, serves and reloads at [localhost:4200](http://localhost:4200/)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+  - `ng build [--prod]`  
+    builds to `dist/`
+
+  - `ng test`  
+    unit tests via [Karma](https://karma-runner.github.io)
+
+  - `ng e2e`  
+    end-to-end tests via [Protractor](http://www.protractortest.org/)
+
+  - `ng generate <schematic> [options]`  
+    i.e.: `ng generate component component-name` to generate a new component.  
+    See `ng generate --help` for schematics.  
+    See `ng generate <schematic> --help` for schematic options
+
+
+### More
+
+  - Angular CLI
+      - [ReadMe](https://github.com/angular/angular-cli/blob/master/packages/angular/cli/README.md#documentation)
+      - [Wiki](https://github.com/angular/angular-cli/wiki)
