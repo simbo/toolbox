@@ -24,7 +24,6 @@ Development
   - `ng serve [--prod]`  
     builds, serves and reloads at [localhost:4200](http://localhost:4200/)
 
-
   - `ng build [--prod]`  
     builds to `dist/`
 
@@ -38,6 +37,9 @@ Development
     i.e.: `ng generate component component-name` to generate a new component.  
     See `ng generate --help` for schematics.  
     See `ng generate <schematic> --help` for schematic options
+
+  - `yarn run analyzer`  
+    build and start bundle analyzer at [localhost:8888](http://localhost:8888/)
 
 
 ### More
