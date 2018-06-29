@@ -13,6 +13,7 @@ const routes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, {
+      useHash: true, // need to use hash urls as github pages is used as host
       enableTracing: false // true for debugging routes
     })
   ],
