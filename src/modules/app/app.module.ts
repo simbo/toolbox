@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { SiteMenuComponent } from './site-menu/site-menu.component';
+import { MessageBusService } from './message-bus/message-bus.service';
 
 @NgModule({
   imports: [
@@ -20,7 +21,9 @@ import { SiteMenuComponent } from './site-menu/site-menu.component';
     HomePageComponent,
     SiteMenuComponent
   ],
-  providers: [],
+  providers: [
+    MessageBusService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
