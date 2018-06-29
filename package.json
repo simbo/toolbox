@@ -18,7 +18,7 @@
     "e2e": "ng e2e",
     "analyzer": "ng build --prod --stats-json && webpack-bundle-analyzer ./dist/stats.json",
     "preinstall": "npx use-yarn",
-    "postinstall": "node ./ng-add-pug-loader.js"
+    "postinstall": "node ./.ng-webpack/hack.js"
   },
   "engines": {
     "node": ">=8.11.2"
@@ -36,8 +36,8 @@
     "camelcase": "^5.0.0",
     "color": "^3.0.0",
     "core-js": "^2.5.4",
+    "crypto-browserify": "^3.12.0",
     "css-reset-and-normalize": "^1.0.1",
-    "ng-cli-pug-loader": "^0.1.3",
     "random-int": "^1.0.0",
     "rxjs": "^6.0.0",
     "slug": "^0.9.1",
@@ -51,8 +51,10 @@
     "@types/jasmine": "~2.8.6",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
-    "apply-loader": "^2.0.0",
+    "autoprefixer": "^8.6.4",
     "codelyzer": "~4.2.1",
+    "css-mqpacker": "^6.0.2",
+    "css-mqpacker-sort-mediaqueries": "^0.2.2",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~1.7.1",
@@ -63,7 +65,7 @@
     "karma-mocha-reporter": "^2.2.5",
     "protractor": "~5.3.0",
     "pug": "^2.0.3",
-    "pug-loader": "^2.4.0",
+    "pug-plain-loader": "^1.0.0",
     "ts-node": "~5.0.1",
     "tslint": "~5.9.1",
     "typescript": "~2.7.2",
