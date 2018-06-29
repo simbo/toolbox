@@ -17,6 +17,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "analyzer": "ng build --prod --stats-json && webpack-bundle-analyzer ./dist/stats.json",
+    "preinstall": "npx use-yarn",
     "postinstall": "node ./ng-add-pug-loader.js"
   },
   "dependencies": {
@@ -63,6 +64,7 @@
     "ts-node": "~5.0.1",
     "tslint": "~5.9.1",
     "typescript": "~2.7.2",
+    "use-yarn": "^2.2.0",
     "webpack-bundle-analyzer": "^2.13.1"
   }
 }
