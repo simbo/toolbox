@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { TextfieldComponent } from './textfield/textfield.component';
+import { SelectComponent } from './select/select.component';
 
 @NgModule({
   imports: [
@@ -10,10 +11,12 @@ import { TextfieldComponent } from './textfield/textfield.component';
     FormsModule
   ],
   declarations: [
-    TextfieldComponent
+    TextfieldComponent,
+    SelectComponent
   ],
   exports: [
-    TextfieldComponent
+    TextfieldComponent,
+    SelectComponent
   ]
 })
 export class ControlsModule { }
