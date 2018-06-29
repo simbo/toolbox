@@ -20,6 +20,9 @@
     "preinstall": "npx use-yarn",
     "postinstall": "node ./ng-add-pug-loader.js"
   },
+  "engines": {
+    "node": ">=8.11.2"
+  },
   "dependencies": {
     "@angular/animations": "^6.0.3",
     "@angular/common": "^6.0.3",
