@@ -23,7 +23,7 @@ export class Hash {
   }
 
   public get(encoding: HashEncoding): string {
-    return this.hash.digest(encoding)
+    return this.hash.digest(encoding);
   }
 
 }
