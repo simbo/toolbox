@@ -8,7 +8,7 @@ env:
 
 install: yarn
 
-script: yarn run build:ci
+script: yarn run ng build --prod
 
 deploy:
   provider: pages
