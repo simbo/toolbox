@@ -35,7 +35,7 @@ export class SelectComponent extends ControlElementBase<SelectChoices> {
     super(validators, asyncValidators);
   }
 
-  choicesTrackBy(index: number, item: SelectChoice): string {
+  public choicesTrackBy(index: number, item: SelectChoice): string {
     return item.value;
   }
 
