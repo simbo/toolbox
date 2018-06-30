@@ -2,10 +2,14 @@ const autoprefixer = require('autoprefixer');
 const cssMqpacker = require('css-mqpacker');
 const cssMqpackerSortMediaqueries = require('css-mqpacker-sort-mediaqueries');
 
+/**
+ * These filter functions alter the internal angular cli webpack configs from
+ * node_modules/@angular-devkit/build-angular/src/angular-cli-files/models/webpack-configs/
+ */
+
 
 /**
- * filter angular cli webpack common config
- * node_modules/@angular-devkit/build-angular/src/angular-cli-files/models/webpack-configs/browser.js
+ * filter angular cli webpack common config (common.js)
  */
 exports.common = (config) => {
 
@@ -20,8 +24,7 @@ exports.common = (config) => {
 
 
 /**
- * filter angular cli webpack browser config
- * node_modules/@angular-devkit/build-angular/src/angular-cli-files/models/webpack-configs/browser.js
+ * filter angular cli webpack browser config (browser.js)
  */
 exports.browser = (config) => {
 
@@ -36,8 +39,7 @@ exports.browser = (config) => {
 
 
 /**
- * filter angular cli webpack styles config
- * node_modules/@angular-devkit/build-angular/src/angular-cli-files/models/webpack-configs/browser.js
+ * filter angular cli webpack styles config (styles.js)
  */
 exports.styles = (config) => {
 
