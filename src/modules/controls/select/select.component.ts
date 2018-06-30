@@ -8,7 +8,7 @@ export interface SelectChoice {
   label: string;
 }
 
-export type SelectChoices = SelectChoice[] | string[];
+export type SelectChoices = SelectChoice[];
 
 @Component({
   selector: 'c-select',
@@ -33,6 +33,10 @@ export class SelectComponent extends ControlElementBase<SelectChoices> {
     @Optional() @Inject(NG_ASYNC_VALIDATORS) asyncValidators: Array<any>,
   ) {
     super(validators, asyncValidators);
+  }
+
+  choicesTrackBy(index: number, item: SelectChoice): string {
+    return item.value;
   }
 
 }

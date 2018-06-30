@@ -10,6 +10,6 @@
     [id] = "id"
   )
     option.selector__option(
-      *ngFor = "let choice of choices",
-      [value] = "choice.value || choice"
-    ) {{ choice.label || choice }}
+      *ngFor = "let choice of choices; trackBy: choicesTrackBy",
+      [value] = "choice.value"
+    ) {{ choice.label }}
