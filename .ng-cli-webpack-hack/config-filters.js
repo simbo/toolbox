@@ -9,11 +9,16 @@
  */
 exports.common = (config) => {
 
-  // pug templates
-  config.module.rules.unshift({
-    test: /\.pug$/,
-    use: ['raw-loader', 'pug-plain-loader']
-  });
+  // alter module rules
+  config.module.rules.unshift(
+
+    // pug templates
+    {
+      test: /\.pug$/,
+      use: ['raw-loader', 'pug-plain-loader']
+    }
+
+  );
 
   return config;
 };
