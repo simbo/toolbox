@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 
 import { ColorNamerModule } from '../color-namer/color-namer.module';
 import { HashGeneratorModule } from '../hash-generator/hash-generator.module';
@@ -24,7 +24,11 @@ import { MessageBusService } from './message-bus/message-bus.service';
     SiteMenuComponent
   ],
   providers: [
-    MessageBusService
+    MessageBusService,
+    {
+      provide: LOCALE_ID,
+      useValue: 'en-US'
+    }
   ],
   bootstrap: [AppComponent]
 })
