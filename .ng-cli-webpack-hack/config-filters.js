@@ -1,7 +1,3 @@
-const autoprefixer = require('autoprefixer');
-const cssMqpacker = require('css-mqpacker');
-const cssMqpackerSortMediaqueries = require('css-mqpacker-sort-mediaqueries');
-
 /**
  * These filter functions alter the internal angular cli webpack configs from
  * node_modules/@angular-devkit/build-angular/src/angular-cli-files/models/webpack-configs/
@@ -41,11 +37,19 @@ exports.browser = (config) => {
 /**
  * filter angular cli webpack styles config (styles.js)
  */
+const autoprefixer = require('autoprefixer');
+const cssMqpacker = require('css-mqpacker');
+const cssMqpackerSortMediaqueries = require('css-mqpacker-sort-mediaqueries');
+
 exports.styles = (config) => {
 
-  // alter postcss plugins
+  // alter module rules
   config.module.rules = config.module.rules.map((rule) => {
+
+    // alter rule's loaders
     rule.use = rule.use.map((loader) => {
+
+      // alter postcss plugins
       if (loader.loader === 'postcss-loader') {
         const pluginsFn = loader.options.plugins;
         loader.options.plugins = (ldr) => {
@@ -63,10 +67,14 @@ exports.styles = (config) => {
           return plugins;
         };
       }
+
       return loader;
     });
+
     return rule;
+
   });
 
   return config;
+
 };

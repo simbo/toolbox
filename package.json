@@ -18,7 +18,7 @@
     "e2e": "ng e2e",
     "analyzer": "ng build --prod --stats-json && webpack-bundle-analyzer ./dist/stats.json",
     "preinstall": "npx use-yarn",
-    "postinstall": "node ./.ng-webpack/hack.js"
+    "postinstall": "node ./.ng-cli-webpack-hack/hack.js"
   },
   "engines": {
     "node": ">=8.11.2"
