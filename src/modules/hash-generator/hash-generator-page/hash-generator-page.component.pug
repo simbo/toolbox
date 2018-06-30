@@ -1,0 +1,36 @@
+.page--hash
+
+  .page-section
+
+    c-textfield#input(
+      [(ngModel)] = "input",
+      [multiline] = "true",
+      label = "Input",
+      placeholder = "Place your data here…"
+    )
+
+  .page-section
+
+    c-select#algorithm(
+      [(ngModel)] = "algorithm",
+      [choices] = "algorithms",
+      label = "Algorithm"
+    )
+
+  .page-section
+
+    c-select#encoding(
+      [(ngModel)] = "encoding",
+      [choices] = "encodings",
+      label = "Encoding"
+    )
+
+  .page-section
+
+    c-textfield#output(
+      [ngModel] = "output",
+      [readonly] = "true",
+      [multiline] = "true",
+      label = "Output",
+      placeholder = "Nothing to hash…"
+    )

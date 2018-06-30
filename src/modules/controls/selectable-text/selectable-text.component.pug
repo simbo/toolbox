@@ -1,0 +1,27 @@
+mixin textfield()
+  textarea(
+    class = "selectable-text__textarea",
+    *ngIf = "multiline"
+  )&attributes(attributes)
+  input(
+    type = "text",
+    class = "selectable-text__input",
+    *ngIf = "!multiline"
+  )&attributes(attributes)
+
+.selectable-text
+
+  label.selectable-text__label(
+    *ngIf = "label",
+    [for] = "id"
+  ) {{ label }}
+
+  +textfield()(
+    [ngModel] = "value",
+    [id] = "id",
+    [placeholder] = "placeholder",
+    readonly = true,
+    autocomplete = "off",
+    autocorrect = "off",
+    autocapitalize = "off"
+  )

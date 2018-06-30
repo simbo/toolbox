@@ -1,0 +1,40 @@
+.page--color-namer
+
+  .page-section
+    button(
+      (click) = "setRandomColor()"
+    ) Random Color
+
+  .page-section
+    div(
+      [ngStyle] = "{'background-color': colorValue.hex, height: '4em'}"
+    )
+
+    c-textfield(
+      [(ngModel)] = "input"
+    )
+
+  .page-section {{ colorValue.hex }}
+
+  .page-section {{ colorValue.rgb }}
+
+  .page-section
+    c-select(
+      [(ngModel)] = "colorMetric",
+      [choices] = "colorMetricChoices",
+      label = "Metric"
+    )
+
+  .page-section
+    .closest-colors
+      .closest-color(
+        *ngFor = "let color of (closestColors | async).slice(0, 25)",
+        [ngStyle] = "{'background-color': color.value.hex}"
+      )
+        .closest-color__details
+          c-selectable-text.closest-color__name([ngModel] = "color.name")
+          c-selectable-text.closest-color__hex([ngModel] = "color.value.hex")
+          .closest-color__distance {{ getColorDistance(color) }}
+
+  .page-section
+    p https://en.wikipedia.org/wiki/Color_difference

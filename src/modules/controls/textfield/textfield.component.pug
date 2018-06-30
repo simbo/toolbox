@@ -1,0 +1,27 @@
+mixin textfield()
+  textarea(
+    class = "textfield__textarea",
+    *ngIf = "multiline"
+  )&attributes(attributes)
+  input(
+    type = "text",
+    class = "textfield__input",
+    *ngIf = "!multiline"
+  )&attributes(attributes)
+
+.textfield
+
+  label.textfield__label(
+    *ngIf = "label",
+    [for] = "id"
+  ) {{ label }}
+
+  +textfield()(
+    [(ngModel)] = "value",
+    [id] = "id",
+    [placeholder] = "placeholder",
+    [readonly] = "readonly",
+    [attr.autocomplete] = "autocomplete ? 'on' : 'off'",
+    [attr.autocorrect] = "autocorrect ? 'on' : 'off'",
+    [attr.autocapitalize] = "autocapitalize ? 'on' : 'off'"
+  )
