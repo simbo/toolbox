@@ -23,7 +23,7 @@ export type SelectChoices = SelectChoice[] | string[];
 export class SelectComponent extends ControlElementBase<SelectChoices> {
 
   @Input() public id: string;
-  @Input() public label: string = null;
+  @Input() public label: string = '';
   @Input() public choices: SelectChoices;
 
   @ViewChild(NgModel) model: NgModel;

@@ -16,8 +16,8 @@ import { ControlElementBase } from '../control-base/control-element-base';
 export class TextfieldComponent extends ControlElementBase<string> {
 
   @Input() public id: string;
-  @Input() public label: string = null;
-  @Input() public placeholder: string = null;
+  @Input() public label: string = '';
+  @Input() public placeholder: string = '';
   @Input() public multiline: boolean = false;
   @Input() public readonly: boolean = false;
   @Input() public autocorrect: boolean = false;
