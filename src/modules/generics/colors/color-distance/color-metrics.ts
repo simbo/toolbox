@@ -8,9 +8,9 @@ import { colorDistanceCIEDE2000 } from './color-distance-ciede2000';
 export enum ColorDistanceMetric {
   Simple = 'simple',
   Euclidean = 'euclidian',
-  CIE76 = 'e76',
-  CIE94 = 'e94',
-  CIEDE2000 = 'e00'
+  CIE76 = 'cie76',
+  CIE94 = 'cie94',
+  CIEDE2000 = 'ciede2000'
 }
 
 export const colorDistanceMetrics = {
