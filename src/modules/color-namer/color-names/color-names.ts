@@ -1,22 +1,23 @@
 import * as Color from 'color';
-import { rgb } from 'color';
-import { colorNamesMap } from './color-names-map';
+import colorNameList from 'color-name-list/dist/colornames.json';
 
 export interface NamedColor {
   name: string;
   hex: string;
   rgb: number[];
+  lab: number[];
   color: Color;
   distance?: number;
 }
 
-export const colorNames: NamedColor[] = Object.entries(colorNamesMap)
-  .map(([name, hex]) => {
-    const color = rgb(hex);
+export const colorNames: NamedColor[] = colorNameList
+  .map(({name, hex}) => {
+    const color = new Color(hex, 'hex');
     return {
       name,
       hex,
-      rgb: color.array().slice(0, 3),
+      rgb: color.array(),
+      lab: color.lab().array(),
       color
     };
   });
