@@ -9,8 +9,7 @@ export const SITE_TITLE_SEPARATOR = '•';
 
 @Component({
   selector: 'c-app-root',
-  templateUrl: './app.component.pug',
-  styleUrls: ['./app.component.scss']
+  templateUrl: './app.component.pug'
 })
 export class AppComponent implements OnInit, OnDestroy {
 

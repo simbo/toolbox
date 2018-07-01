@@ -22,8 +22,7 @@ const encodingChoices: SelectChoices = Object.entries(hashEncodings)
 
 @Component({
   selector: 'c-hash-generator-page',
-  templateUrl: './hash-generator-page.component.pug',
-  styleUrls: ['./hash-generator-page.component.scss']
+  templateUrl: './hash-generator-page.component.pug'
 })
 export class HashGeneratorPageComponent {
 

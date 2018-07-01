@@ -6,7 +6,6 @@ import { ControlElementBase } from '../control-base/control-element-base';
 @Component({
   selector: 'c-textfield',
   templateUrl: './textfield.component.pug',
-  styleUrls: ['./textfield.component.scss'],
   providers: [{
     provide: NG_VALUE_ACCESSOR,
     useExisting: TextfieldComponent,

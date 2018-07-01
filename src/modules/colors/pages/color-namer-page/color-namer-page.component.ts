@@ -19,7 +19,6 @@ export const colorMetricChoices: SelectChoices =
 @Component({
   selector: 'c-color-namer-page',
   templateUrl: './color-namer-page.component.pug',
-  styleUrls: ['./color-namer-page.component.scss'],
   providers: [
     ClosestNamedColorsService
   ]

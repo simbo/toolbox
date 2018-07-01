@@ -6,7 +6,6 @@ import { ControlElementBase } from '../control-base/control-element-base';
 @Component({
   selector: 'c-selectable-text',
   templateUrl: './selectable-text.component.pug',
-  styleUrls: ['./selectable-text.component.scss'],
   providers: [{
     provide: NG_VALUE_ACCESSOR,
     useExisting: SelectableTextComponent,

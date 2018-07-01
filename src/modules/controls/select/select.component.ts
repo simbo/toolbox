@@ -13,7 +13,6 @@ export type SelectChoices = SelectChoice[];
 @Component({
   selector: 'c-select',
   templateUrl: './select.component.pug',
-  styleUrls: ['./select.component.scss'],
   providers: [{
     provide: NG_VALUE_ACCESSOR,
     useExisting: SelectComponent,
