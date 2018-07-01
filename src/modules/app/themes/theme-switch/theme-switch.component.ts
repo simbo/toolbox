@@ -22,7 +22,7 @@ export class ThemeSwitchComponent implements OnInit {
   public themeChoice: string = this.themesService.getTheme().slug;
 
   constructor(
-    private themesService: ThemesService
+    public themesService: ThemesService
   ) {}
 
   ngOnInit() {
