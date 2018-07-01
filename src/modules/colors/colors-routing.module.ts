@@ -6,7 +6,10 @@ import { ColorNamerPageComponent } from './pages/color-namer-page/color-namer-pa
 const routes: Routes = [
   {
     path: 'color-namer',
-    component: ColorNamerPageComponent
+    component: ColorNamerPageComponent,
+    data: {
+      title: 'Color Namer'
+    }
   }
 ];
 
