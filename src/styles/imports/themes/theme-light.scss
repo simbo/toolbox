@@ -1,0 +1,10 @@
+$theme-light: (
+
+  color: (
+    background: color(white),
+    text: color(black)
+  )
+
+);
+
+$theme-light: map-deep-merge($theme-default, $theme-light);
