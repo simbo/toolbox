@@ -1,15 +1,15 @@
-.selector
+.select
 
-  label.selector__label(
+  label.select__label(
     *ngIf = "label",
     [for] = "id"
   ) {{ label }}
 
-  select.selector__select(
+  select.select__select(
     [(ngModel)] = "value",
     [id] = "id"
   )
-    option.selector__option(
+    option.select__option(
       *ngFor = "let choice of choices; trackBy: choicesTrackBy",
       [value] = "choice.value"
     ) {{ choice.label }}
