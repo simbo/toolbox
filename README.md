@@ -1,9 +1,14 @@
 toolbox
 =======
 
-  > Some online tools.
+  > Some online tools at [simbo.codes/toolbox](https://simbo.codes/toolbox).
 
----
+[![Toolbox Github Page](https://img.shields.io/badge/github-page-blue.svg)](https://simbo.codes/toolbox/)
+[![Build Status](https://travis-ci.org/simbo/toolbox.svg?branch=master)](https://travis-ci.org/simbo/toolbox)
+[![Coverage Status](https://coveralls.io/repos/github/simbo/toolbox/badge.svg?branch=master)](https://coveralls.io/github/simbo/toolbox?branch=master)
+
+
+--------------------------------------------------------------------------------
 
 
 Development
@@ -47,3 +52,16 @@ Development
   - Angular CLI
       - [ReadMe](https://github.com/angular/angular-cli/blob/master/packages/angular/cli/README.md#documentation)
       - [Wiki](https://github.com/angular/angular-cli/wiki)
+
+
+Deployment
+----------
+
+Successfully tested builds on `master` are automatically published on GitHub
+Pages via Travis CI.
+
+
+License
+-------
+
+MIT © 2018 Simon Lepel
