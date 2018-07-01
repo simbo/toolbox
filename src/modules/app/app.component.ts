@@ -56,7 +56,6 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   public setHtmlClassList(classList: {[key: string]: boolean}): void {
-    console.log(classList);
     Object.entries(classList).forEach(
       ([className, classState]) => {
         const fn = classState ? 'add' : 'remove';
