@@ -1,7 +1,7 @@
-import slug from 'slug';
+import slugify from 'slugify';
 
 export function snakeCase(value: string) {
-  return slug(value, {
+  return slugify(value, {
     replacement: '_',
     lower: true
   });
