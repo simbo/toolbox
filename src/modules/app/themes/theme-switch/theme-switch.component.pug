@@ -1,0 +1,6 @@
+.theme-switch
+  c-select(
+    [(ngModel)] = "themeChoice",
+    (change) = "themesService.setTheme(themeChoice)",
+    [choices] = "themeChoices"
+  )
