@@ -1,11 +1,19 @@
 .site-menu {
+  display: flex;
   margin: 2em;
+  justify-content: space-between;
+  flex-wrap: wrap;
 
-  &__list {
+  &__bar {
+    flex: 1 1 auto;
     display: flex;
   }
 
-  &__list-item {
+  &__bar + &__bar {
+    justify-content: flex-end;
+  }
+
+  &__bar-item {
     flex: 0 0 auto;
     margin: 0 0 0 1em;
 

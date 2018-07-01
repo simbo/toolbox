@@ -1,11 +1,11 @@
 .site-menu
 
-  .site-menu__list
+  .site-menu__bar
 
-    .site-menu__list-item(
-      *ngFor = "let item of menuItems"
-    )
+    .site-menu__bar-item(*ngFor = "let item of menuItems")
+      a([routerLink]="item.link") {{ item.label }}
 
-      a(
-        [routerLink]="item.link"
-      ) {{ item.label }}
+  .site-menu__bar
+
+    .site-menu__bar-item
+      c-theme-switch

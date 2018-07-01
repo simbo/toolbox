@@ -5,6 +5,10 @@ export interface MenuItem {
 
 export const menuItems: MenuItem[] = [
   {
+    label: 'Home',
+    link: '/'
+  },
+  {
     label: 'Hash Generator',
     link: '/hash'
   },
