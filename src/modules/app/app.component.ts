@@ -3,6 +3,7 @@ import { Title } from '@angular/platform-browser';
 import { Subscription } from 'rxjs';
 
 import { AppRoutingService } from './app-routing/app-routing.service';
+import { ThemesService } from './themes/themes.service';
 
 export const SITE_BASE_TITLE = 'Toolbox';
 export const SITE_TITLE_SEPARATOR = '•';
@@ -13,25 +14,27 @@ export const SITE_TITLE_SEPARATOR = '•';
 })
 export class AppComponent implements OnInit, OnDestroy {
 
-  public siteBaseTitle = 'Toolbox';
-
   private subscriptions = new Set<Subscription>();
 
   constructor(
     public appRoutingService: AppRoutingService,
-    public siteTitleService: Title
+    public siteTitleService: Title,
+    public themesService: ThemesService
   ) {
     this.setSiteTitle();
   }
 
   public ngOnInit(): void {
     this.subscriptions.add(
-      this.appRoutingService.activatedRouteData
-        .subscribe((routeData: {[key: string]: any}) => {
-          if (routeData && routeData.title) {
-            this.setSiteTitle(routeData.title);
-          }
-        })
+      this.appRoutingService.activatedRouteData.subscribe(
+        (routeData: {[key: string]: any}) =>
+          this.setSiteTitle(routeData.title || '')
+      )
+    );
+    this.subscriptions.add(
+      this.themesService.themeClassList.subscribe(
+        classList => this.setHtmlClassList(classList)
+      )
     );
   }
 
@@ -49,6 +52,16 @@ export class AppComponent implements OnInit, OnDestroy {
     }
     this.siteTitleService.setTitle(
       titleParts.join(titleSeparator)
+    );
+  }
+
+  public setHtmlClassList(classList: {[key: string]: boolean}): void {
+    console.log(classList);
+    Object.entries(classList).forEach(
+      ([className, classState]) => {
+        const fn = classState ? 'add' : 'remove';
+        document.documentElement.classList[fn](className);
+      }
     );
   }
 
