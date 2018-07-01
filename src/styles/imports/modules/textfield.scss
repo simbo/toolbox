@@ -1,16 +1,16 @@
 .textfield {
-  $lineHeight: 1.5;
-  $paddingX: .6em;
-  $paddingY: .4em;
+  $line-height: 1.5;
+  $padding-x: .6em;
+  $padding-y: .4em;
   $background: white;
-  $borderWidth: 2px;
-  $borderRadius: 4px;
+  $border-width: 2px;
+  $border-radius: 4px;
   $rows: 3;
-  $minRows: 1;
-  $maxRows: 8;
+  $min-rows: 1;
+  $max-rows: 8;
 
-  @function textfieldHeight($rows: 1) {
-    @return calc(#{2 * $paddingY + $lineHeight * $rows} + #{$borderWidth * 2});
+  @function textfield-height($rows: 1) {
+    @return calc(#{2 * $padding-y + $line-height * $rows} + #{$border-width * 2});
   }
 
   &__label {
@@ -23,20 +23,20 @@
   &__textarea {
     display: block;
     width: 100%;
-    padding: $paddingY $paddingX;
-    line-height: $lineHeight;
+    padding: $padding-y $padding-x;
+    line-height: $line-height;
     background: $background;
-    border: $borderWidth solid _($colors, 'alto');
-    border-radius: $borderRadius;
+    border: $border-width solid _($colors, 'alto');
+    border-radius: $border-radius;
     outline: none;
   }
 
   &__textarea {
     min-width: 100%;
     max-width: 100%;
-    height: textfieldHeight($rows);
-    min-height: textfieldHeight($minRows);
-    max-height: textfieldHeight($maxRows);
+    height: textfield-height($rows);
+    min-height: textfield-height($min-rows);
+    max-height: textfield-height($max-rows);
   }
 
 }

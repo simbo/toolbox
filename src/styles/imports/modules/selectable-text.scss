@@ -2,15 +2,15 @@
 
   &__input {
     display: block;
-    border: none;
     width: 100%;
     height: auto;
+    padding: 0;
+    border: none;
     background: transparent;
     color: inherit;
-    line-height: inherit;
     font-family: inherit;
+    line-height: inherit;
     outline: none;
-    padding: 0;
   }
 
 }

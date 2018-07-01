@@ -12,7 +12,7 @@ html {
 }
 
 body {
-  font-family: map-get($fontFamilies, system);
   background: #fafbfc;
+  font-family: map-get($font-families, system);
   text-rendering: optimizeLegibility;
 }

@@ -1,6 +1,6 @@
 @import './../functions/map-deep-get';
 
-@mixin mdShadow($depth: 2, $alphaMultiplier: 1, $inset: false, $invert: false) {
+@mixin md-shadow($depth: 2, $alpha-multiplier: 1, $inset: false, $invert: false) {
   $shadow: (
     'opacity': (
       'umbra':    .2,
@@ -39,18 +39,18 @@
   }
   @else {
     $c: if($invert, 255, 0);
-    $depth: max(1, min(length(_($shadow, 'depths')), $depth));
-    $shadowUmbra: _($shadow, 'depths', 'dp' + $depth, 1)
-      rgba($c, $c, $c, (_($shadow, 'opacity', 'umbra') * $alphaMultiplier));
-    $shadowPenumbra: _($shadow, 'depths', 'dp' + $depth, 2)
-      rgba($c, $c, $c, (_($shadow, 'opacity', 'penumbra') * $alphaMultiplier));
-    $shadowAmbient: _($shadow, 'depths', 'dp' + $depth, 3)
-      rgba($c, $c, $c, (_($shadow, 'opacity', 'ambient') * $alphaMultiplier));
+    $depth: max(1, min(length(map-deep-get($shadow, 'depths')), $depth));
+    $shadow-umbra: map-deep-get($shadow, 'depths', 'dp' + $depth, 1)
+      rgba($c, $c, $c, (map-deep-get($shadow, 'opacity', 'umbra') * $alpha-multiplier));
+    $shadow-penumbra: map-deep-get($shadow, 'depths', 'dp' + $depth, 2)
+      rgba($c, $c, $c, (map-deep-get($shadow, 'opacity', 'penumbra') * $alpha-multiplier));
+    $shadow-ambient: map-deep-get($shadow, 'depths', 'dp' + $depth, 3)
+      rgba($c, $c, $c, (map-deep-get($shadow, 'opacity', 'ambient') * $alpha-multiplier));
     @if($inset) {
-      box-shadow: $shadowUmbra inset, $shadowPenumbra inset, $shadowAmbient inset;
+      box-shadow: $shadow-umbra inset, $shadow-penumbra inset, $shadow-ambient inset;
     }
     @else {
-      box-shadow: $shadowUmbra, $shadowPenumbra, $shadowAmbient;
+      box-shadow: $shadow-umbra, $shadow-penumbra, $shadow-ambient;
     }
   }
 }

@@ -1,4 +1,4 @@
-$mediaqueryThresholds: (
+$mediaquery-thresholds: (
   'mobile'          : (   0,  767),
   'mobile-portrait' : (   0,  559),
   'mobile-landscape': ( 560,  767),
@@ -8,21 +8,21 @@ $mediaqueryThresholds: (
   'desktop'         : (1025,    0)
 ) !default;
 
-@mixin mqMinMax($min, $max) {
+@mixin mq-min-max($min, $max) {
   @media screen and (min-width: $min * 1px) and (max-width: $max * 1px) { @content; }
 }
 
-@mixin mqMin($min) {
+@mixin mq-min($min) {
   @media screen and (min-width: $min * 1px) { @content; }
 }
 
-@mixin mqMax($max) {
+@mixin mq-max($max) {
   @media screen and (max-width: $max * 1px) { @content; }
 }
 
 @mixin mq($val) {
 
-  $mq: $mediaqueryThresholds;
+  $mq: $mediaquery-thresholds;
 
   @if type-of($val) == 'string' {
 
@@ -48,10 +48,10 @@ $mediaqueryThresholds: (
 
     @if $lte or $gte {
       @if $lte and $max > 0 {
-        @include mqMax($max) { @content; }
+        @include mq-max($max) { @content; }
       }
       @else if $gte and $min > 0 {
-        @include mqMin($min) { @content; }
+        @include mq-min($min) { @content; }
       }
       @else {
         @error "#{if($gte, 'gte', 'lte')} values for mediaquery key #{$val} are invalid";
@@ -59,13 +59,13 @@ $mediaqueryThresholds: (
     }
 
     @else if $min > 0 and $max > 0 {
-      @include mqMinMax($min, $max) { @content; }
+      @include mq-min-max($min, $max) { @content; }
     }
     @else if $min > 0 {
-      @include mqMin($min) { @content; }
+      @include mq-min($min) { @content; }
     }
     @else if $max > 0 {
-      @include mqMax($max) { @content; }
+      @include mq-max($max) { @content; }
     }
 
     @else {

@@ -1,11 +1,11 @@
-$fontFamilies: (
+$font-families: (
   'system': #{'-apple-system', 'system-ui', 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'},
-  'systemMono': #{SFMono-Regular, Consolas, 'Liberation Mono', Menlo, Courier, monospace},
+  'system-mono': #{SFMono-Regular, Consolas, 'Liberation Mono', Menlo, Courier, monospace},
   'serif': #{Georgia, Cambria, "Times New Roman", Times, serif},
   'sans': #{"Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif}
 );
 
-$terminalColors: (
+$terminal-colors: (
   'black':    #2e2e2e,
   'red':      #eb3f29,
   'green':    #abdf47,
@@ -19,10 +19,10 @@ $terminalColors: (
 $colors: (
   'white':        #ffffff,
   'porcelain':    #f5f6f7,
-  'athensGray':   #fafbfc,
+  'athens-gray':   #fafbfc,
   'alto':         #dcddde,
   'iron':         #cdcecf,
-  'rollingStone': #808182,
+  'rolling-stone': #808182,
   'boulder':      #757677,
   'emperor':      #555657,
   'abbey':        #444546,

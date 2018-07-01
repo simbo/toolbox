@@ -1,18 +1,18 @@
 .closest-color {
-  $gridGap: 1rem;
+  $grid-gap: 1rem;
 
   @mixin columns($count: 1) {
     @if ($count <= 1) {
       grid-template-columns: 100%;
     }
     @else {
-      grid-template-columns: repeat($count, calc(#{100% / $count} - #{$gridGap * ($count - 1) / $count}));
+      grid-template-columns: repeat($count, calc(#{100% / $count} - #{$grid-gap * ($count - 1) / $count}));
     }
   }
 
   &s {
     display: grid;
-    gap: $gridGap;
+    gap: $grid-gap;
     @include columns(1);
 
     @include mq('mobile-landscape') {
@@ -33,23 +33,16 @@
 
   }
 
-  & {
-  }
+  // &__name {
+  // }
 
-  &__name {
+  // &__hex {
+  // }
 
-  }
+  // &__rgb {
+  // }
 
-  &__hex {
-
-  }
-
-  &__rgb {
-
-  }
-
-  &__distance {
-
-  }
+  // &__distance {
+  // }
 
 }
