@@ -9,9 +9,6 @@ import { AppComponent } from './app.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { SiteMenuComponent } from './site-menu/site-menu.component';
 
-import { MessageBusService } from './message-bus/message-bus.service';
-
-
 @NgModule({
   imports: [
     BrowserModule,
@@ -25,7 +22,6 @@ import { MessageBusService } from './message-bus/message-bus.service';
     SiteMenuComponent
   ],
   providers: [
-    MessageBusService,
     {
       provide: LOCALE_ID,
       useValue: 'en-US'
