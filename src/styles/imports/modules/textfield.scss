@@ -2,9 +2,8 @@
   $line-height: 1.5;
   $padding-x: .6em;
   $padding-y: .4em;
-  $background: white;
-  $border-width: 2px;
-  $border-radius: 4px;
+  $border-width: 0;
+  $border-radius: 2px;
   $rows: 3;
   $min-rows: 1;
   $max-rows: 8;
@@ -25,10 +24,16 @@
     width: 100%;
     padding: $padding-y $padding-x;
     line-height: $line-height;
-    background: $background;
-    border: $border-width solid _($colors, 'alto');
+    border-width: $border-width;
+    border-style: solid;
     border-radius: $border-radius;
     outline: none;
+
+    @include themify {
+      background: themed(color, textfield, background);
+      border-color: themed(color, textfield, border);
+      color: themed(color, textfield, text);
+    }
   }
 
   &__textarea {

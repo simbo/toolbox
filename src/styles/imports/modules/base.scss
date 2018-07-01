@@ -12,7 +12,21 @@ html {
 }
 
 body {
-  background: #fafbfc;
   font-family: map-get($font-families, system);
   text-rendering: optimizeLegibility;
+
+  @include themify() {
+    background: themed(color, background);
+    color: themed(color, text);
+  }
+
+}
+
+a {
+  text-decoration: none;
+
+  @include themify() {
+    color: themed(color, link);
+  }
+
 }
