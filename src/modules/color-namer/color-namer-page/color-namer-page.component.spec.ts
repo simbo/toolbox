@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { ColorNamerPageComponent } from './color-namer-page.component';
 
@@ -8,7 +9,12 @@ describe('ColorNamerPageComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ColorNamerPageComponent ]
+      declarations: [
+        ColorNamerPageComponent
+      ],
+      schemas: [
+        CUSTOM_ELEMENTS_SCHEMA
+      ]
     })
     .compileComponents();
   }));

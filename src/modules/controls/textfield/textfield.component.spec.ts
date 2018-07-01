@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
 
 import { TextfieldComponent } from './textfield.component';
 
@@ -8,7 +9,12 @@ describe('TextfieldComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TextfieldComponent ]
+      imports: [
+        FormsModule
+      ],
+      declarations: [
+        TextfieldComponent
+      ]
     })
     .compileComponents();
   }));

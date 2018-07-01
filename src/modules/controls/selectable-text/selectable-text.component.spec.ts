@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
 
 import { SelectableTextComponent } from './selectable-text.component';
 
@@ -8,7 +9,12 @@ describe('SelectableTextComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SelectableTextComponent ]
+      imports: [
+        FormsModule
+      ],
+      declarations: [
+        SelectableTextComponent
+      ]
     })
     .compileComponents();
   }));
