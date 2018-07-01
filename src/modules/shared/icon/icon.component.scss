@@ -1,0 +1,20 @@
+@import 'mixins/aspect-ratio';
+@import 'mixins/layer';
+
+.icon {
+  @include aspect-ratio(1);
+  position: relative;
+  width: 100%;
+  line-height: 1;
+
+  :host.is-inline & {
+    display: inline-block;
+    width: 1em;
+    transform: translateY(.1em);
+  }
+
+  svg {
+    @include layer();
+  }
+
+}
