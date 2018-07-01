@@ -1,0 +1,3 @@
+@function color($keys...) {
+  @return map-deep-get($colors, $keys...);
+}

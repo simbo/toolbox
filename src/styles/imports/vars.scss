@@ -5,28 +5,34 @@ $font-families: (
   'sans': #{"Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif}
 );
 
-$terminal-colors: (
-  'black':    #2e2e2e,
-  'red':      #eb3f29,
-  'green':    #abdf47,
-  'yellow':   #f8c444,
-  'blue':     #41a2f3,
-  'magenta':  #7b60af,
-  'cyan':     #61dbec,
-  'white':    #ffffff
+$colors: (
+
+  white:              #ffffff,
+  pinball:            #d4d4d4,
+  boltgun-metal:      #393939,
+  wax:                #2e2e2e,
+  young-night:        #232323,
+  black:              #000000,
+
+  solar-power:        #f8c444,
+  dynamic-green:      #abdf47,
+  turquoise-sea:      #61dbec,
+  shiva-blue:         #99dbfe,
+  krishna-blue:       #01abfd,
+  rockman-blue:       #41a2f3,
+  genestealer-purple: #7b60af,
+  tomato:             #ef4026,
+
 );
 
-$colors: (
-  'white':        #ffffff,
-  'porcelain':    #f5f6f7,
-  'athens-gray':   #fafbfc,
-  'alto':         #dcddde,
-  'iron':         #cdcecf,
-  'rolling-stone': #808182,
-  'boulder':      #757677,
-  'emperor':      #555657,
-  'abbey':        #444546,
-  'capeCod':      #3d3e3f,
-  'charade':      #2c2d2e,
-  'shark':        #1b1c1d
+$terminal-colors: (
+  black:    color(wax),
+  red:      color(tomato),
+  green:    color(dynamic-green),
+  yellow:   color(solar-power),
+  blue:     color(rockman-blue),
+  magenta:  color(genestealer-purple),
+  cyan:     color(turquoise-sea),
+  white:    color(white),
 );
+
