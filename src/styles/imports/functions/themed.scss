@@ -1,0 +1,5 @@
+@import './map-deep-get';
+
+@function themed($keys...) {
+  @return map-deep-get($theme-map, $keys...);
+}
