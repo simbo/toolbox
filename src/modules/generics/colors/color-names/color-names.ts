@@ -1,4 +1,4 @@
-import colorNameList from 'color-name-list/dist/colornames.json';
+import * as colorNameList from 'color-name-list/dist/colornames.umd.js';
 
 import { ColorValue, ColorValueData } from '../color-value';
 

@@ -1,5 +1,5 @@
 import * as Color from 'color';
-import randomInt from 'random-int';
+import * as randomInt from 'random-int';
 
 export function randomColor(): Color {
   const red = randomInt(0, 255);
