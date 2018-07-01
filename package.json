@@ -25,7 +25,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "yarn run lint && yarn run ci:test"
+      "pre-push": "yarn run lint && yarn run ci:test && yarn run ci:build"
     }
   },
   "engines": {
