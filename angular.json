@@ -90,6 +90,11 @@
             "styles": [
               "src/styles/main.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/styles/imports"
+              ]
+            },
             "scripts": [],
             "assets": [
               "src/assets"
