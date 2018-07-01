@@ -1,11 +1,17 @@
 import { TestBed, inject } from '@angular/core/testing';
 
 import { AppRoutingService } from './app-routing.service';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('AppRoutingService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [AppRoutingService]
+      imports: [
+        RouterTestingModule
+      ],
+      providers: [
+        AppRoutingService
+      ]
     });
   });
 
