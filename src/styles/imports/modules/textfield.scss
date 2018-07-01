@@ -2,14 +2,13 @@
   $line-height: 1.5;
   $padding-x: .6em;
   $padding-y: .4em;
-  $border-width: 0;
   $border-radius: 2px;
   $rows: 3;
   $min-rows: 1;
   $max-rows: 8;
 
   @function textfield-height($rows: 1) {
-    @return calc(#{2 * $padding-y + $line-height * $rows} + #{$border-width * 2});
+    @return #{2 * $padding-y + $line-height * $rows};
   }
 
   &__label {
@@ -24,14 +23,12 @@
     width: 100%;
     padding: $padding-y $padding-x;
     line-height: $line-height;
-    border-width: $border-width;
-    border-style: solid;
+    border: none;
     border-radius: $border-radius;
     outline: none;
 
     @include themify {
       background: themed(color, textfield, background);
-      border-color: themed(color, textfield, border);
       color: themed(color, textfield, text);
     }
   }
