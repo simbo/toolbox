@@ -14,7 +14,7 @@
     "build": "ng build",
     "ci:build": "ng build --prod --no-progress",
     "test": "ng test",
-    "ci:test": "ng test --no-watch --no-progress",
+    "ci:test": "ng test --no-watch --no-progress --browsers=ChromeHeadlessNoSandbox",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "analyzer": "ng build --prod --stats-json && webpack-bundle-analyzer ./dist/stats.json",
