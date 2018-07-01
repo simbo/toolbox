@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-import { pascalCase } from '../string/pascal-case';
+import { pascalCase } from '../string-convert/pascal-case';
 
 @Pipe({
   name: 'pascalCase'

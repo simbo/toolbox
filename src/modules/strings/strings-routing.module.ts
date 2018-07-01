@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { HashGeneratorPageComponent } from './hash-generator-page/hash-generator-page.component';
+import { HashGeneratorPageComponent } from './pages/hash-generator-page/hash-generator-page.component';
 
 const routes: Routes = [
   {
@@ -14,4 +14,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class HashGeneratorRoutingModule { }
+export class StringsRoutingModule { }

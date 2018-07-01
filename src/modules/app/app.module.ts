@@ -1,8 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
 
-import { ColorNamerModule } from '../color-namer/color-namer.module';
-import { HashGeneratorModule } from '../hash-generator/hash-generator.module';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
@@ -10,12 +8,14 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { SiteMenuComponent } from './site-menu/site-menu.component';
 
 import { MessageBusService } from './message-bus/message-bus.service';
+import { ColorsModule } from '../colors/colors.module';
+import { StringsModule } from '../strings/strings.module';
 
 @NgModule({
   imports: [
     BrowserModule,
-    ColorNamerModule,
-    HashGeneratorModule,
+    ColorsModule,
+    StringsModule,
     AppRoutingModule
   ],
   declarations: [

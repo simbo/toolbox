@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-import { snakeCase } from '../string/snake-case';
+import { snakeCase } from '../string-convert/snake-case';
 
 @Pipe({
   name: 'snakeCase'

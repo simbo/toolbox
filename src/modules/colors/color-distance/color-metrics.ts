@@ -1,4 +1,4 @@
-import { ColorModel } from '../color-models';
+import { ColorModel } from '../generic/color-models';
 import { colorDistanceSimple } from './color-distance-simple';
 import { colorDistanceEuclidian } from './color-distance-euclidian';
 import { colorDistanceCIE76 } from './color-distance-cie76';

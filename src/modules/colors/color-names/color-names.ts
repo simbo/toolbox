@@ -1,6 +1,6 @@
 import * as colorNameList from 'color-name-list/dist/colornames.umd.js';
 
-import { ColorValue, ColorValueData } from '../color-value';
+import { ColorValue, ColorValueData } from '../generic/color-value';
 
 export interface NamedColor {
   name: string;

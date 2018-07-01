@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 
-import { hashAlgorithms, HashAlgorithm } from '../hash/hash-algorithms';
-import { hashEncodings, HashEncoding } from '../hash/hash-encodings';
-import { Hash } from '../hash/hash';
-import { SelectChoices } from '../../controls/select/select.component';
+import { hashAlgorithms, HashAlgorithm } from '../../hash/hash-algorithms';
+import { hashEncodings, HashEncoding } from '../../hash/hash-encodings';
+import { Hash } from '../../hash/hash';
+import { SelectChoices } from '../../../controls/select/select.component';
 
 
 const algorithmChoices: SelectChoices = Object.entries(hashAlgorithms)

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { ColorNamerPageComponent } from './color-namer-page/color-namer-page.component';
+import { ColorNamerPageComponent } from './pages/color-namer-page/color-namer-page.component';
 
 const routes: Routes = [
   {
@@ -14,4 +14,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class ColorNamerRoutingModule { }
+export class ColorsRoutingModule { }
