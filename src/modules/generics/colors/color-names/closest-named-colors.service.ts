@@ -60,7 +60,7 @@ export class ClosestNamedColorsService {
     return distance;
   }
 
-  public closestNamedColorsTrackBy(index: number, value: NamedColor): string {
+  public sortedColorsTrackBy(index: number, value: NamedColor): string {
     return value.name;
   }
 
