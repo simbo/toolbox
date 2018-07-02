@@ -1,16 +1,13 @@
 $theme-default: (
 
-  color: (
-    background: color(young-night),
-    text: color(pinball),
-    text-secondary: color(gray),
-    link: color(krishna-blue),
+  background: color(young-night),
+  color: color(pinball),
+  color-secondary: color(gray),
+  link: color(krishna-blue),
 
-    textfield: (
-      background: color(boltgun-metal),
-      text: color(white)
-    )
-
-  ),
+  textfield: (
+    background: color(boltgun-metal),
+    color: color(white),
+  )
 
 );

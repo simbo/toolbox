@@ -90,7 +90,7 @@
     @extend %font-size--small;
 
     @include themify {
-      color: themed(color, text-secondary);
+      color: themed(color-secondary);
     }
 
   }

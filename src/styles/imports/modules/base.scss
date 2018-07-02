@@ -1,8 +1,8 @@
 body {
 
   @include themify() {
-    background: themed(color, background);
-    color: themed(color, text);
+    background: themed(background);
+    color: themed(color);
   }
 
 }
@@ -11,7 +11,7 @@ a {
   text-decoration: none;
 
   @include themify() {
-    color: themed(color, link);
+    color: themed(link);
   }
 
 }

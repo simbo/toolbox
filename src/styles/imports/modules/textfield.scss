@@ -28,8 +28,8 @@
     outline: none;
 
     @include themify {
-      background: themed(color, textfield, background);
-      color: themed(color, textfield, text);
+      background: themed(textfield, background);
+      color: themed(textfield, color);
     }
   }
 
