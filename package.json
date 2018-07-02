@@ -11,9 +11,9 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --prod",
     "ci:build": "ng build --prod --no-progress",
-    "test": "ng test",
+    "test": "ng test --browsers=ChromeHeadlessNoSandbox",
     "ci:test": "ng test --no-watch --no-progress --code-coverage --browsers=ChromeHeadlessNoSandbox",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
     "lint": "ng lint && yarn run lint:styles",
