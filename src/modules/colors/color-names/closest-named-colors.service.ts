@@ -4,11 +4,12 @@ import { ColorDistanceMetric } from '../color-distance/color-distance-metrics';
 import { ColorDistanceService } from '../color-distance/color-distance.service';
 import { NamedColor } from '../named-color/named-color.interface';
 import { colorNames } from './color-names';
-const closestNamedColorsCache = new Map<string, NamedColor[]>();
 import { ColorData } from '../generic/color-data.interface';
 
 @Injectable()
 export class ClosestNamedColorsService {
+
+  private static closestNamedColorsCache = new Map<string, NamedColor[]>();
 
   public namedColors: NamedColor[] = colorNames;
 
@@ -21,11 +22,13 @@ export class ClosestNamedColorsService {
     colorMetric: ColorDistanceMetric,
     limit: number = 0
   ): NamedColor[] {
-    let closestColors = closestNamedColorsCache.get(cacheKey);
     const cacheKey = `${colorData.hex}${colorMetric}`;
+    let closestColors = ClosestNamedColorsService
+      .closestNamedColorsCache.get(cacheKey);
     if (!closestColors) {
-      closestNamedColorsCache.set(cacheKey, closestColors);
       closestColors = this.getSortedColors(colorData, colorMetric);
+      ClosestNamedColorsService
+        .closestNamedColorsCache.set(cacheKey, closestColors);
     }
     return limit ? closestColors.slice(0, limit) : closestColors;
   }
