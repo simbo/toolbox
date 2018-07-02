@@ -6,10 +6,10 @@ import { SelectChoices } from '../../../controls/select/select.component';
 import { colorDistanceMetrics, ColorDistanceMetric } from '../../color-distance/color-distance-metrics';
 import { ClosestNamedColorsService } from '../../color-names/closest-named-colors.service';
 import { ColorValue } from '../../generic/color-value';
-import { NamedColor } from '../../color-names/color-names';
 import { randomColor } from '../../generic/random-color';
 import { stringToRgb } from '../../convert/string-to-rgb';
 import { stringToHex } from '../../convert/string-to-hex';
+import { NamedColor } from '../../named-color/named-color.interface';
 
 export const colorMetricChoices: SelectChoices =
   Object.entries(colorDistanceMetrics)

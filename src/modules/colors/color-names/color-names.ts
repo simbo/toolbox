@@ -1,11 +1,7 @@
 import * as colorNameList from 'color-name-list/dist/colornames.umd.js';
 
-import { ColorValue, ColorValueData } from '../generic/color-value';
-
-export interface NamedColor {
-  name: string;
-  value: ColorValueData;
-}
+import { ColorValue } from '../generic/color-value';
+import { NamedColor } from '../named-color/named-color.interface';
 
 export const colorNames: NamedColor[] = colorNameList
   .map(({name, hex}) => {

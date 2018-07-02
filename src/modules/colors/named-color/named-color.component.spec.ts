@@ -4,8 +4,8 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { NamedColorComponent } from './named-color.component';
 import { StringsModule } from '../../strings/strings.module';
 import { ClosestNamedColorsService } from '../color-names/closest-named-colors.service';
-import { NamedColor } from '../color-names/color-names';
 import { ColorValue } from '../generic/color-value';
+import { NamedColor } from './named-color.interface';
 
 describe('NamedColorComponent', () => {
   let component: NamedColorComponent;
