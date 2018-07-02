@@ -1,7 +1,7 @@
 import * as Color from 'color';
 
 import { ColorModel } from '../generic/color-models';
-import { ColorDistanceMetric } from './color-metrics';
+import { ColorDistanceMetric } from './color-distance-metrics';
 import { colorDistanceSimple } from './color-distance-simple';
 import { colorDistanceCIE76 } from './color-distance-cie76';
 import { colorDistanceCIE94 } from './color-distance-cie94';

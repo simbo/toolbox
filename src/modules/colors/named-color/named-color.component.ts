@@ -2,8 +2,8 @@ import { Component, Input } from '@angular/core';
 
 import { ClosestNamedColorsService } from '../color-names/closest-named-colors.service';
 import { NamedColor } from '../color-names/color-names';
+import { ColorDistanceMetric } from '../color-distance/color-distance-metrics';
 import { ColorValue } from '../generic/color-value';
-import { ColorDistanceMetric } from '../color-distance/color-metrics';
 
 @Component({
   selector: 'c-named-color',

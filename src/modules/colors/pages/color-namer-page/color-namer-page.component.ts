@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { SelectChoices } from '../../../controls/select/select.component';
-import { colorDistanceMetrics, ColorDistanceMetric } from '../../color-distance/color-metrics';
+import { colorDistanceMetrics, ColorDistanceMetric } from '../../color-distance/color-distance-metrics';
 import { ClosestNamedColorsService } from '../../color-names/closest-named-colors.service';
 import { ColorValue } from '../../generic/color-value';
 import { NamedColor } from '../../color-names/color-names';

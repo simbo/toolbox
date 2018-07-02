@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { NamedColor, colorNames } from './color-names';
 import { ColorValueData } from '../generic/color-value';
-import { ColorDistanceMetric, colorDistanceMetrics } from '../color-distance/color-metrics';
+import { ColorDistanceMetric } from '../color-distance/color-distance-metrics';
 
 const closestNamedColorsCache = new Map<string, NamedColor[]>();
 const colorDistanceCache = new Map<string, number>();
