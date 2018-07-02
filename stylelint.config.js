@@ -28,6 +28,9 @@ const config = {
     'scss/at-mixin-pattern': `^${rxBem}$`,
     'scss/dollar-variable-pattern': `^${rxKebab}$`,
 
+    // selectors
+    'no-descending-specificity': null,
+
   }
 };
 
