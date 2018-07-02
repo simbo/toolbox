@@ -43,7 +43,7 @@ describe('NamedColorComponent', () => {
     const colorValue = new ColorValue('#f00');
     const namedColor: NamedColor = {
       name: 'Red',
-      value: colorValue
+      data: colorValue.data
     };
     component.color = namedColor;
     expect(component).toBeTruthy();

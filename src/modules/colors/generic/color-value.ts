@@ -1,21 +1,15 @@
+import { BehaviorSubject, Observable } from 'rxjs';
 import * as Color from 'color';
 
 import { ColorModel } from './color-models';
 import { randomColor } from './random-color';
-import { BehaviorSubject, Observable } from 'rxjs';
-
-export interface ColorValueData {
-  color: Color;
-  hex: string;
-  rgb: number[];
-  lab: number[];
-}
+import { ColorData } from './color-data.interface';
 
 export class ColorValue {
 
-  private static valueCache = new Map<string, ColorValueData>();
+  private static dataCache = new Map<string, ColorData>();
 
-  private _value = new BehaviorSubject<ColorValueData>(null);
+  private _data = new BehaviorSubject<ColorData>(null);
 
   constructor(
     value: string | number[] = null,
@@ -29,16 +23,16 @@ export class ColorValue {
     this.setColor(color);
   }
 
-  public get observable(): Observable<ColorValueData> {
-    return this._value.asObservable();
+  public get observable(): Observable<ColorData> {
+    return this._data.asObservable();
   }
 
-  public get value(): ColorValueData {
-    return this._value.getValue();
+  public get data(): ColorData {
+    return this._data.getValue();
   }
 
   public get color(): Color {
-    return this.value.color;
+    return this.data.color;
   }
 
   public set color(value: Color) {
@@ -46,7 +40,7 @@ export class ColorValue {
   }
 
   public get hex(): string {
-    return this.value.hex;
+    return this.data.hex;
   }
 
   public set hex(value: string) {
@@ -55,7 +49,7 @@ export class ColorValue {
   }
 
   public get rgb(): number[] {
-    return this.value.rgb;
+    return this.data.rgb;
   }
 
   public set rgb(value: number[]) {
@@ -64,7 +58,7 @@ export class ColorValue {
   }
 
   public get lab(): number[] {
-    return this.value.lab;
+    return this.data.lab;
   }
 
   public set lab(value: number[]) {
@@ -81,8 +75,8 @@ export class ColorValue {
     } else {
       hex = val;
     }
-    if (this.value !== null && this.value.hex === hex) { return; }
-    let value = ColorValue.valueCache.get(hex);
+    if (this.data !== null && this.data.hex === hex) { return; }
+    let value = ColorValue.dataCache.get(hex);
     if (!value) {
       if (!color) {
         color = new Color(hex, ColorModel.Hex);
@@ -94,9 +88,9 @@ export class ColorValue {
         rgb: color.array(),
         lab: lab.array()
       };
-      ColorValue.valueCache.set(hex, value);
+      ColorValue.dataCache.set(hex, value);
     }
-    this._value.next(value);
+    this._data.next(value);
   }
 
 }

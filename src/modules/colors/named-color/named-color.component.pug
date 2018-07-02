@@ -8,7 +8,7 @@
         [ngStyle] = "{'background-color': compareColor.hex}"
       )
     .named-color__color(
-        [ngStyle] = "{'background-color': color.value.hex}"
+        [ngStyle] = "{'background-color': color.data.hex}"
       )
 
   .named-color__details
@@ -17,7 +17,7 @@
 
     .named-color__kebab-case {{ color.name | kebabCase }}
 
-    .named-color__hex {{ color.value.hex | lowercase }}
+    .named-color__hex {{ color.data.hex | lowercase }}
 
     .named-color__distance(
       *ngIf = "compareMode"

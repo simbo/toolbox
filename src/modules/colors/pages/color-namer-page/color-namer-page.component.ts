@@ -6,8 +6,8 @@ import { SelectChoices } from '../../../controls/select/select.component';
 import { colorDistanceMetrics, ColorDistanceMetric } from '../../color-distance/color-distance-metrics';
 import { ColorDistanceService } from '../../color-distance/color-distance.service';
 import { ClosestNamedColorsService } from '../../color-names/closest-named-colors.service';
-import { ColorValueData } from '../../generic/color-value';
 import { NamedColor } from '../../named-color/named-color.interface';
+import { ColorData } from '../../generic/color-data.interface';
 
 export const colorMetricChoices: SelectChoices =
   Object.entries(colorDistanceMetrics)
@@ -30,14 +30,14 @@ export class ColorNamerPageComponent {
 
   public colorMetric: ColorDistanceMetric = ColorDistanceMetric.CIEDE2000;
 
-  public colorValueData = new BehaviorSubject<ColorValueData>(null);
+  public colorDataSubject = new BehaviorSubject<ColorData>(null);
 
-  public get colorValue(): ColorValueData {
-    return this.colorValueData.getValue();
+  public get colorData(): ColorData {
+    return this.colorDataSubject.getValue();
   }
 
   public get closestColors(): Observable<NamedColor[]> {
-    return this.colorValueData.pipe(
+    return this.colorDataSubject.pipe(
       map(value => {
         if (!value) {
           return [];

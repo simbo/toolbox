@@ -2,7 +2,7 @@
 
   .page-section
     c-color-input(
-      (color) = "colorValueData.next($event)"
+      (color) = "colorDataSubject.next($event)"
     )
 
   .page-section
@@ -18,7 +18,7 @@
       c-named-color(
         *ngFor = "let color of (closestColors | async).slice(0, 25)",
         [color] = "color",
-        [compareColor] = "colorValue",
+        [compareColor] = "colorData",
         [compareMetric] = "colorMetric"
       )
 

@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
-import { ColorValue, ColorValueData } from '../generic/color-value';
+import { ColorData } from '../generic/color-data.interface';
+import { ColorValue } from '../generic/color-value';
 import { stringToRgb } from '../convert/string-to-rgb';
 import { stringToHex } from '../convert/string-to-hex';
 import { randomColor } from '../generic/random-color';
@@ -11,7 +12,7 @@ import { randomColor } from '../generic/random-color';
 })
 export class ColorInputComponent implements OnInit {
 
-  @Output() public color = new EventEmitter<ColorValueData>();
+  @Output() public color = new EventEmitter<ColorData>();
 
   public colorValue = new ColorValue();
 
@@ -36,8 +37,8 @@ export class ColorInputComponent implements OnInit {
   }
 
   public ngOnInit(): void {
-    this.colorValue.observable.subscribe(colorValueData => {
-      this.color.emit(colorValueData);
+    this.colorValue.observable.subscribe(colorData => {
+      this.color.emit(colorData);
     });
   }
 

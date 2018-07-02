@@ -1,6 +1,6 @@
-import { ColorValueData } from '../generic/color-value';
+import { ColorData } from '../generic/color-data.interface';
 
 export interface NamedColor {
   name: string;
-  value: ColorValueData;
+  data: ColorData;
 }

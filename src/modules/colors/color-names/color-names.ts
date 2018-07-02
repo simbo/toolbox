@@ -5,6 +5,6 @@ import { NamedColor } from '../named-color/named-color.interface';
 
 export const colorNames: NamedColor[] = colorNameList
   .map(({name, hex}) => {
-    const value = (new ColorValue(hex)).value;
-    return { name, value };
+    const data = (new ColorValue(hex)).data;
+    return { name, data };
   });

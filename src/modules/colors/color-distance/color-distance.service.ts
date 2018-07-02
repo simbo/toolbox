@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
-import { ColorValueData } from '../generic/color-value';
 import { ColorDistanceMetric, colorDistanceMetrics } from './color-distance-metrics';
+import { ColorData } from '../generic/color-data.interface';
 
 const colorDistanceCache = new Map<string, number>();
 
@@ -9,8 +9,8 @@ const colorDistanceCache = new Map<string, number>();
 export class ColorDistanceService {
 
   public get(
-    colorA: ColorValueData,
-    colorB: ColorValueData,
+    colorA: ColorData,
+    colorB: ColorData,
     colorMetric: ColorDistanceMetric
   ): number {
     const cacheKey = `${colorA.hex}${colorB.hex}${colorMetric}`;
