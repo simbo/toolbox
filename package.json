@@ -20,12 +20,13 @@
     "lint:styles": "stylelint \"./src/**/*.(c|sc|sa)ss\"",
     "e2e": "ng e2e",
     "analyzer": "ng build --prod --stats-json && webpack-bundle-analyzer ./dist/stats.json",
+    "check": "yarn run lint && yarn run ci:test && yarn run ci:build",
     "preinstall": "npx use-yarn",
     "postinstall": "node ./.ng-cli-webpack-hack/hack.js"
   },
   "husky": {
     "hooks": {
-      "pre-push": "yarn run lint && yarn run ci:test && yarn run ci:build"
+      "pre-push": "yarn run check"
     }
   },
   "engines": {
