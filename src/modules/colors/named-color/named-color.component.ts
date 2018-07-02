@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 
 import { ColorDistanceService } from '../color-distance/color-distance.service';
 import { ColorDistanceMetric } from '../color-distance/color-distance-metrics';
-import { ColorValue } from '../generic/color-value';
+import { ColorValue, ColorValueData } from '../generic/color-value';
 import { NamedColor } from './named-color.interface';
 
 @Component({
@@ -13,7 +13,7 @@ export class NamedColorComponent {
 
   @Input() public color: NamedColor;
 
-  @Input() public compareColor: ColorValue;
+  @Input() public compareColor: ColorValue | ColorValueData;
 
   @Input() public compareMetric: ColorDistanceMetric;
 
@@ -30,7 +30,11 @@ export class NamedColorComponent {
       return null;
     }
     return this.colorDistanceService
-      .get(this.color.value, this.compareColor.value, this.compareMetric);
+      .get(
+        this.color.value,
+        (this.compareColor as ColorValue).value || this.compareColor,
+        this.compareMetric
+      );
   }
 
 }

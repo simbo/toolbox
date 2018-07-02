@@ -1,13 +1,16 @@
 .named-color {
   display: flex;
 
-  &:first-child &__display {
-    border-radius: 2px 2px 0 0;
+  :first-child > & > &__display {
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
   }
 
-  &:last-child &__display {
-    border-radius: 0 0 2px 2px;
+  :last-child > & > &__display {
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
   }
+
 
   &__display {
     display: flex;
@@ -59,9 +62,7 @@
   }
 
   &__details {
-    align-self: center;
     padding: .4em .6em;
-    line-height: _($line-height, default);
   }
 
   &__name {
@@ -73,18 +74,20 @@
   &__name,
   &__kebab-case,
   &__hex,
-  &__rgb {
+  &__rgb,
+  &__distance {
+    line-height: _($line-height, default);
     white-space: nowrap;
   }
 
   &__kebab-case,
   &__hex,
   &__rgb {
-    @extend %font-family--system-mono;
+    @extend %font-family--mono;
   }
 
   &__distance {
-    font-size: .75em;
+    @extend %font-size--small;
 
     @include themify {
       color: themed(color, text-secondary);
