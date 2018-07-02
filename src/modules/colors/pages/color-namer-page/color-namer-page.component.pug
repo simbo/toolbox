@@ -28,28 +28,12 @@
   .page-section
 
     .closest-colors
-
-      .closest-color(
-        *ngFor = "let color of (closestColors | async).slice(0, 25)"
+      c-named-color(
+        *ngFor = "let color of (closestColors | async).slice(0, 25)",
+        [color] = "color",
+        [compareColor] = "colorValue",
+        [compareMetric] = "colorMetric"
       )
-
-        .closest-color__display
-          .closest-color__compare-color(
-              [ngStyle] = "{'background-color': colorValue.hex}"
-            )
-          .closest-color__color(
-              [ngStyle] = "{'background-color': color.value.hex}"
-            )
-
-        .closest-color__details
-
-          .closest-color__name {{ color.name }}
-
-          .closest-color__camel-case {{ color.name | kebabCase }}
-
-          .closest-color__hex {{ color.value.hex | lowercase }}
-
-          .closest-color__distance Δ {{ getColorDistance(color) | number:'1.5-5' }}
 
   .page-section
     p https://en.wikipedia.org/wiki/Color_difference
