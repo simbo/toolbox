@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { ClosestNamedColorsService } from '../color-names/closest-named-colors.service';
+import { ColorDistanceService } from '../color-distance/color-distance.service';
 import { ColorDistanceMetric } from '../color-distance/color-distance-metrics';
 import { ColorValue } from '../generic/color-value';
 import { NamedColor } from './named-color.interface';
@@ -18,7 +18,7 @@ export class NamedColorComponent {
   @Input() public compareMetric: ColorDistanceMetric;
 
   constructor(
-    public closestNamedColorsService: ClosestNamedColorsService
+    public colorDistanceService: ColorDistanceService
   ) {}
 
   public get compareMode(): boolean {
@@ -29,8 +29,8 @@ export class NamedColorComponent {
     if (!this.compareMode) {
       return null;
     }
-    return this.closestNamedColorsService
-      .getColorDistance(this.color.value, this.compareColor.value, this.compareMetric);
+    return this.colorDistanceService
+      .get(this.color.value, this.compareColor.value, this.compareMetric);
   }
 
 }

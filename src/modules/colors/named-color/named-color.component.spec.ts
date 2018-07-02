@@ -3,7 +3,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { NamedColorComponent } from './named-color.component';
 import { StringsModule } from '../../strings/strings.module';
-import { ClosestNamedColorsService } from '../color-names/closest-named-colors.service';
+import { ColorDistanceService } from '../color-distance/color-distance.service';
 import { ColorValue } from '../generic/color-value';
 import { NamedColor } from './named-color.interface';
 
@@ -20,7 +20,7 @@ describe('NamedColorComponent', () => {
         NamedColorComponent
       ],
       providers: [
-        ClosestNamedColorsService
+        ColorDistanceService
       ],
       schemas: [
         CUSTOM_ELEMENTS_SCHEMA

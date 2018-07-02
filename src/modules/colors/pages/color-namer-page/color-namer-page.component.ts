@@ -4,6 +4,7 @@ import { map } from 'rxjs/operators';
 
 import { SelectChoices } from '../../../controls/select/select.component';
 import { colorDistanceMetrics, ColorDistanceMetric } from '../../color-distance/color-distance-metrics';
+import { ColorDistanceService } from '../../color-distance/color-distance.service';
 import { ClosestNamedColorsService } from '../../color-names/closest-named-colors.service';
 import { ColorValue } from '../../generic/color-value';
 import { randomColor } from '../../generic/random-color';
@@ -22,6 +23,7 @@ export const colorMetricChoices: SelectChoices =
   selector: 'c-color-namer-page',
   templateUrl: './color-namer-page.component.pug',
   providers: [
+    ColorDistanceService,
     ClosestNamedColorsService
   ]
 })
@@ -61,11 +63,6 @@ export class ColorNamerPageComponent {
   constructor(
     public closestNamedColorsService: ClosestNamedColorsService
   ) {}
-
-  public getColorDistance(color: NamedColor): number {
-    return this.closestNamedColorsService
-      .getColorDistance(color.value, this.colorValue.value, this.colorMetric);
-  }
 
   public setRandomColor() {
     this.input = randomColor().hex();

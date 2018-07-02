@@ -11,12 +11,13 @@
     )
 
     c-textfield(
-      [(ngModel)] = "input"
+      [(ngModel)] = "input",
+      placeholder = "Paste a Hex or RGB value…"
     )
 
-  .page-section {{ colorValue.hex }}
+  .page-section {{ colorValue.hex | lowercase }}
 
-  .page-section {{ colorValue.rgb }}
+  .page-section {{ colorValue.color.string() }}
 
   .page-section
     c-select(
