@@ -1,48 +1,80 @@
+.closest-colors {
+
+}
+
 .closest-color {
-  $grid-gap: 1rem;
+  display: flex;
 
-  @mixin columns($count: 1) {
-    @if ($count <= 1) {
-      grid-template-columns: 100%;
-    }
-    @else {
-      grid-template-columns: repeat($count, calc(#{100% / $count} - #{$grid-gap * ($count - 1) / $count}));
-    }
-  }
+  // &:not(:first-child) {
+  //   margin-top: 2px;
+  // }
 
-  &s {
-    display: grid;
-    gap: $grid-gap;
-    @include columns(1);
+  &__display {
+    display: flex;
+    flex: 0 0 auto;
+    width: 8em;
 
     @include mq('mobile-landscape') {
-      @include columns(2);
+      width: 12em;
     }
 
-    @include mq('tablet-portrait') {
-      @include columns(3);
-    }
-
-    @include mq('tablet-landscape') {
-      @include columns(4);
-    }
-
-    @include mq('desktop') {
-      @include columns(5);
+    @include mq('>=tablet') {
+      width: 16em;
     }
 
   }
 
-  // &__name {
-  // }
+  &__compare-color,
+  &__color {
+    @include aspect-ratio(1);
+    flex: 0 0 auto;
 
-  // &__hex {
-  // }
+    @include mq('>=tablet') {
+      width: 50%;
+    }
 
-  // &__rgb {
-  // }
+  }
 
-  // &__distance {
-  // }
+  &__compare-color {
+    width: 40%;
+  }
+
+  &__color {
+    width: 60%;
+  }
+
+  &__details {
+    align-self: center;
+    padding: .4em .6em;
+    line-height: _($line-height, default);
+  }
+
+  &__name {
+    font-size: 1.4em;
+    font-weight: bold;
+    margin-bottom: .125em;
+  }
+
+  &__name,
+  &__kebab-case,
+  &__hex,
+  &__rgb {
+    white-space: nowrap;
+  }
+
+  &__kebab-case,
+  &__hex,
+  &__rgb {
+    @extend %font-family--system-mono;
+  }
+
+  &__distance {
+    font-size: .75em;
+
+    @include themify {
+      color: themed(color, text-secondary);
+    }
+
+  }
 
 }
