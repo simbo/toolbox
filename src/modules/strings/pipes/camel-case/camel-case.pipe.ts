@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-import { camelCase } from '../convert/camel-case';
+import { camelCase } from '../../convert/camel-case';
 
 @Pipe({
   name: 'camelCase'
