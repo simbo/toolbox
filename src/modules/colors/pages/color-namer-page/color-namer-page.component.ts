@@ -8,6 +8,8 @@ import { ClosestNamedColorsService } from '../../color-names/closest-named-color
 import { ColorValue } from '../../generic/color-value';
 import { NamedColor } from '../../color-names/color-names';
 import { randomColor } from '../../generic/random-color';
+import { stringToRgb } from '../../color-convert/string-to-rgb';
+import { stringToHex } from '../../color-convert/string-to-hex';
 
 export const colorMetricChoices: SelectChoices =
   Object.entries(colorDistanceMetrics)
@@ -39,7 +41,15 @@ export class ColorNamerPageComponent {
 
   public set input(value: string) {
     this._input = value;
-    this.colorValue.hex = value;
+    const rgb = stringToRgb(value);
+    if (rgb) {
+      this.colorValue.rgb = rgb;
+      return;
+    }
+    const hex = stringToHex(value);
+    if (hex) {
+      this.colorValue.hex = hex;
+    }
   }
 
   public get closestColors(): Observable<NamedColor[]> {
