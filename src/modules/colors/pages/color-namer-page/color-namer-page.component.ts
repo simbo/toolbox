@@ -1,15 +1,12 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { SelectChoices } from '../../../controls/select/select.component';
 import { colorDistanceMetrics, ColorDistanceMetric } from '../../color-distance/color-distance-metrics';
 import { ColorDistanceService } from '../../color-distance/color-distance.service';
 import { ClosestNamedColorsService } from '../../color-names/closest-named-colors.service';
-import { ColorValue } from '../../generic/color-value';
-import { randomColor } from '../../generic/random-color';
-import { stringToRgb } from '../../convert/string-to-rgb';
-import { stringToHex } from '../../convert/string-to-hex';
+import { ColorValueData } from '../../generic/color-value';
 import { NamedColor } from '../../named-color/named-color.interface';
 
 export const colorMetricChoices: SelectChoices =
@@ -33,39 +30,25 @@ export class ColorNamerPageComponent {
 
   public colorMetric: ColorDistanceMetric = ColorDistanceMetric.CIEDE2000;
 
-  public colorValue = new ColorValue();
+  public colorValueData = new BehaviorSubject<ColorValueData>(null);
 
-  public _input: string = null;
-
-  public get input(): string {
-    return this._input === null ? this.colorValue.hex : this._input;
-  }
-
-  public set input(value: string) {
-    this._input = value;
-    const rgb = stringToRgb(value);
-    if (rgb) {
-      this.colorValue.rgb = rgb;
-      return;
-    }
-    const hex = stringToHex(value);
-    if (hex) {
-      this.colorValue.hex = hex;
-    }
+  public get colorValue(): ColorValueData {
+    return this.colorValueData.getValue();
   }
 
   public get closestColors(): Observable<NamedColor[]> {
-    return this.colorValue.observable.pipe(
-      map(value => this.closestNamedColorsService.get(value, this.colorMetric))
+    return this.colorValueData.pipe(
+      map(value => {
+        if (!value) {
+          return [];
+        }
+        return this.closestNamedColorsService.get(value, this.colorMetric);
+      })
     );
   }
 
   constructor(
     public closestNamedColorsService: ClosestNamedColorsService
   ) {}
-
-  public setRandomColor() {
-    this.input = randomColor().hex();
-  }
 
 }

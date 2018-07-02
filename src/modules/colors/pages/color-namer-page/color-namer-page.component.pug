@@ -1,23 +1,9 @@
 .page--color-namer
 
   .page-section
-    button(
-      (click) = "setRandomColor()"
-    ) Random Color
-
-  .page-section
-    div(
-      [ngStyle] = "{'background-color': colorValue.hex, height: '4em'}"
+    c-color-input(
+      (color) = "colorValueData.next($event)"
     )
-
-    c-textfield(
-      [(ngModel)] = "input",
-      placeholder = "Paste a Hex or RGB value…"
-    )
-
-  .page-section {{ colorValue.hex | lowercase }}
-
-  .page-section {{ colorValue.color.string() }}
 
   .page-section
     c-select(
