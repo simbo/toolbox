@@ -1,7 +1,0 @@
-.color-display {
-  position: relative;
-  border-radius: 50%;
-  width: 4em;
-  @include aspect-ratio();
-  @include md-shadow(2);
-}

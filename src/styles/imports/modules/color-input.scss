@@ -1,0 +1,58 @@
+.color-input {
+  display: flex;
+
+  &__display {
+    display: flex;
+    flex: 0 0 auto;
+    width: 4em;
+    border-radius: 2px;
+    overflow: hidden;
+
+    @include mq('mobile-landscape') {
+      width: 6em;
+    }
+
+    @include mq('>=tablet') {
+      width: 8em;
+    }
+
+  }
+
+  &__color {
+    @include aspect-ratio(1);
+    flex: 1 0 auto;
+  }
+
+  &__controls {
+    position: relative;
+    padding: .4em .6em;
+  }
+
+  &__input {
+    width: 14em;
+    margin-bottom: .4em;
+
+    .textfield__input {
+      @extend %font-family--mono;
+
+      &::placeholder {
+        @extend %font-family--sans;
+      }
+    }
+
+  }
+
+  &__hex,
+  &__rgb {
+    @extend %font-family--mono;
+    line-height: _($line-height, default);
+    white-space: nowrap;
+  }
+
+  &__btn-random {
+    position: absolute;
+    bottom: .4em;
+    right: .6em;
+  }
+
+}

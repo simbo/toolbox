@@ -1,0 +1,24 @@
+.color-input
+
+  .color-input__display
+    .color-input__color(
+      [ngStyle] = "{'background-color': colorValue.hex}"
+    )
+
+  .color-input__controls
+
+    .color-input__input
+      c-textfield(
+        [(ngModel)] = "input",
+        placeholder = "Paste a Hex or RGB value…"
+      )
+
+    .color-input__hex {{ colorValue.hex | lowercase }}
+
+    .color-input__rgb {{ colorValue.color.string() }}
+
+    button.color-input__btn-random(
+      (click) = "setRandomColor()",
+      title = "Randomize"
+    ) R
+

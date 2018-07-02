@@ -5,8 +5,9 @@ import { FormsModule } from '@angular/forms';
 import { ControlsModule } from '../controls/controls.module';
 import { StringPipesModule } from '../strings/pipes/string-pipes.module';
 import { ColorsRoutingModule } from './colors-routing.module';
-import { ColorNamerPageComponent } from './pages/color-namer-page/color-namer-page.component';
+import { ColorInputComponent } from './color-input/color-input.component';
 import { NamedColorComponent } from './named-color/named-color.component';
+import { ColorNamerPageComponent } from './pages/color-namer-page/color-namer-page.component';
 
 @NgModule({
   imports: [
@@ -17,8 +18,9 @@ import { NamedColorComponent } from './named-color/named-color.component';
     ColorsRoutingModule
   ],
   declarations: [
-    ColorNamerPageComponent,
-    NamedColorComponent
+    ColorInputComponent,
+    NamedColorComponent,
+    ColorNamerPageComponent
   ]
 })
 export class ColorsModule { }
