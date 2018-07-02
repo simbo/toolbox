@@ -48,7 +48,7 @@ export class ClosestNamedColorsService {
       });
   }
 
-  public sortedColorsTrackBy(index: number, value: NamedColor): string {
+  public trackBy(index: number, value: NamedColor): string {
     return value.name;
   }
 
