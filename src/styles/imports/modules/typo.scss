@@ -1,25 +1,54 @@
-%font-family--system {
+%font-family--sans {
   font-family: map-get($font-families, system);
 }
 
-%font-family--system-mono {
+%font-family--mono {
   font-family: map-get($font-families, system-mono);
+}
+
+%font-size--tiny {
+  font-size: (10/16 * 1em);
+}
+
+%font-size--small {
+  font-size: (12/16 * 1em);
+}
+
+%font-size--medium {
+  font-size: (14/16 * 1em);
 }
 
 html {
   font-size: 16px;
 
-  @media screen and (min-width: 768px) {
+  @include mq-min(768) {
     font-size: 18px;
   }
 
-  @media screen and (min-width: 1280px) {
+  @include mq-min(1280) {
     font-size: 20px;
   }
 
 }
 
 body {
-  @extend %font-family--system;
+  @extend %font-family--sans;
   text-rendering: optimizeLegibility;
+}
+
+.typo--tiny {
+  @extend %font-size--tiny;
+}
+
+.typo--small,
+small {
+  @extend %font-size--small;
+}
+
+.typo--medium {
+  @extend %font-size--medium;
+}
+
+.typo--mono {
+  @extend %font-family--mono;
 }
