@@ -5,10 +5,15 @@ $font-families: (
   'sans': #{"Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif}
 );
 
+$line-height: (
+  default: 1.5,
+);
+
 $colors: (
 
   white:              #ffffff,
   pinball:            #d4d4d4,
+  gray:               #808080,
   boltgun-metal:      #393939,
   wax:                #2e2e2e,
   young-night:        #232323,

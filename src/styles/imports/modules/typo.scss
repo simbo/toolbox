@@ -1,0 +1,25 @@
+%font-family--system {
+  font-family: map-get($font-families, system);
+}
+
+%font-family--system-mono {
+  font-family: map-get($font-families, system-mono);
+}
+
+html {
+  font-size: 16px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    font-size: 20px;
+  }
+
+}
+
+body {
+  @extend %font-family--system;
+  text-rendering: optimizeLegibility;
+}
