@@ -1,0 +1,24 @@
+.named-color(*ngIf = "color")
+
+  .named-color__display(
+    [class.has-compare-color] = "compareMode"
+  )
+    .named-color__compare-color(
+        *ngIf = "compareMode",
+        [ngStyle] = "{'background-color': compareColor.hex}"
+      )
+    .named-color__color(
+        [ngStyle] = "{'background-color': color.value.hex}"
+      )
+
+  .named-color__details
+
+    .named-color__name {{ color.name }}
+
+    .named-color__camel-case {{ color.name | kebabCase }}
+
+    .named-color__hex {{ color.value.hex | lowercase }}
+
+    .named-color__distance(
+      *ngIf = "compareMode"
+    ) Δ {{ colorDistance | number:'1.3-3' }}

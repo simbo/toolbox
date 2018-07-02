@@ -1,24 +1,40 @@
-// .closest-colors {
-// }
-
-.closest-color {
+.named-color {
   display: flex;
 
-  // &:not(:first-child) {
-  //   margin-top: 2px;
-  // }
+  &:first-child &__display {
+    border-radius: 2px 2px 0 0;
+  }
+
+  &:last-child &__display {
+    border-radius: 0 0 2px 2px;
+  }
 
   &__display {
     display: flex;
     flex: 0 0 auto;
-    width: 8em;
+    width: 4em;
+    overflow: hidden;
+
+    &.has-compare-color {
+      width: 8em;
+    }
 
     @include mq('mobile-landscape') {
-      width: 12em;
+      width: 6em;
+
+      &.has-compare-color {
+        width: 12em;
+      }
+
     }
 
     @include mq('>=tablet') {
-      width: 16em;
+      width: 8em;
+
+      &.has-compare-color {
+        width: 16em;
+      }
+
     }
 
   }

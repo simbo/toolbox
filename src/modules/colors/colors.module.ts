@@ -6,6 +6,7 @@ import { ControlsModule } from '../controls/controls.module';
 import { StringPipesModule } from '../strings/pipes/string-pipes.module';
 import { ColorsRoutingModule } from './colors-routing.module';
 import { ColorNamerPageComponent } from './pages/color-namer-page/color-namer-page.component';
+import { NamedColorComponent } from './named-color/named-color.component';
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import { ColorNamerPageComponent } from './pages/color-namer-page/color-namer-pa
     ColorsRoutingModule
   ],
   declarations: [
-    ColorNamerPageComponent
+    ColorNamerPageComponent,
+    NamedColorComponent
   ]
 })
 export class ColorsModule { }
