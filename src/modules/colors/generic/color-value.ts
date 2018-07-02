@@ -5,6 +5,12 @@ import { ColorModel } from './color-models';
 import { randomColor } from './random-color';
 import { ColorData } from './color-data.interface';
 
+/**
+ * ColorValue
+ * offers an observable color value providing precalculated values for
+ * different color modals while trying to minimize calculations using
+ * a global color data cache.
+ */
 export class ColorValue {
 
   private static dataCache = new Map<string, ColorData>();
