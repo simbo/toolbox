@@ -8,8 +8,8 @@ import { ClosestNamedColorsService } from '../../color-names/closest-named-color
 import { ColorValue } from '../../generic/color-value';
 import { NamedColor } from '../../color-names/color-names';
 import { randomColor } from '../../generic/random-color';
-import { stringToRgb } from '../../color-convert/string-to-rgb';
-import { stringToHex } from '../../color-convert/string-to-hex';
+import { stringToRgb } from '../../convert/string-to-rgb';
+import { stringToHex } from '../../convert/string-to-hex';
 
 export const colorMetricChoices: SelectChoices =
   Object.entries(colorDistanceMetrics)
