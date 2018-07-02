@@ -10,7 +10,7 @@ mixin iconSymbol(name, width = 512, height = null)
 
 .icon
 
-  svg(
+  svg.icon__svg(
     viewBox = "0 0 512 512",
     xmlns = "http://www.w3.org/2000/svg"
   )
@@ -20,7 +20,8 @@ mixin iconSymbol(name, width = 512, height = null)
       [attr.filter] = "svgFilterUrl"
     )
 
-    include filters/grayscale
+    ng-container(*ngIf = "svgFilterUrl")
+      include filters/grayscale
 
     include icons/unicorn
     include icons/paper-plane
