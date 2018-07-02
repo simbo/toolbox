@@ -50,17 +50,8 @@ export class ColorValue {
   }
 
   public set hex(value: string) {
-    const input = value
-      .replace(/^#?([a-f0-9]{3,6})?.*$/i, (match, group) => {
-        if (!(group && (group.length === 3 || group.length === 6))) {
-          return '';
-        }
-        return `#${group}`;
-      });
-    if (input && input.length) {
-      const color = new Color(input, ColorModel.Hex);
-      this.setColor(color);
-    }
+    const color = new Color(value, ColorModel.Hex);
+    this.setColor(color);
   }
 
   public get rgb(): number[] {
