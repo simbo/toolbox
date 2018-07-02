@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-import { kebabCase } from '../string-convert/kebab-case';
+import { kebabCase } from '../convert/kebab-case';
 
 @Pipe({
   name: 'kebabCase'
