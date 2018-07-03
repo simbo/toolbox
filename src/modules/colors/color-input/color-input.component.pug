@@ -17,8 +17,11 @@
 
     .color-input__rgb {{ colorValue.color.string() }}
 
-    button.color-input__btn-random(
-      (click) = "setRandomColor()",
-      title = "Randomize"
-    ) R
+    .color-input__btn-random
+      c-button(
+        (click) = "setRandomColor()",
+        icon = "dices",
+        style = "icon",
+        title = "Random Color"
+      )
 
