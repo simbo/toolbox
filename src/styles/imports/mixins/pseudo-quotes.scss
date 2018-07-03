@@ -34,7 +34,7 @@
   }
 
   &::after {
-    content: map-get($quote-marks, after);;
+    content: map-get($quote-marks, after);
   }
 
 }
