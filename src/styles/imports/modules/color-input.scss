@@ -30,7 +30,7 @@
 
   &__input {
     width: 14em;
-    margin-bottom: .4em;
+    margin-bottom: .8em;
 
     .textfield__input {
       @extend %font-family--mono;
@@ -45,6 +45,7 @@
   &__hex,
   &__rgb {
     @extend %font-family--mono;
+    margin-top: .4em;
     line-height: _($line-height, default);
     white-space: nowrap;
   }
