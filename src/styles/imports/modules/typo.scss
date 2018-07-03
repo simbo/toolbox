@@ -6,15 +6,15 @@
   font-family: map-get($font-families, system-mono);
 }
 
-%font-size--tiny {
+%font-size--too-tiny {
   font-size: (10/16 * 1em);
 }
 
-%font-size--small {
+%font-size--tiny {
   font-size: (12/16 * 1em);
 }
 
-%font-size--medium {
+%font-size--small {
   font-size: (14/16 * 1em);
 }
 
@@ -36,19 +36,6 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-.typo--tiny {
-  @extend %font-size--tiny;
-}
-
-.typo--small,
 small {
   @extend %font-size--small;
-}
-
-.typo--medium {
-  @extend %font-size--medium;
-}
-
-.typo--mono {
-  @extend %font-family--mono;
 }
