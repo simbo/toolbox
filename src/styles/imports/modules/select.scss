@@ -24,7 +24,7 @@
       border-color: transparent;
 
       @include themify {
-        color: themed(select, color);
+        color: themed(select, ui-color);
       }
 
     }
@@ -51,7 +51,12 @@
     width: 100%;
     padding: nth($padding, 1) (nth($padding, 2) + 1) nth($padding, 1) nth($padding, 2);
     border-radius: 2px;
+    border: none;
     cursor: pointer;
+
+    &:focus {
+      outline: none;
+    }
 
     @include themify {
       background: themed(select, background);

@@ -66,8 +66,11 @@
   }
 
   &__name {
-    font-size: 1.4em;
+    @extend %font-family--serif;
+    // @include pseudo-quotes(double-angle);
+    font-size: 1.5em;
     font-weight: bold;
+    font-style: italic;
     margin-bottom: .125em;
   }
 
