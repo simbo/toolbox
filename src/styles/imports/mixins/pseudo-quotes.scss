@@ -1,0 +1,40 @@
+@mixin pseudo-quotes($quote-style: double) {
+
+  $quote-styles: (
+    single: (
+      before: '‘',
+      after: '’',
+    ),
+    single-low: (
+      before: '‚',
+      after: '’',
+    ),
+    single-angle: (
+      before: '›',
+      after: '‹',
+    ),
+    double: (
+      before: '“',
+      after: '”',
+    ),
+    double-low: (
+      before: '„',
+      after: '”',
+    ),
+    double-angle: (
+      before: '»',
+      after: '«',
+    ),
+  );
+
+  $quote-marks: map-get($quote-styles, $quote-style);
+
+  &::before {
+    content: map-get($quote-marks, before);
+  }
+
+  &::after {
+    content: map-get($quote-marks, after);;
+  }
+
+}
