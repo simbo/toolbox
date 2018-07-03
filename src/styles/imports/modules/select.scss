@@ -1,7 +1,69 @@
 .select {
+  $padding: .4em .6em;
+
+  display: inline-block;
+
+  &__label {
+    @extend %font-size--small;
+    display: block;
+    margin-bottom: .25em;
+    line-height: 1.5;
+  }
+
+  &__select-wrap {
+    position: relative;
+    display: block;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      right: nth($padding, 2);
+      border-width: .3em .2em;
+      border-style: solid;
+      border-color: transparent;
+
+      @include themify {
+        color: themed(select, color);
+      }
+
+    }
+
+    &::before {
+      bottom: 50%;
+      margin-bottom: .0625em;
+      border-bottom-color: currentColor;
+      border-top-width: 0;
+    }
+
+    &::after {
+      top: 50%;
+      margin-top: .0625em;
+      border-top-color: currentColor;
+      border-bottom-width: 0;
+    }
+
+  }
 
   &__select {
+    appearance: none;
     display: block;
+    width: 100%;
+    padding: nth($padding, 1) (nth($padding, 2) + 1) nth($padding, 1) nth($padding, 2);
+    border-radius: 2px;
+    cursor: pointer;
+
+    @include themify {
+      background: themed(select, background);
+      color: themed(select, color);
+    }
+
+  &__option {
+    background: inherit;
+    font: inherit;
+    color: inherit;
+  }
+
   }
 
 }
