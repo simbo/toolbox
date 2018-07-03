@@ -32,6 +32,8 @@ export class ColorNamerPageComponent {
 
   public colorDataSubject = new BehaviorSubject<ColorData>(null);
 
+  public maxClosestColors = 25;
+
   public get colorData(): ColorData {
     return this.colorDataSubject.getValue();
   }

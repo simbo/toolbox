@@ -9,18 +9,23 @@
     c-select(
       [(ngModel)] = "colorMetric",
       [choices] = "colorMetricChoices",
-      label = "Closest Colors by Metric:"
+      label = "Color Distance Metric"
     )
 
   .page-section
 
+    .headline.
+      Closest {{ maxClosestColors }} Colors of
+      {{ closestNamedColorsService.namedColors.length | number }}
+      from #[a(href = "https://www.npmjs.com/package/color-name-list") List]:
+
     .closest-colors
       c-named-color(
-        *ngFor = "let color of (closestColors | async).slice(0, 25)",
+        *ngFor = "let color of (closestColors | async).slice(0, maxClosestColors)",
         [color] = "color",
         [compareColor] = "colorData",
         [compareMetric] = "colorMetric"
       )
 
   .page-section
-    p https://en.wikipedia.org/wiki/Color_difference
+    p Read more about #[a(href = "https://en.wikipedia.org/wiki/Color_difference") color diference].
