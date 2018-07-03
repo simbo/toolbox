@@ -43,7 +43,6 @@ export class SelectComponent
     if (!this.id) {
       this.id = `select_${shortid.generate()}`;
     }
-    console.log(this.id);
   }
 
   public choicesTrackBy(index: number, item: SelectChoice): string {
