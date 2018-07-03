@@ -12,7 +12,8 @@ import { randomColor } from '../generic/random-color';
 })
 export class ColorInputComponent implements OnInit {
 
-  @Output() public color = new EventEmitter<ColorData>();
+  @Output('color') public colorEmitter =
+    new EventEmitter<ColorData>();
 
   public colorValue = new ColorValue();
 
@@ -38,7 +39,7 @@ export class ColorInputComponent implements OnInit {
 
   public ngOnInit(): void {
     this.colorValue.observable.subscribe(colorData => {
-      this.color.emit(colorData);
+      this.colorEmitter.emit(colorData);
     });
   }
 
