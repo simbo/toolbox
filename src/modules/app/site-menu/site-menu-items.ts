@@ -10,10 +10,10 @@ export const menuItems: MenuItem[] = [
   },
   {
     label: 'Hash Generator',
-    link: '/hash'
+    link: '/strings/hash-generator'
   },
   {
     label: 'Color Namer',
-    link: '/color-namer'
+    link: '/colors/color-namer'
   }
 ];

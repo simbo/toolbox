@@ -5,7 +5,7 @@ import { HashGeneratorPageComponent } from './pages/hash-generator-page/hash-gen
 
 const routes: Routes = [
   {
-    path: 'hash',
+    path: 'hash-generator',
     component: HashGeneratorPageComponent,
     data: {
       title: 'Hash Generator'

@@ -7,8 +7,16 @@ import { AppRoutingService } from './app-routing.service';
 const routes: Routes = [
   {
     path: '',
-    component: HomePageComponent,
+    component: HomePageComponent
   },
+  {
+    path: 'strings',
+    loadChildren: '../../strings/strings.module#StringsModule'
+  },
+  {
+    path: 'colors',
+    loadChildren: '../../colors/colors.module#ColorsModule'
+  }
 ];
 
 @NgModule({

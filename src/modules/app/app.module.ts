@@ -2,8 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-import { ColorsModule } from '../colors/colors.module';
-import { StringsModule } from '../strings/strings.module';
 import { ControlsModule } from '../controls/controls.module';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 
@@ -16,8 +14,6 @@ import { ThemeSwitchComponent } from './themes/theme-switch/theme-switch.compone
   imports: [
     BrowserModule,
     FormsModule,
-    ColorsModule,
-    StringsModule,
     ControlsModule,
     AppRoutingModule
   ],
