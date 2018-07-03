@@ -1,8 +1,10 @@
 $font-families: (
-  'system': #{'-apple-system', 'system-ui', 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'},
-  'system-mono': #{SFMono-Regular, Consolas, 'Liberation Mono', Menlo, Courier, monospace},
-  'serif': #{Georgia, Cambria, "Times New Roman", Times, serif},
-  'sans': #{"Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif}
+  system: #{'-apple-system', 'system-ui', 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'},
+  system-mono: #{SFMono-Regular, Consolas, 'Liberation Mono', Menlo, Courier, monospace},
+  times: #{Cambria, "Hoefler Text", Utopia, "Liberation Serif", "Nimbus Roman No9 L Regular", Times, "Times New Roman", serif},
+  georgia: #{Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif},
+  lucida: #{"Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif},
+  garamond: #{"Palatino Linotype", Palatino, Palladio, "URW Palladio L", "Book Antiqua", Baskerville, "Bookman Old Style", "Bitstream Charter", "Nimbus Roman No9 L", Garamond, "Apple Garamond", "ITC Garamond Narrow", "New Century Schoolbook", "Century Schoolbook", "Century Schoolbook L", Georgia, serif},
 );
 
 $line-height: (
@@ -12,9 +14,20 @@ $line-height: (
 $colors: (
 
   white:              #ffffff,
+  pale-gray:          #fdfdfe,
+  lotion:             #fefdfa,
+  glacial-ice:        #eae9e7,
+  cold-morning:       #e6e5e4,
+  jupiter:            #e1e1e2,
   pinball:            #d4d4d4,
+  winter-morn:        #d9d9d6,
   pale-dull:          #adadad,
+  codex-gray:         #9c9c9c,
+  nickel:             #929292,
   gray:               #808080,
+  steel-wool:         #777777,
+  bank-vault:         #757473,
+  onyx:               #464544,
   boltgun-metal:      #393939,
   wax:                #2e2e2e,
   young-night:        #232323,
@@ -26,7 +39,9 @@ $colors: (
   shiva-blue:         #99dbfe,
   krishna-blue:       #01abfd,
   rockman-blue:       #41a2f3,
+  vanadyl-blue:       #00a3e0,
   code-blue:          #007acc,
+  royal-navy-blue:    #0066cc,
   genestealer-purple: #7b60af,
   tomato:             #ef4026,
 
@@ -42,4 +57,3 @@ $terminal-colors: (
   cyan:     color(turquoise-sea),
   white:    color(white),
 );
-

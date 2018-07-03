@@ -2,6 +2,10 @@
   font-family: map-get($font-families, system);
 }
 
+%font-family--serif {
+  font-family: map-get($font-families, garamond);
+}
+
 %font-family--mono {
   font-family: map-get($font-families, system-mono);
 }
