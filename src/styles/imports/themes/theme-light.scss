@@ -1,7 +1,28 @@
+@import './theme-default';
+
 $theme-light: (
 
-  background: color(white),
-  text: color(black),
+  background: color(lotion),
+  color: color(onyx),
+  color-secondary: color(codex-gray),
+  link: color(royal-navy-blue),
+
+  textfield: (
+    background: color(cold-morning),
+    color: color(young-night),
+    placeholder: color(codex-gray),
+  ),
+
+  button: (
+    background: color(pale-dull),
+    color: color(young-night),
+  ),
+
+  select: (
+    background: color(cold-morning),
+    color: color(young-night),
+    ui-color: color(codex-gray),
+  ),
 
 );
 

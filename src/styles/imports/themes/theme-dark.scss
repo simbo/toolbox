@@ -1,1 +1,25 @@
-$theme-dark: $theme-default;
+$theme-dark: (
+
+  background: color(young-night),
+  color: color(pinball),
+  color-secondary: color(gray),
+  link: color(vanadyl-blue),
+
+  textfield: (
+    background: color(boltgun-metal),
+    color: color(glacial-ice),
+    placeholder: color(steel-wool),
+  ),
+
+  button: (
+    background: color(pale-dull),
+    color: color(young-night),
+  ),
+
+  select: (
+    background: color(boltgun-metal),
+    color: color(glacial-ice),
+    ui-color: color(steel-wool),
+  ),
+
+);
