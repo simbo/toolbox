@@ -7,15 +7,10 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 export class ButtonComponent {
 
   @Input() public href: string;
-
   @Input() public link: string;
-
   @Input() public label: string;
-
   @Input() public icon: string;
-
   @Input() public style: string;
-
   @Input() public title: string;
 
   @Output('click') public clickEmitter =

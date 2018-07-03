@@ -1,9 +1,9 @@
 .button {
   $button: &;
-  $button-padding: .4em .6em;
+  $padding: .4em .6em;
 
   display: inline-flex;
-  padding: $button-padding;
+  padding: $padding;
   border: none;
   border-radius: 2px;
   font-size: inherit;
@@ -27,7 +27,7 @@
   }
 
   &.has-icon-only {
-    padding: nth($button-padding, 1);
+    padding: nth($padding, 1);
   }
 
   &__icon {
@@ -36,7 +36,7 @@
     vertical-align: bottom;
 
     #{$button}.has-label & {
-      margin-right: nth($button-padding, 1);
+      margin-right: nth($padding, 1);
     }
 
   }
@@ -54,7 +54,7 @@
     box-shadow: none;
 
     #{$button}__icon {
-      width: (_($line-height, default) + (nth($button-padding, 1) * 2));
+      width: (_($line-height, default) + (nth($padding, 1) * 2));
     }
 
   }
