@@ -1,0 +1,23 @@
+mixin button()
+  ng-container(*ngIf = "(link || href); then linkTag; else buttonTag")
+  ng-template(#linkTag = "")
+    a(
+      [href] = "href",
+      [routerLink] = "link"
+    )&attributes(attributes)
+      block
+  ng-template(#buttonTag = "")
+    button()&attributes(attributes)
+      block
+
+
++button().button(
+  (click) = "clickEmitter.emit($event)",
+  [ngClass] = "classList",
+  [title] = "title"
+)
+
+  .button__icon(*ngIf = "icon")
+    c-icon([name] = "icon")
+
+  .button__label(*ngIf = "label") {{ label }}

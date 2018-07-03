@@ -8,6 +8,11 @@ $theme-default: (
   textfield: (
     background: color(boltgun-metal),
     color: color(white),
-  )
+  ),
+
+  button: (
+    background: color(pale-dull),
+    color: color(black),
+  ),
 
 );

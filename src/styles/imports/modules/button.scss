@@ -1,0 +1,63 @@
+.button {
+  $button: &;
+  $button-padding: .4em .6em;
+
+  display: inline-flex;
+  padding: $button-padding;
+  border: none;
+  border-radius: 2px;
+  font-size: inherit;
+  cursor: pointer;
+
+  @include themify {
+    background: themed(button, background);
+    color: themed(button, color);
+  }
+
+  &.has-label {
+    min-width: 4em;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:active {
+    transform: translate(1px, 1px);
+  }
+
+  &.has-icon-only {
+    padding: nth($button-padding, 1);
+  }
+
+  &__icon {
+    flex: 0 0 auto;
+    width: (_($line-height, default) * 1em);
+    vertical-align: bottom;
+
+    #{$button}.has-label & {
+      margin-right: nth($button-padding, 1);
+    }
+
+  }
+
+  &__label {
+    flex: 1 0 auto;
+    line-height: _($line-height, default);
+    text-align: center;
+  }
+
+
+  &.is-style--icon {
+    padding: 0;
+    background: transparent;
+    box-shadow: none;
+
+    #{$button}__icon {
+      width: (_($line-height, default) + (nth($button-padding, 1) * 2));
+    }
+
+  }
+
+
+}
