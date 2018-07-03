@@ -2,7 +2,7 @@
 
   .page-section
 
-    c-textfield#input(
+    c-textfield(
       [(ngModel)] = "input",
       [multiline] = "true",
       label = "Input",
@@ -11,7 +11,7 @@
 
   .page-section
 
-    c-select#algorithm(
+    c-select(
       [(ngModel)] = "algorithm",
       [choices] = "algorithms",
       label = "Algorithm"
@@ -19,7 +19,7 @@
 
   .page-section
 
-    c-select#encoding(
+    c-select(
       [(ngModel)] = "encoding",
       [choices] = "encodings",
       label = "Encoding"
@@ -27,7 +27,7 @@
 
   .page-section
 
-    c-textfield#output(
+    c-textfield(
       [ngModel] = "output",
       [readonly] = "true",
       [multiline] = "true",
