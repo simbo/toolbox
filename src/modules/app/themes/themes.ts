@@ -1,12 +1,17 @@
 import { Theme } from './theme.interface';
 
+export enum ThemeKey {
+  Dark = 'dark',
+  Light = 'light'
+}
+
 export const themes: Theme[] = [
   {
     name: 'Dark',
-    slug: 'dark'
+    slug: ThemeKey.Dark
   },
   {
     name: 'Light',
-    slug: 'light'
+    slug: ThemeKey.Light
   }
 ];

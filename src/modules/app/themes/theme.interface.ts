@@ -1,5 +1,7 @@
+import { ThemeKey } from './themes';
+
 export interface Theme {
   name: string;
-  slug: string;
+  slug: ThemeKey;
   className?: string;
 }

@@ -3,6 +3,7 @@ import { Subscription } from 'rxjs';
 
 import { SelectChoices } from '../../../controls/select/select.component';
 import { ThemesService } from '../themes.service';
+import { ThemeKey } from '../themes';
 
 
 @Component({
@@ -33,6 +34,10 @@ export class ThemeSwitchComponent implements OnInit {
       })
     );
 
+  }
+
+  public onChange(event: Event): void {
+    this.themesService.setTheme(this.themeChoice as ThemeKey);
   }
 
 }
