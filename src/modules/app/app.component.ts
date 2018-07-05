@@ -1,7 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { Data } from '@angular/router';
 import { Subscription } from 'rxjs';
 
+import { ClassList } from '../shared/class-list.interface';
 import { AppRoutingService } from './app-routing/app-routing.service';
 import { ThemesService } from './themes/themes.service';
 
@@ -27,7 +29,7 @@ export class AppComponent implements OnInit, OnDestroy {
   public ngOnInit(): void {
     this.subscriptions.add(
       this.appRoutingService.activatedRouteData.subscribe(
-        (routeData: {[key: string]: any}) =>
+        (routeData: Data) =>
           this.setSiteTitle(routeData.title || '')
       )
     );
@@ -55,7 +57,7 @@ export class AppComponent implements OnInit, OnDestroy {
     );
   }
 
-  public setHtmlClassList(classList: {[key: string]: boolean}): void {
+  public setHtmlClassList(classList: ClassList): void {
     Object.entries(classList).forEach(
       ([className, classState]) => {
         const fn = classState ? 'add' : 'remove';

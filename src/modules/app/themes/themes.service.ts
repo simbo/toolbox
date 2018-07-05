@@ -6,6 +6,7 @@ import { themes } from './themes';
 import { map } from 'rxjs/operators';
 
 export const SITE_DEFAULT_THEME = 'dark';
+import { ClassList } from '../../shared/class-list.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -30,7 +31,7 @@ export class ThemesService {
     return Array.from(this._themes.values());
   }
 
-  public get themeClassList(): Observable<{[key: string]: boolean}> {
+  public get themeClassList(): Observable<ClassList> {
     return this.theme.pipe(
       map(currentTheme => {
         return this.themes.reduce((classList, theme) => ({

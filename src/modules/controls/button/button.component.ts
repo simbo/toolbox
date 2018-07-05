@@ -1,5 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
+import { ClassList } from '../../shared/class-list.interface';
+
 @Component({
   selector: 'c-button',
   templateUrl: './button.component.pug'
@@ -24,7 +26,7 @@ export class ButtonComponent {
     return !!(this.label && !this.icon);
   }
 
-  public get classList(): {[key: string]: boolean} {
+  public get classList(): ClassList {
     return {
       [`is-style--${this.style}`]: !!this.style,
       'has-label': !!this.label,
