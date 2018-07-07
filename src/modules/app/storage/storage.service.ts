@@ -6,6 +6,7 @@ import * as StoreDefaultsPlugin from 'store/plugins/defaults';
 
 import { Data } from '../../shared/data.interface';
 import { observableStorePlugin } from './observable-store-plugin';
+import { compressStorePlugin } from './compress-store-plugin';
 
 
 @Injectable({
@@ -20,7 +21,11 @@ export class StorageService {
   constructor() {
     this.store = createStore(
       [StoreLocalStorage],
-      [StoreDefaultsPlugin, observableStorePlugin]
+      [
+        compressStorePlugin,
+        observableStorePlugin,
+        StoreDefaultsPlugin
+      ]
     );
   }
 
