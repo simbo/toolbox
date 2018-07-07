@@ -15,9 +15,13 @@ export function observableStorePlugin() {
       return subject.asObservable();
     },
 
-    set(superFn: () => void, key: string, value: any): void {
+    set(
+      superFn: (key: string, value: string) => void,
+      key: string,
+      value: any
+    ): void {
       const subject = subjects.get(key);
-      superFn();
+      superFn(key, value);
       if (subject) {
         subject.next(value);
       }
