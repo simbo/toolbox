@@ -1,4 +1,3 @@
-
 import * as lzString from 'lz-string';
 
 export function compressStorePlugin() {
@@ -21,11 +20,16 @@ export function compressStorePlugin() {
       key: string
     ): string {
       const value = superFn(key);
-      if (!value) {
+      if (value === undefined) {
         return value;
       }
-      const uncompressed = lzString.decompressFromUTF16(value);
-      return !uncompressed ? value : this._deserialize(uncompressed);
+      try {
+        const decompressed = lzString.decompressFromUTF16(value);
+        const deserialized = this._deserialize(decompressed);
+        return deserialized;
+      } catch {
+        return value;
+      }
     }
 
   };
