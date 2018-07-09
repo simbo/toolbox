@@ -1,6 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { Data } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 import { ClassList } from '../shared/class-list.interface';
@@ -16,7 +15,7 @@ export const SITE_TITLE_SEPARATOR = '•';
 })
 export class AppComponent implements OnInit, OnDestroy {
 
-  private subscriptions = new Set<Subscription>();
+  private subscriptions: Subscription[] = [];
 
   constructor(
     public appRoutingService: AppRoutingService,
@@ -27,13 +26,10 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   public ngOnInit(): void {
-    this.subscriptions.add(
-      this.appRoutingService.activatedRouteData.subscribe(
-        (routeData: Data) =>
-          this.setSiteTitle(routeData.title || '')
-      )
-    );
-    this.subscriptions.add(
+    this.subscriptions.push(
+      this.appRoutingService.activatedRouteData.subscribe((routeData) => {
+        this.setSiteTitle(routeData.title || '');
+      }),
       this.themesService.themeClassList.subscribe(
         classList => this.setHtmlClassList(classList)
       )
@@ -41,9 +37,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   public ngOnDestroy(): void {
-    Array.from(this.subscriptions).forEach(
-      subscription => subscription.unsubscribe()
-    );
+    this.subscriptions.forEach(subscription => subscription.unsubscribe());
   }
 
   public setSiteTitle(title: string = ''): void {
