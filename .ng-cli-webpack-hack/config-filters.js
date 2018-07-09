@@ -7,6 +7,29 @@
 /**
  * filter angular cli webpack common config (common.js)
  */
+const HtmlMinifier = require('html-minifier');
+const marked = require('marked');
+
+marked.setOptions({
+  smartypants: true
+});
+
+const HtmlMinifierOptions = {
+  html5: true,
+  collapseWhitespace: true,
+  removeComments: true
+};
+
+const pugLoader = {
+  loader: 'pug-plain-loader',
+  options: {
+    filters: {
+      markdown: (contents) =>
+        HtmlMinifier.minify(marked(contents), HtmlMinifierOptions)
+    }
+  }
+};
+
 exports.common = (config) => {
 
   // alter module rules
@@ -15,7 +38,7 @@ exports.common = (config) => {
     // pug templates
     {
       test: /\.pug$/,
-      use: ['raw-loader', 'pug-plain-loader']
+      use: ['raw-loader', pugLoader]
     }
 
   );
