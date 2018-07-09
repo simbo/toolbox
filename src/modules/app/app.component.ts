@@ -7,7 +7,7 @@ import { ClassList } from '../shared/class-list.interface';
 import { AppRoutingService } from './app-routing/app-routing.service';
 import { ThemesService } from './themes/themes.service';
 
-export const SITE_BASE_TITLE = 'Toolbox';
+export const SITE_TITLE = 'Toolbox';
 export const SITE_TITLE_SEPARATOR = '•';
 
 @Component({
@@ -20,7 +20,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   constructor(
     public appRoutingService: AppRoutingService,
-    public siteTitleService: Title,
+    public titleService: Title,
     public themesService: ThemesService
   ) {
     this.setSiteTitle();
@@ -48,11 +48,11 @@ export class AppComponent implements OnInit, OnDestroy {
 
   public setSiteTitle(title: string = ''): void {
     const titleSeparator = ` ${SITE_TITLE_SEPARATOR} `;
-    const titleParts = [SITE_BASE_TITLE];
+    const titleParts = [SITE_TITLE];
     if (typeof title === 'string' && title.length) {
       titleParts.unshift(title);
     }
-    this.siteTitleService.setTitle(
+    this.titleService.setTitle(
       titleParts.join(titleSeparator)
     );
   }
