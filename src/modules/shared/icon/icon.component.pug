@@ -1,33 +1,16 @@
-mixin iconSymbol(name, width = 512, height = null)
-  if (height === null)
-    - var height = width
-  symbol(
-    *ngIf = `name == '${name}'`,
-    id = `icon-symbol--${name}`,
-    viewBox = `0 0 ${width} ${height}`
-  )
-    block
-
 .icon
 
-  svg.icon__svg(
-    viewBox = "0 0 512 512",
-    xmlns = "http://www.w3.org/2000/svg"
-  )
+  ng-container(*ngIf = "name === 'octocat'")
+    include icons/octocat.svg
 
-    use(
-      [attr.xlink:href] = "svgSymbolLink",
-      [attr.filter] = "svgFilterUrl"
-    )
+  ng-container(*ngIf = "name === 'npm'")
+    include icons/npm.svg
 
-    ng-container(*ngIf = "svgFilterUrl")
-      include filters/grayscale
+  ng-container(*ngIf = "name === 'dices'")
+    include icons/dices.svg
 
-    include icons/unicorn
-    include icons/paper-plane
-    include icons/octocat
-    include icons/secure
-    include icons/twitter
-    include icons/npm
-    include icons/dice
-    include icons/dices
+  ng-container(*ngIf = "name === 'sun'")
+    include icons/sun.svg
+
+  ng-container(*ngIf = "name === 'pantone'")
+    include icons/pantone.svg
