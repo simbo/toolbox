@@ -1,4 +1,6 @@
+import { MessageBusChannel } from './message-bus-channel.enum';
+
 export interface MessageBusMessage {
-  channel: string;
+  channel: MessageBusChannel;
   data: any;
 }

@@ -3,6 +3,7 @@ import { Observable, Subject } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 
 import { MessageBusMessage } from './message-bus-message.interface';
+import { MessageBusChannel } from './message-bus-channel.enum';
 
 @Injectable({
   providedIn: 'root'
@@ -15,17 +16,20 @@ export class MessageBusService {
     this.bus = new Subject<MessageBusMessage>();
   }
 
-  public push(channel: string, data?: any): void {
-    this.bus
-      .next({channel, data});
+  public push(channel: MessageBusChannel, data?: any): void {
+    this.bus.next({channel, data});
   }
 
-  public channel(channels: string | string[]): Observable<any> {
+  public channel(
+    channels: MessageBusChannel | MessageBusChannel[]
+  ): Observable<any> {
     if (!Array.isArray(channels)) {
       channels = [channels];
     }
     return this.bus.pipe(
-      filter((msg) => channels.indexOf(msg.channel) !== -1),
+      filter(
+        (msg) => (channels as MessageBusChannel[]).indexOf(msg.channel) !== -1
+      ),
       map((msg) => msg.data)
     );
   }
