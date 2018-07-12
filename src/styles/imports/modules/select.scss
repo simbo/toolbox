@@ -7,7 +7,7 @@
     @extend %font-size--small;
     display: block;
     margin-bottom: .25em;
-    line-height: 1.5;
+    line-height: _($line-height, default);
   }
 
   &__select-wrap {
@@ -46,29 +46,30 @@
   }
 
   &__select {
+    @include text-ellipsis;
     appearance: none;
     display: block;
     width: 100%;
+    height: (nth($padding, 1) * 2 + _($line-height, default) * 1em);
     padding: nth($padding, 1) (nth($padding, 2) + 1) nth($padding, 1) nth($padding, 2);
     border-radius: 2px;
     border: none;
+    line-height: 1.15;
     cursor: pointer;
-
-    &:focus {
-      outline: none;
-    }
 
     @include themify {
       background: themed(select, background);
       color: themed(select, color);
     }
 
+    &:focus {
+      outline: none;
+    }
+
   }
 
   &__option {
-    background: inherit;
-    font: inherit;
-    color: inherit;
+    line-height: 1.15;
   }
 
 }
