@@ -24,9 +24,9 @@ const config = {
     'keyframes-name-pattern': `^${rxBem}$`,
     'selector-class-pattern': `^\.${rxBem}$`,
     'selector-id-pattern': `^#${rxBem}$`,
-    'scss/at-function-pattern': `^(${rxKebab})|_$`,
+    'scss/at-function-pattern': `^(${rxBem})|_$`,
     'scss/at-mixin-pattern': `^${rxBem}$`,
-    'scss/dollar-variable-pattern': `^${rxKebab}$`,
+    'scss/dollar-variable-pattern': `^${rxBem}$`,
 
     // selectors
     'no-descending-specificity': null,
