@@ -11,6 +11,10 @@ $line-height: (
   default: 1.5,
 );
 
+$z-index: (
+  site-loading-bar: 1000,
+);
+
 $colors: (
 
   white:              #ffffff,
@@ -38,6 +42,7 @@ $colors: (
   turquoise-sea:      #61dbec,
   shiva-blue:         #99dbfe,
   krishna-blue:       #01abfd,
+  button-blue:        #24a0ed,
   rockman-blue:       #41a2f3,
   vanadyl-blue:       #00a3e0,
   code-blue:          #007acc,

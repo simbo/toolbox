@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { SiteMenuComponent } from './site-menu/site-menu.component';
 import { ThemeSwitchComponent } from './themes/theme-switch/theme-switch.component';
+import { SiteLoadingBarComponent } from './site-loading-bar/site-loading-bar.component';
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import { ThemeSwitchComponent } from './themes/theme-switch/theme-switch.compone
     AppComponent,
     HomePageComponent,
     SiteMenuComponent,
-    ThemeSwitchComponent
+    ThemeSwitchComponent,
+    SiteLoadingBarComponent
   ],
   providers: [
     {

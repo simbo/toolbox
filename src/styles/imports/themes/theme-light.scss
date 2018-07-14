@@ -24,6 +24,12 @@ $theme-light: (
     ui-color: color(codex-gray),
   ),
 
+  site-loading-bar: (
+    height: (3rem / 16),
+    inner-center-width: 10%,
+    color: color(button-blue),
+  ),
+
 );
 
 $theme-light: map-deep-merge($theme-default, $theme-light);
