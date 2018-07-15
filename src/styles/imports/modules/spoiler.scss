@@ -21,6 +21,11 @@
     width: 1em;
     transform: rotate(0deg);
     transition: transform .4s ease;
+
+    path {
+      fill: currentColor;
+    }
+
   }
 
   &.is-open &__icon {
