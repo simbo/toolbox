@@ -5,6 +5,7 @@
     c-textfield(
       [(ngModel)] = "input",
       [multiline] = "true",
+      [autosize] = "true",
       label = "Input",
       placeholder = "Paste your data here…"
     )
@@ -35,7 +36,9 @@
       .page-section
 
         c-textfield(
-          [(ngModel)] = "salt"
+          [(ngModel)] = "salt",
+          [multiline] = "true",
+          [autosize] = "true",
           label = "Salt",
           placeholder = "Add some salt…"
         )
@@ -62,6 +65,7 @@
           [ngModel] = "inputWithSalt",
           [readonly] = "true",
           [multiline] = "true",
+          [autosize] = "true",
           label = "Input with Salt"
         )
 
@@ -71,6 +75,7 @@
       [ngModel] = "output",
       [readonly] = "true",
       [multiline] = "true",
+      [autosize] = "true",
       label = "Output",
       placeholder = "Nothing to hash…"
     )
