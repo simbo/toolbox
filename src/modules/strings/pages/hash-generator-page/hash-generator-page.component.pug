@@ -12,22 +12,6 @@
 
   .page-section
 
-    .item-row
-
-      c-select.item-row__item(
-        [(ngModel)] = "algorithm",
-        [choices] = "algorithms",
-        label = "Algorithm"
-      )
-
-      c-select.item-row__item(
-        [(ngModel)] = "encoding",
-        [choices] = "encodings",
-        label = "Encoding"
-      )
-
-  .page-section
-
     c-spoiler(
       (change) = "onChangeDisplaySaltOptions($event)"
       label = "Salt disabled",
@@ -67,8 +51,25 @@
           [readonly] = "true",
           [multiline] = "true",
           [autosize] = "true",
-          label = "Input with Salt"
+          label = "Input with Salt",
+          placeholder = "Nothing to display…"
         )
+
+  .page-section
+
+    .item-row
+
+      c-select.item-row__item(
+        [(ngModel)] = "algorithm",
+        [choices] = "algorithms",
+        label = "Algorithm"
+      )
+
+      c-select.item-row__item(
+        [(ngModel)] = "encoding",
+        [choices] = "encodings",
+        label = "Encoding"
+      )
 
   .page-section
 
