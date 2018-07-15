@@ -1,0 +1,39 @@
+.spoiler {
+
+  &__header {
+    @extend %font-size--small;
+    display: flex;
+  }
+
+  &__toggle {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  &__icon,
+  &__label {
+    flex: 0 0 auto;
+  }
+
+  &__icon {
+    width: 1em;
+    transform: rotate(0deg);
+    transition: transform .4s ease;
+  }
+
+  &.is-open &__icon {
+    transform: rotate(90deg);
+  }
+
+  &__label {
+    padding: 0 .25em;
+    line-height: _($line-height, default);
+  }
+
+  &__content {
+    padding: 1em 0;
+  }
+
+}

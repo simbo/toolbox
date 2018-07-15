@@ -1,0 +1,16 @@
+.spoiler([ngClass] = "{'is-open': opened}")
+
+  .spoiler__header
+
+    button.spoiler__toggle((click) = "toggle()")
+
+      .spoiler__icon
+        c-icon(name = "double-angle")
+
+      .spoiler__label
+        ng-container(*ngIf = "opened; else closed") {{ openedLabel }}
+        ng-template(#closed = "") {{ closedLabel }}
+
+  c-roller([expanded] = "opened")
+    .spoiler__content
+      ng-content
