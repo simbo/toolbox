@@ -50,6 +50,14 @@ small {
   @extend %font-size--small;
 }
 
+.font-size--tiny {
+  @extend %font-size--tiny;
+}
+
+.font-size--small {
+  @extend %font-size--small;
+}
+
 .text-color--secondary {
   @extend %text-color--secondary;
 }
