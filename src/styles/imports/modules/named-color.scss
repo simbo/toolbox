@@ -75,17 +75,15 @@
   }
 
   &__name,
-  &__kebab-case,
-  &__hex,
-  &__rgb,
+  &__formatted-name,
+  &__formatted-value,
   &__distance {
     line-height: _($line-height, default);
     white-space: nowrap;
   }
 
-  &__kebab-case,
-  &__hex,
-  &__rgb {
+  &__formatted-name,
+  &__formatted-value {
     @extend %font-family--mono;
   }
 

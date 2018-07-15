@@ -9,13 +9,6 @@ import { ClosestNamedColorsService } from '../../color-names/closest-named-color
 import { NamedColor } from '../../named-color/named-color.interface';
 import { ColorData } from '../../generic/color-data.interface';
 
-export const colorMetricChoices: SelectChoices =
-  Object.entries(colorDistanceMetrics)
-    .map(([value, metric]) => ({
-      value,
-      label: metric.name
-    }));
-
 @Component({
   selector: 'c-color-namer-page',
   templateUrl: './color-namer-page.component.pug',
@@ -26,9 +19,48 @@ export const colorMetricChoices: SelectChoices =
 })
 export class ColorNamerPageComponent {
 
-  public colorMetricChoices: SelectChoices = colorMetricChoices;
+  public colorMetricChoices: SelectChoices =
+    Object.entries(colorDistanceMetrics)
+      .map(([value, metric]) => ({
+        value,
+        label: metric.name
+      }));
 
   public colorMetric: ColorDistanceMetric = ColorDistanceMetric.CIEDE2000;
+
+  public colorNameFormatChoices: SelectChoices = [
+    {
+      label: 'camelCase',
+      value: 'camelCase'
+    },
+    {
+      label: 'kebab-case',
+      value: 'kebabCase'
+    },
+    {
+      label: 'PascalCase',
+      value: 'pascalCase'
+    },
+    {
+      label: 'snake_case',
+      value: 'snakeCase'
+    }
+  ];
+
+  public colorNameFormat: string = 'kebabCase';
+
+  public colorValueFormatChoices: SelectChoices = [
+    {
+      label: '#hex',
+      value: 'hex'
+    },
+    {
+      label: 'rgb()',
+      value: 'rgb'
+    }
+  ];
+
+  public colorValueFormat: string = 'hex';
 
   public colorDataSubject = new BehaviorSubject<ColorData>(null);
 

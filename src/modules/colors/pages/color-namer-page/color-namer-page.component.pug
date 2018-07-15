@@ -6,11 +6,28 @@
     )
 
   .page-section
-    c-select(
-      [(ngModel)] = "colorMetric",
-      [choices] = "colorMetricChoices",
-      label = "Color Distance Metric"
-    )
+
+    c-spoiler(label = "More Options", openedLabel = "Less Options")
+
+      .item-row
+
+        c-select.item-row__item(
+          [(ngModel)] = "colorMetric",
+          [choices] = "colorMetricChoices",
+          label = "Color Distance Metric"
+        )
+
+        c-select.item-row__item(
+          [(ngModel)] = "colorNameFormat",
+          [choices] = "colorNameFormatChoices",
+          label = "Color Name Format"
+        )
+
+        c-select.item-row__item(
+          [(ngModel)] = "colorValueFormat",
+          [choices] = "colorValueFormatChoices",
+          label = "Color Value Format"
+        )
 
   .page-section
 
@@ -24,7 +41,9 @@
         *ngFor = "let color of (closestColors | async).slice(0, maxClosestColors)",
         [color] = "color",
         [compareColor] = "colorData",
-        [compareMetric] = "colorMetric"
+        [compareMetric] = "colorMetric",
+        [colorNameFormat] = "colorNameFormat",
+        [colorValueFormat] = "colorValueFormat"
       )
 
   .page-section

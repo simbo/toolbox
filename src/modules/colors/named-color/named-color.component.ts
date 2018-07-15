@@ -17,6 +17,10 @@ export class NamedColorComponent {
 
   @Input() public compareMetric: ColorDistanceMetric;
 
+  @Input() public colorNameFormat: string;
+
+  @Input() public colorValueFormat: string;
+
   constructor(
     public colorDistanceService: ColorDistanceService
   ) {}

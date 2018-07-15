@@ -15,9 +15,27 @@
 
     .named-color__name {{ color.name }}
 
-    .named-color__kebab-case {{ color.name | kebabCase }}
+    ng-container([ngSwitch] = "colorNameFormat")
+      .named-color__formatted-name(
+        *ngSwitchCase = "'camelCase'"
+      ) {{ color.name | camelCase }}
+      .named-color__formatted-name(
+        *ngSwitchCase = "'pascalCase'"
+      ) {{ color.name | pascalCase }}
+      .named-color__formatted-name(
+        *ngSwitchCase = "'snakeCase'"
+      ) {{ color.name | snakeCase }}
+      .named-color__formatted-name(
+        *ngSwitchDefault
+      ) {{ color.name | kebabCase }}
 
-    .named-color__hex {{ color.data.hex | lowercase }}
+    ng-container([ngSwitch] = "colorValueFormat")
+      .named-color__formatted-value(
+        *ngSwitchCase = "'rgb'"
+      ) {{ color.data.color.string() }}
+      .named-color__formatted-value(
+        *ngSwitchDefault
+      ) {{ color.data.hex | lowercase }}
 
     .named-color__distance(
       *ngIf = "compareMode"
