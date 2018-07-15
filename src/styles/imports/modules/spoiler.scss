@@ -1,7 +1,6 @@
 .spoiler {
 
   &__header {
-    @extend %font-size--small;
     display: flex;
   }
 
@@ -19,7 +18,7 @@
 
   &__icon {
     width: 1em;
-    transform: rotate(0deg);
+    transform: rotate(90deg) rotate3d(0, 0, 0, 180deg);
     transition: transform .4s ease;
 
     path {
@@ -29,7 +28,7 @@
   }
 
   &.is-open &__icon {
-    transform: rotate(90deg);
+    transform: rotate(90deg) rotate3d(0, .5, 0, 180deg);
   }
 
   &__label {
