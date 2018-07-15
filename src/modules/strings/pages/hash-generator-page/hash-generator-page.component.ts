@@ -34,6 +34,9 @@ export class HashGeneratorPageComponent {
   public input: string = '';
 
   public salt: string = '';
+  public saltEnabled: boolean = false;
+  public saltPosition: string = 'append';
+  public saltSeparator: string = ':';
 
   public saltPositionChoices: SelectChoices = [
     {
@@ -45,9 +48,6 @@ export class HashGeneratorPageComponent {
       value: 'append'
     }
   ];
-
-  public saltPosition: string = 'append';
-  public saltSeparator: string = ':';
 
   public get output(): string {
     if (!this.input || this.input === '') {
@@ -63,10 +63,14 @@ export class HashGeneratorPageComponent {
       return '';
     }
     const parts = [this.input];
-    if (this.salt && this.salt.length > 0) {
+    if (this.saltEnabled && this.salt && this.salt.length > 0) {
       parts[this.saltPosition === 'prepend' ? 'unshift' : 'push'](this.salt);
     }
     return parts.join(this.saltSeparator);
+  }
+
+  public onChangeDisplaySaltOptions(opened) {
+    this.saltEnabled = opened;
   }
 
 }
