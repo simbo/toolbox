@@ -27,6 +27,46 @@
 
   .page-section
 
+    c-spoiler(
+      label = "Salt disabled",
+      openedLabel = "Salt enabled"
+    )
+
+      .page-section
+
+        c-textfield(
+          [(ngModel)] = "salt"
+          label = "Salt",
+          placeholder = "Add some salt…"
+        )
+
+      .page-section
+
+        .item-row
+
+          c-select.item-row__item(
+            [(ngModel)] = "saltPosition",
+            [choices] = "saltPositionChoices",
+            label = "Position"
+          )
+
+          c-textfield.item-row__item(
+            [(ngModel)] = "saltSeparator",
+            size = "tiny",
+            label = "Separator"
+          )
+
+      .page-section
+
+        c-textfield(
+          [ngModel] = "inputWithSalt",
+          [readonly] = "true",
+          [multiline] = "true",
+          label = "Input with Salt"
+        )
+
+  .page-section
+
     c-textfield(
       [ngModel] = "output",
       [readonly] = "true",

@@ -33,13 +33,40 @@ export class HashGeneratorPageComponent {
 
   public input: string = '';
 
+  public salt: string = '';
+
+  public saltPositionChoices: SelectChoices = [
+    {
+      label: 'prepend Salt',
+      value: 'prepend'
+    },
+    {
+      label: 'append Salt',
+      value: 'append'
+    }
+  ];
+
+  public saltPosition: string = 'append';
+  public saltSeparator: string = ':';
+
   public get output(): string {
     if (!this.input || this.input === '') {
       return '';
     }
     const hash = new Hash(this.algorithm);
-    hash.set(this.input);
+    hash.set(this.inputWithSalt);
     return hash.get(this.encoding);
+  }
+
+  public get inputWithSalt(): string {
+    if (!this.input || this.input === '') {
+      return '';
+    }
+    const parts = [this.input];
+    if (this.salt && this.salt.length > 0) {
+      parts[this.saltPosition === 'prepend' ? 'unshift' : 'push'](this.salt);
+    }
+    return parts.join(this.saltSeparator);
   }
 
 }

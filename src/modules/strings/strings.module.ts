@@ -6,6 +6,7 @@ import { ControlsModule } from '../controls/controls.module';
 import { StringPipesModule } from './pipes/string-pipes.module';
 import { StringsRoutingModule } from './strings-routing.module';
 import { HashGeneratorPageComponent } from './pages/hash-generator-page/hash-generator-page.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
@@ -13,7 +14,8 @@ import { HashGeneratorPageComponent } from './pages/hash-generator-page/hash-gen
     FormsModule,
     ControlsModule,
     StringPipesModule,
-    StringsRoutingModule
+    StringsRoutingModule,
+    SharedModule
   ],
   declarations: [
     HashGeneratorPageComponent
