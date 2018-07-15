@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'c-spoiler',
@@ -6,12 +6,14 @@ import { Component, Input } from '@angular/core';
 })
 export class SpoilerComponent {
 
-  @Input() label: string = 'Spoiler';
+  @Input() public label: string = 'Spoiler';
+
+  @Output('change') public changeEmitter = new EventEmitter<boolean>();
 
   private _openedLabel: string;
   private _closedLabel: string;
 
-  public opened: boolean = false;
+  private _opened: boolean = false;
 
   public get closedLabel(): string {
     return this._closedLabel || this.label;
@@ -30,6 +32,15 @@ export class SpoilerComponent {
   }
 
   constructor() {}
+
+  public get opened(): boolean {
+    return this._opened;
+  }
+
+  public set opened(value: boolean) {
+    this._opened = value;
+    this.changeEmitter.emit(value);
+  }
 
   public open(): void {
     this.opened = true;
