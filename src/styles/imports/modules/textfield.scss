@@ -71,6 +71,7 @@
     #{$root}.has-autosize & {
       min-height: textfield-height(1);
       height: textfield-height(1);
+      resize: none;
     }
 
   }
