@@ -63,6 +63,12 @@
     height: textfield-height($rows);
     min-height: textfield-height($min-rows);
     max-height: textfield-height($max-rows);
+
+    #{$root}.has-autosize & {
+      min-height: textfield-height(1);
+      height: textfield-height(1);
+    }
+
   }
 
 }
