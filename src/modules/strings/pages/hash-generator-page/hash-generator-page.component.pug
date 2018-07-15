@@ -11,19 +11,19 @@
 
   .page-section
 
-    c-select(
-      [(ngModel)] = "algorithm",
-      [choices] = "algorithms",
-      label = "Algorithm"
-    )
+    .item-row
 
-  .page-section
+      c-select.item-row__item(
+        [(ngModel)] = "algorithm",
+        [choices] = "algorithms",
+        label = "Algorithm"
+      )
 
-    c-select(
-      [(ngModel)] = "encoding",
-      [choices] = "encodings",
-      label = "Encoding"
-    )
+      c-select.item-row__item(
+        [(ngModel)] = "encoding",
+        [choices] = "encodings",
+        label = "Encoding"
+      )
 
   .page-section
 
