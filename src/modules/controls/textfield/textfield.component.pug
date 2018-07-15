@@ -9,7 +9,7 @@ mixin textfield()
     *ngIf = "!multiline"
   )&attributes(attributes)
 
-.textfield
+.textfield([ngClass] = "classList")
 
   label.textfield__label(
     *ngIf = "label",

@@ -1,4 +1,5 @@
 .textfield {
+  $root: &;
   $line-height: 1.5;
   $padding-x: .6em;
   $padding-y: .4em;
@@ -22,6 +23,7 @@
   &__textarea {
     display: block;
     width: 100%;
+    min-width: 100%;
     padding: $padding-y $padding-x;
     line-height: $line-height;
     border: none;
@@ -37,10 +39,26 @@
       }
 
     }
+
+  }
+
+  &__input {
+
+    #{$root}.is-size--tiny & {
+      width: 3em;
+    }
+
+    #{$root}.is-size--small & {
+      width: 6em;
+    }
+
+    #{$root}.is-size--medium & {
+      width: 12em;
+    }
+
   }
 
   &__textarea {
-    min-width: 100%;
     max-width: 100%;
     height: textfield-height($rows);
     min-height: textfield-height($min-rows);

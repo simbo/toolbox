@@ -2,6 +2,7 @@ import { Component, Input, ViewChild, Optional, Inject, OnInit, HostBinding } fr
 import { NgModel, NG_VALUE_ACCESSOR, NG_VALIDATORS, NG_ASYNC_VALIDATORS } from '@angular/forms';
 import * as shortid from 'shortid';
 
+import { ClassList } from '../../shared/class-list.interface';
 import { ControlElementBase } from '../control-base/control-element-base';
 
 @Component({
@@ -25,6 +26,7 @@ export class TextfieldComponent
   @Input() public autocorrect: boolean = false;
   @Input() public autocomplete: boolean = false;
   @Input() public autocapitalize: boolean = false;
+  @Input() public size: string = 'auto';
 
   @HostBinding('id') hostId: string = '';
 
@@ -35,6 +37,12 @@ export class TextfieldComponent
     @Optional() @Inject(NG_ASYNC_VALIDATORS) asyncValidators: Array<any>,
   ) {
     super(validators, asyncValidators);
+  }
+
+  public get classList(): ClassList {
+    return {
+      [`is-size--${this.size}`]: true
+    };
   }
 
   public ngOnInit(): void {
