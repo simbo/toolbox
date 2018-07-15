@@ -34,6 +34,10 @@
       background: themed(textfield, background);
       color: themed(textfield, color);
 
+      &[readonly] {
+        color: themed(textfield, color-readonly);
+      }
+
       &::placeholder {
         color: themed(textfield, placeholder);
       }
