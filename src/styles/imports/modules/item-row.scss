@@ -1,0 +1,13 @@
+.item-row {
+  $spacing: 1rem 2rem;
+
+  display: flex;
+  flex-wrap: wrap;
+  margin: (nth($spacing, 1) / -2) (nth($spacing, 2) / -2);
+
+  &__item {
+    flex: 0 0 auto;
+    margin: (nth($spacing, 1) / 2) (nth($spacing, 2) / 2);
+  }
+
+}
