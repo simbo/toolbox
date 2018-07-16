@@ -22,6 +22,7 @@ export class CheckboxComponent
   @Input() public label: string = '';
   @Input() public readonly: boolean = false;
   @Input() public labelPosition: string = 'after';
+  @Input() public style: string = 'cross';
 
   @HostBinding('id') hostId: string = '';
 
@@ -38,7 +39,8 @@ export class CheckboxComponent
     return {
       'has-label': !!this.label.length,
       'has-label--before': this.labelPosition === 'before',
-      'has-label--after': this.labelPosition === 'after'
+      'has-label--after': this.labelPosition === 'after',
+      [`is-style--${this.style}`]: !!this.style.length
     };
   }
 

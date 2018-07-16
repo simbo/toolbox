@@ -3,14 +3,8 @@
   $size: 1em;
   $spacing: .4em;
   $line-height: _($line-height, default);
-  $transition-duration: .3s;
-  $check-thickness: .125em;
-  $check-width: 50%;
-  $check-height: 90%;
-  $check-offset-x: 55%;
-  $check-offset-y: 60%;
-  $check-rotate: 38deg;
-  $box-size: 70%;
+  $transition-duration: .4s;
+  $box-size: 100%;
   $box-border-width: .0625em;
 
   display: inline-block;
@@ -66,48 +60,112 @@
     left: 50%;
     width: $box-size;
     height: $box-size;
-    border: transparent solid $box-border-width;
     border-radius: 2px;
     transform: translate(-50%, -50%);
-    opacity: 1;
-    transition: opacity $transition-duration ease-in ($transition-duration / 2);
 
     @include themify {
-      border-color: themed(checkbox, border-color);
-    }
-
-    #{$root}__input:checked + #{$root}__toggle & {
-      transition: opacity $transition-duration ease-out ($transition-duration / 2);
-      opacity: 0;
+      background: themed(checkbox, background);
     }
 
   }
 
-  &__check {
-    position: absolute;
-    bottom: (-100% + $check-height + $check-offset-y);
-    left: (-100% + $check-width + $check-offset-x);
-    width: 0;
-    height: 0;
-    border: 0 solid transparent;
-    border-radius: $check-thickness;
-    transform-origin: left bottom;
-    transform: rotate($check-rotate);
-    transition: height ($transition-duration * .35) ease-out 0s,
-      width ($transition-duration * .35) ease-in ($transition-duration * .65),
-      border-width 0s linear $transition-duration;
+  // &.is-style--check {
+  //   $check-thickness: .1875em;
+  //   $check-width: 65%;
+  //   $check-height: 130%;
+  //   $check-offset-x: 23%;
+  //   $check-offset-y: 10%;
+  //   $check-rotate: 40deg;
 
-    @include themify {
-      border-color: themed(checkbox, check-color);
+  //   #{$root}__check {
+  //     position: absolute;
+  //     bottom: (-100% + $check-height + $check-offset-y);
+  //     left: (-100% + $check-width + $check-offset-x);
+  //     width: 0;
+  //     height: 0;
+  //     border: 0 solid transparent;
+  //     border-radius: $check-thickness;
+  //     transform-origin: left bottom;
+  //     transform: rotate($check-rotate);
+  //     transition: height ($transition-duration * .4) ease-out 0s,
+  //       width ($transition-duration * .4) ease-in ($transition-duration * .6),
+  //       border-width 0s linear $transition-duration;
+
+  //     @include themify {
+  //       border-color: themed(checkbox, check-color);
+  //     }
+
+  //     #{$root}__input:checked + #{$root}__toggle & {
+  //       width: $check-width;
+  //       height: $check-height;
+  //       border-right-width: $check-thickness;
+  //       border-bottom-width: $check-thickness;
+  //       transition: width ($transition-duration * .35) ease-out 0s,
+  //         height ($transition-duration * .35) ease-in ($transition-duration * .65);
+  //     }
+
+  //   }
+
+  // }
+
+  &.is-style--cross {
+    $cross-thickness: .125em;
+    $cross-size: 55%;
+    $cross-height: 100% * sqrt(2);
+
+    #{$root}__check {
+      position: absolute;
+      width: $cross-size;
+      height: $cross-size;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      &::before,
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: ($cross-thickness / -2);
+        width: $cross-thickness;
+        height: 0;
+        border-radius: ($cross-thickness / 2);
+        transform-origin: center top;
+        transform: rotate(-45deg);
+        opacity: 0;
+        transition: height 0s $transition-duration,
+          opacity $transition-duration ease;
+
+        @include themify {
+          background: themed(checkbox, check-color);
+        }
+
+      }
+
+      &::after {
+        top: 100%;
+        transform: rotate(-45deg) rotate3d(1, 1, 0, -180deg);
+      }
+
     }
 
-    #{$root}__input:checked + #{$root}__toggle & {
-      width: $check-width;
-      height: $check-height;
-      border-right-width: $check-thickness;
-      border-bottom-width: $check-thickness;
-      transition: width ($transition-duration * .35) ease-out 0s,
-        height ($transition-duration * .35) ease-in ($transition-duration * .65);
+    #{$root}__input:checked + #{$root}__toggle #{$root}__check {
+
+      &::before,
+      &::after {
+        height: $cross-height;
+        opacity: 1;
+      }
+
+      &::before {
+        transition: height ($transition-duration * .4) ease;
+      }
+
+      &::after {
+        transition: height ($transition-duration * .4) ease ($transition-duration * .6);
+      }
+
     }
 
   }
