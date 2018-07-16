@@ -12,11 +12,12 @@
 
   .spaced-section
 
-    c-spoiler(
-      (change) = "onChangeDisplaySaltOptions($event)"
-      label = "Salt disabled",
-      openedLabel = "Salt enabled"
+    c-checkbox(
+      [(ngModel)] = "saltEnabled",
+      label = "add Salt"
     )
+
+    c-roller([expanded] = "saltEnabled")
 
       .spaced-section.is-follow-up
 

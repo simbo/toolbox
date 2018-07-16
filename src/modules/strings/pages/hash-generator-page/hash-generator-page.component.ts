@@ -69,8 +69,4 @@ export class HashGeneratorPageComponent {
     return parts.join(this.saltSeparator);
   }
 
-  public onChangeDisplaySaltOptions(opened) {
-    this.saltEnabled = opened;
-  }
-
 }
