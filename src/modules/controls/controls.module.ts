@@ -8,6 +8,7 @@ import { TextfieldComponent } from './textfield/textfield.component';
 import { SelectComponent } from './select/select.component';
 import { SelectableTextComponent } from './selectable-text/selectable-text.component';
 import { ButtonComponent } from './button/button.component';
+import { CheckboxComponent } from './checkbox/checkbox.component';
 
 @NgModule({
   imports: [
@@ -20,13 +21,15 @@ import { ButtonComponent } from './button/button.component';
     TextfieldComponent,
     SelectComponent,
     SelectableTextComponent,
-    ButtonComponent
+    ButtonComponent,
+    CheckboxComponent
   ],
   exports: [
     TextfieldComponent,
     SelectComponent,
     SelectableTextComponent,
-    ButtonComponent
+    ButtonComponent,
+    CheckboxComponent
   ]
 })
 export class ControlsModule { }

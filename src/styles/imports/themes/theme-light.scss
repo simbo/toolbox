@@ -25,6 +25,11 @@ $theme-light: (
     ui-color: color(codex-gray),
   ),
 
+  checkbox: (
+    check-color: color(onyx),
+    border-color: color(codex-gray),
+  ),
+
   site-loading-bar: (
     height: (3rem / 16),
     inner-center-width: 10%,

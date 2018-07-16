@@ -1,0 +1,115 @@
+.checkbox {
+  $root: &;
+  $size: 1em;
+  $spacing: .4em;
+  $line-height: _($line-height, default);
+  $transition-duration: .3s;
+  $check-thickness: .125em;
+  $check-width: 50%;
+  $check-height: 90%;
+  $check-offset-x: 55%;
+  $check-offset-y: 60%;
+  $check-rotate: 38deg;
+  $box-size: 70%;
+  $box-border-width: .0625em;
+
+  display: inline-block;
+  vertical-align: bottom;
+  position: relative;
+  line-height: $line-height;
+
+  &__input {
+    display: block;
+    width: 0;
+    height: 0;
+    appearance: none;
+    opacity: 0;
+  }
+
+  &__toggle {
+    display: block;
+    position: relative;
+    padding: 0;
+    min-width: $size;
+    min-height: $size * $line-height;
+    cursor: pointer;
+
+    #{$root}.has-label &,
+    #{$root}.has-label--after & {
+      padding-left: ($size + $spacing);
+    }
+
+    #{$root}.has-label--before & {
+      padding-right: ($size + $spacing);
+    }
+
+  }
+
+  &__viewport {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: $size;
+    height: $size;
+    transform: translate(0, -50%);
+
+    #{$root}.has-label--before & {
+      left: auto;
+      right: 0;
+    }
+
+  }
+
+  &__box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: $box-size;
+    height: $box-size;
+    border: transparent solid $box-border-width;
+    border-radius: 2px;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+    transition: opacity $transition-duration ease-in ($transition-duration / 2);
+
+    @include themify {
+      border-color: themed(checkbox, border-color);
+    }
+
+    #{$root}__input:checked + #{$root}__toggle & {
+      transition: opacity $transition-duration ease-out ($transition-duration / 2);
+      opacity: 0;
+    }
+
+  }
+
+  &__check {
+    position: absolute;
+    bottom: (-100% + $check-height + $check-offset-y);
+    left: (-100% + $check-width + $check-offset-x);
+    width: 0;
+    height: 0;
+    border: 0 solid transparent;
+    border-radius: $check-thickness;
+    transform-origin: left bottom;
+    transform: rotate($check-rotate);
+    transition: height ($transition-duration * .35) ease-out 0s,
+      width ($transition-duration * .35) ease-in ($transition-duration * .65),
+      border-width 0s linear $transition-duration;
+
+    @include themify {
+      border-color: themed(checkbox, check-color);
+    }
+
+    #{$root}__input:checked + #{$root}__toggle & {
+      width: $check-width;
+      height: $check-height;
+      border-right-width: $check-thickness;
+      border-bottom-width: $check-thickness;
+      transition: width ($transition-duration * .35) ease-out 0s,
+        height ($transition-duration * .35) ease-in ($transition-duration * .65);
+    }
+
+  }
+
+}

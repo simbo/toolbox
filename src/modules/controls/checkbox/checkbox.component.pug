@@ -1,0 +1,19 @@
+.checkbox(
+  [ngClass] = "classList"
+)
+  input.checkbox__input(
+    [(ngModel)] = "value",
+    [id] = "id",
+    [name] = "id",
+    type = "checkbox"
+  )
+  label.checkbox__toggle(
+    [for] = "id"
+  )
+    .checkbox__viewport
+      .checkbox__box
+      .checkbox__check
+
+    .checkbox__label(
+      *ngIf = "label.length"
+    ) {{ label }}

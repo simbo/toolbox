@@ -23,6 +23,11 @@ $theme-dark: (
     ui-color: color(steel-wool),
   ),
 
+  checkbox: (
+    check-color: color(pinball),
+    border-color: color(boltgun-metal),
+  ),
+
   site-loading-bar: (
     height: (4rem / 16),
     inner-center-width: 40%,
