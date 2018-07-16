@@ -5,7 +5,6 @@ import { RollerAnimation } from './roller.animation';
 @Component({
   selector: 'c-roller',
   templateUrl: './roller.component.pug',
-  styleUrls: ['./roller.component.scss'],
   animations: [
     RollerAnimation
   ]
