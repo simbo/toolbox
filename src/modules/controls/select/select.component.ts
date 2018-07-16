@@ -40,7 +40,7 @@ export class SelectComponent
   }
 
   public ngOnInit(): void {
-    if (!this.id) {
+    if (!this.id || !this.id.length) {
       this.id = `select_${shortid.generate()}`;
     }
   }

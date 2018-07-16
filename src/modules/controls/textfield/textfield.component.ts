@@ -56,7 +56,7 @@ export class TextfieldComponent
   }
 
   public ngOnInit(): void {
-    if (!this.id) {
+    if (!this.id || !this.id.length) {
       this.id = `textfield_${shortid.generate()}`;
     }
   }

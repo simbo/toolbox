@@ -34,7 +34,7 @@ export class SelectableTextComponent
   }
 
   public ngOnInit(): void {
-    if (!this.id) {
+    if (!this.id || !this.id.length) {
       this.id = `selectable-text_${shortid.generate()}`;
     }
   }
