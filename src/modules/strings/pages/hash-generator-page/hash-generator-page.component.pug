@@ -1,6 +1,6 @@
 .page--hash
 
-  .page-section
+  .spaced-section
 
     c-textfield(
       [(ngModel)] = "input",
@@ -10,7 +10,7 @@
       placeholder = "Paste your data here…"
     )
 
-  .page-section
+  .spaced-section
 
     c-spoiler(
       (change) = "onChangeDisplaySaltOptions($event)"
@@ -18,7 +18,7 @@
       openedLabel = "Salt enabled"
     )
 
-      .page-section
+      .spaced-section.is-follow-up
 
         c-textfield(
           [(ngModel)] = "salt",
@@ -28,7 +28,7 @@
           placeholder = "Add some salt…"
         )
 
-      .page-section
+      .spaced-section
 
         .item-row
 
@@ -44,7 +44,7 @@
             label = "Separator"
           )
 
-      .page-section
+      .spaced-section
 
         c-textfield(
           [ngModel] = "inputWithSalt",
@@ -55,7 +55,7 @@
           placeholder = "Nothing to display…"
         )
 
-  .page-section
+  .spaced-section
 
     .item-row
 
@@ -71,7 +71,7 @@
         label = "Encoding"
       )
 
-  .page-section
+  .spaced-section
 
     c-textfield(
       [ngModel] = "output",

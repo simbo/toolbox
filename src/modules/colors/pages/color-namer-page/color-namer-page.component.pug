@@ -1,11 +1,11 @@
 .page--color-namer
 
-  .page-section
+  .spaced-section
     c-color-input(
       (color) = "colorDataSubject.next($event)"
     )
 
-  .page-section
+  .spaced-section
 
     c-spoiler(label = "More Options", openedLabel = "Less Options")
 
@@ -29,7 +29,7 @@
           label = "Color Value Format"
         )
 
-  .page-section
+  .spaced-section
 
     .headline.
       Closest {{ maxClosestColors }} Colors of
@@ -46,5 +46,5 @@
         [colorValueFormat] = "colorValueFormat"
       )
 
-  .page-section
+  .spaced-section
     p Read more about #[a(href = "https://en.wikipedia.org/wiki/Color_difference") color difference].
