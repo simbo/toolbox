@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 import { ColorData } from '../generic/color-data.interface';
 import { ColorValue } from '../generic/color-value';
@@ -12,20 +13,28 @@ import { randomColor } from '../generic/random-color';
 })
 export class ColorInputComponent implements OnInit {
 
-  @Output('color') public colorEmitter =
-    new EventEmitter<ColorData>();
+  @Output('color') public colorEmitter = new EventEmitter<ColorData>();
 
   public colorValue = new ColorValue();
 
-  private _input: string = null;
+  private readonly input: BehaviorSubject<string>;
 
-  public get input(): string {
-    return this._input === null ?
-      this.colorValue.hex.toLowerCase() : this._input;
+  constructor() {
+    this.input = new BehaviorSubject<string>(
+      this.colorValue.hex.toLowerCase()
+    );
   }
 
-  public set input(value: string) {
-    this._input = value;
+  public ngOnInit(): void {
+    this.input.subscribe(input => {
+      this.setColorValue(input);
+    });
+    this.colorValue.observable.subscribe(colorData => {
+      this.colorEmitter.emit(colorData);
+    });
+  }
+
+  public setColorValue(value: string) {
     const rgb = stringToRgb(value);
     if (rgb) {
       this.colorValue.rgb = rgb;
@@ -37,14 +46,9 @@ export class ColorInputComponent implements OnInit {
     }
   }
 
-  public ngOnInit(): void {
-    this.colorValue.observable.subscribe(colorData => {
-      this.colorEmitter.emit(colorData);
-    });
-  }
-
   public setRandomColor() {
-    this.input = randomColor().hex().toLowerCase();
+    const hex = randomColor().hex().toLowerCase();
+    this.input.next(hex);
   }
 
 }
