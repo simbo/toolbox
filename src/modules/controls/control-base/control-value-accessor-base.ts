@@ -1,6 +1,28 @@
-import {ControlValueAccessor} from '@angular/forms';
+import { ControlValueAccessor, NgModel } from '@angular/forms';
+import { ViewChild, Input } from '@angular/core';
+import { Subscription, BehaviorSubject, Observable } from 'rxjs';
 
-export class ControlValueAccessorBase<T> implements ControlValueAccessor {
+export abstract class ControlValueAccessorBase<T> implements ControlValueAccessor {
+
+  @ViewChild(NgModel) public model: NgModel;
+
+  public rxModelSubscription: Subscription;
+
+  @Input() public set rxModel(model: BehaviorSubject<T>|Observable<T>) {
+    if (!this.rxModelSubscription) {
+      this.rxModelSubscription = model.subscribe((value) => {
+        this.value = value;
+      });
+      this.registerOnChange(value => {
+        if (model
+          && typeof (model as BehaviorSubject<T>).getValue === 'function'
+          && (model as BehaviorSubject<T>).getValue() !== value
+        ) {
+          (model as BehaviorSubject<T>).next(value);
+        }
+      });
+    }
+  }
 
   protected onChangeCallbacks = new Array<(value: T) => void>();
   protected onTouchedCallbacks = new Array<() => void>();
