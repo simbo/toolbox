@@ -4,10 +4,12 @@ import { CommonModule } from '@angular/common';
 import { IconComponent } from './icon/icon.component';
 import { SpoilerComponent } from './spoiler/spoiler.component';
 import { RollerComponent } from './roller/roller.component';
+import { PipesModule } from './pipes/pipes.module';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    PipesModule
   ],
   declarations: [
     IconComponent,
@@ -17,7 +19,8 @@ import { RollerComponent } from './roller/roller.component';
   exports: [
     IconComponent,
     SpoilerComponent,
-    RollerComponent
+    RollerComponent,
+    PipesModule
   ]
 })
 export class SharedModule {}
