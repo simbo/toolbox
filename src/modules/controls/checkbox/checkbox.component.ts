@@ -18,15 +18,9 @@ export class CheckboxComponent
   extends ControlElementBase<boolean>
   implements OnInit {
 
-  @Input() public id: string;
-  @Input() public label: string = '';
   @Input() public readonly: boolean = false;
   @Input() public labelPosition: string = 'after';
   @Input() public style: string = 'cross';
-
-  @HostBinding('id') hostId: string = '';
-
-  @ViewChild(NgModel) public model: NgModel;
 
   constructor(
     @Optional() @Inject(NG_VALIDATORS) validators: Array<any>,

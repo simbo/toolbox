@@ -1,5 +1,5 @@
-import { Component, Input, ViewChild, Optional, Inject, OnInit, HostBinding, AfterViewInit, ElementRef } from '@angular/core';
-import { NgModel, NG_VALUE_ACCESSOR, NG_VALIDATORS, NG_ASYNC_VALIDATORS } from '@angular/forms';
+import { Component, Input, ViewChild, Optional, Inject, OnInit, AfterViewInit, ElementRef } from '@angular/core';
+import { NG_VALUE_ACCESSOR, NG_VALIDATORS, NG_ASYNC_VALIDATORS } from '@angular/forms';
 import * as shortid from 'shortid';
 import autosize from 'autosize';
 
@@ -19,8 +19,6 @@ export class TextfieldComponent
   extends ControlElementBase<string>
   implements OnInit, AfterViewInit {
 
-  @Input() public id: string;
-  @Input() public label: string = '';
   @Input() public placeholder: string = '';
   @Input() public multiline: boolean = false;
   @Input() public readonly: boolean = false;
@@ -30,10 +28,6 @@ export class TextfieldComponent
   @Input() public autosize: boolean = false;
   @Input() public size: string = 'auto';
 
-  @HostBinding('id') public hostId: string = '';
-
-  @ViewChild(NgModel) public model: NgModel;
-
   @ViewChild('textfield') public textfieldRef: ElementRef;
   public textfieldElement: HTMLElement;
 
@@ -42,16 +36,17 @@ export class TextfieldComponent
     @Optional() @Inject(NG_ASYNC_VALIDATORS) asyncValidators: Array<any>,
   ) {
     super(validators, asyncValidators);
+    this.registerOnChange(() => this.autosizeUpdate());
   }
 
   public get classList(): ClassList {
     return {
       [`is-size--${this.size}`]: true,
-      'has-autosize': this.hasAutosize
+      'has-autosize': this.hasAutosizeSupport
     };
   }
 
-  public get hasAutosize(): boolean {
+  public get hasAutosizeSupport(): boolean {
     return this.multiline && this.autosize && !!this.textfieldElement;
   }
 
@@ -63,20 +58,15 @@ export class TextfieldComponent
 
   public ngAfterViewInit(): void {
     this.textfieldElement = this.textfieldRef.nativeElement;
-    if (this.hasAutosize) {
-      autosize(this.textfieldElement);
+    if (this.hasAutosizeSupport) {
+      setTimeout(() => autosize(this.textfieldElement), 0);
     }
   }
 
   public autosizeUpdate(): void {
-    if (this.hasAutosize) {
-      autosize.update(this.textfieldElement);
+    if (this.hasAutosizeSupport) {
+      setTimeout(() => autosize.update(this.textfieldElement), 0);
     }
-  }
-
-  public writeValue(value: string) {
-    this._value = value;
-    setTimeout(() => this.autosizeUpdate(), 0);
   }
 
 }

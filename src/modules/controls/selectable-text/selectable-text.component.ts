@@ -1,5 +1,5 @@
-import { Component, Input, ViewChild, Optional, Inject, OnInit, HostBinding } from '@angular/core';
-import { NgModel, NG_VALUE_ACCESSOR, NG_VALIDATORS, NG_ASYNC_VALIDATORS } from '@angular/forms';
+import { Component, Input, Optional, Inject, OnInit } from '@angular/core';
+import { NG_VALUE_ACCESSOR, NG_VALIDATORS, NG_ASYNC_VALIDATORS } from '@angular/forms';
 import * as shortid from 'shortid';
 
 import { ControlElementBase } from '../control-base/control-element-base';
@@ -17,14 +17,8 @@ export class SelectableTextComponent
   extends ControlElementBase<string>
   implements OnInit {
 
-  @Input() public id: string;
-  @Input() public label: string = '';
   @Input() public placeholder: string = '';
   @Input() public multiline: boolean = false;
-
-  @HostBinding('id') hostId: string = '';
-
-  @ViewChild(NgModel) model: NgModel;
 
   constructor(
     @Optional() @Inject(NG_VALIDATORS) validators: Array<any>,
