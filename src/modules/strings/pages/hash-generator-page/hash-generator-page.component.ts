@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
 
 import { hashAlgorithms, HashAlgorithm } from '../../hash/hash-algorithms';
 import { hashEncodings, HashEncoding } from '../../hash/hash-encodings';
@@ -24,19 +25,21 @@ const encodingChoices: SelectChoices = Object.entries(hashEncodings)
   selector: 'c-hash-generator-page',
   templateUrl: './hash-generator-page.component.pug'
 })
-export class HashGeneratorPageComponent {
+export class HashGeneratorPageComponent implements OnInit {
 
   public algorithms: SelectChoices = algorithmChoices;
-  public algorithm: HashAlgorithm = HashAlgorithm.SHA256;
   public encodings: SelectChoices = encodingChoices;
-  public encoding: HashEncoding = HashEncoding.Hex;
 
-  public input: string = '';
+  public input = new BehaviorSubject<string>('');
+  public algorithm = new BehaviorSubject<HashAlgorithm>(HashAlgorithm.SHA256);
+  public encoding = new BehaviorSubject<HashEncoding>(HashEncoding.Hex);
+  public salt = new BehaviorSubject<string>('');
+  public saltEnabled = new BehaviorSubject<boolean>(false);
+  public saltPosition = new BehaviorSubject<string>('append');
+  public saltSeparator = new BehaviorSubject<string>(':');
 
-  public salt: string = '';
-  public saltEnabled: boolean = false;
-  public saltPosition: string = 'append';
-  public saltSeparator: string = ':';
+  public hashContent = new BehaviorSubject<string>('');
+  public output = new BehaviorSubject<string>('');
 
   public saltPositionChoices: SelectChoices = [
     {
@@ -49,24 +52,56 @@ export class HashGeneratorPageComponent {
     }
   ];
 
-  public get output(): string {
-    if (!this.input || this.input === '') {
-      return '';
-    }
-    const hash = new Hash(this.algorithm);
-    hash.set(this.inputWithSalt);
-    return hash.get(this.encoding);
+  public ngOnInit(): void {
+
+    combineLatest(
+      this.input,
+      this.salt,
+      this.saltEnabled,
+      this.saltPosition,
+      this.saltSeparator,
+      this.combineHashContent
+    ).subscribe((hashContent: string) => {
+      if (this.hashContent.getValue() === hashContent) {
+        return;
+      }
+      this.hashContent.next(hashContent);
+    });
+
+    combineLatest(
+      this.hashContent,
+      this.algorithm,
+      this.encoding,
+      this.generateHash
+    ).subscribe((output: string) => {
+      this.output.next(output);
+    });
+
   }
 
-  public get inputWithSalt(): string {
-    if (!this.input || this.input === '') {
-      return '';
+  public combineHashContent(
+    input: string,
+    salt: string,
+    saltEnabled: boolean,
+    saltPosition: string,
+    saltSeparator: string
+  ): string {
+    const parts = [input];
+    if (saltEnabled && salt && salt.length > 0) {
+      parts[saltPosition === 'prepend' ? 'unshift' : 'push'](salt);
     }
-    const parts = [this.input];
-    if (this.saltEnabled && this.salt && this.salt.length > 0) {
-      parts[this.saltPosition === 'prepend' ? 'unshift' : 'push'](this.salt);
-    }
-    return parts.join(this.saltSeparator);
+    return parts.join(saltSeparator);
+
+  }
+
+  public generateHash(
+    input: string,
+    algorithm: HashAlgorithm = HashAlgorithm.SHA256,
+    encoding: HashEncoding = HashEncoding.Hex
+  ): string {
+    const hash = new Hash(algorithm);
+    hash.set(input);
+    return hash.get(encoding);
   }
 
 }

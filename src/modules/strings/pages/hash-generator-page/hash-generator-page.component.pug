@@ -3,7 +3,7 @@
   .spaced-section
 
     c-textfield(
-      [(ngModel)] = "input",
+      [rxModel] = "input",
       [multiline] = "true",
       [autosize] = "true",
       label = "Input",
@@ -13,16 +13,16 @@
   .spaced-section
 
     c-checkbox(
-      [(ngModel)] = "saltEnabled",
+      [rxModel] = "saltEnabled",
       label = "add Salt"
     )
 
-    c-roller([expanded] = "saltEnabled")
+    c-roller([expanded] = "saltEnabled | async")
 
       .spaced-section.is-follow-up
 
         c-textfield(
-          [(ngModel)] = "salt",
+          [rxModel] = "salt",
           [multiline] = "true",
           [autosize] = "true",
           label = "Salt",
@@ -34,13 +34,13 @@
         .item-row
 
           c-select.item-row__item(
-            [(ngModel)] = "saltPosition",
+            [rxModel] = "saltPosition",
             [choices] = "saltPositionChoices",
             label = "Position"
           )
 
           c-textfield.item-row__item(
-            [(ngModel)] = "saltSeparator",
+            [rxModel] = "saltSeparator",
             size = "tiny",
             label = "Separator"
           )
@@ -48,7 +48,7 @@
       .spaced-section
 
         c-textfield(
-          [ngModel] = "inputWithSalt",
+          [rxModel] = "hashContent.asObservable()",
           [readonly] = "true",
           [multiline] = "true",
           [autosize] = "true",
@@ -61,13 +61,13 @@
     .item-row
 
       c-select.item-row__item(
-        [(ngModel)] = "algorithm",
+        [rxModel] = "algorithm",
         [choices] = "algorithms",
         label = "Algorithm"
       )
 
       c-select.item-row__item(
-        [(ngModel)] = "encoding",
+        [rxModel] = "encoding",
         [choices] = "encodings",
         label = "Encoding"
       )
@@ -75,7 +75,7 @@
   .spaced-section
 
     c-textfield(
-      [ngModel] = "output",
+      [rxModel] = "output",
       [readonly] = "true",
       [multiline] = "true",
       [autosize] = "true",
