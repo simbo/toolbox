@@ -1,4 +1,4 @@
-import createHash from 'create-hash/browser';
+import * as createHash from 'create-hash/browser';
 
 import { HashAlgorithm } from './hash-algorithms';
 import { HashEncoding } from './hash-encodings';
