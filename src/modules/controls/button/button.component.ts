@@ -36,4 +36,9 @@ export class ButtonComponent {
     };
   }
 
+  public onClick(event: MouseEvent): void {
+    event.stopPropagation();
+    this.clickEmitter.emit(event);
+  }
+
 }

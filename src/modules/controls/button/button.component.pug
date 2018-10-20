@@ -12,7 +12,7 @@ mixin button()
 
 
 +button().button(
-  (click) = "clickEmitter.emit($event)",
+  (click) = "onClick($event)",
   [ngClass] = "classList",
   [title] = "title"
 )
