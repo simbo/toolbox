@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
+import { BehaviorSubject, combineLatest } from 'rxjs';
+import { map, filter } from 'rxjs/operators';
 
 import { hashAlgorithms, HashAlgorithm } from '../../hash/hash-algorithms';
 import { hashEncodings, HashEncoding } from '../../hash/hash-encodings';
@@ -59,23 +60,21 @@ export class HashGeneratorPageComponent implements OnInit {
       this.salt,
       this.saltEnabled,
       this.saltPosition,
-      this.saltSeparator,
-      this.combineHashContent
-    ).subscribe((hashContent: string) => {
-      if (this.hashContent.getValue() === hashContent) {
-        return;
-      }
-      this.hashContent.next(hashContent);
-    });
+      this.saltSeparator
+    ).pipe(
+      map(([input, salt, saltEnabled, saltPosition, saltSeparator]) =>
+        this.combineHashContent(input, salt, saltEnabled, saltPosition, saltSeparator)
+      ),
+      filter(hashContent => hashContent !== this.hashContent.getValue())
+    ).subscribe((hashContent) => this.hashContent.next(hashContent));
 
     combineLatest(
       this.hashContent,
       this.algorithm,
-      this.encoding,
-      this.generateHash
-    ).subscribe((output: string) => {
-      this.output.next(output);
-    });
+      this.encoding
+    ).pipe(
+      map(([input, algorithm, encoding]) => this.generateHash(input, algorithm, encoding))
+    ).subscribe((output) => this.output.next(output));
 
   }
 

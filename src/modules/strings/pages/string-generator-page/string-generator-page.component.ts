@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, filter } from 'rxjs/operators';
 import * as uniqueRandomArray from 'unique-random-array';
 import * as arrayShuffle from 'array-shuffle';
 import * as arrayUnique from 'array-unique';
@@ -48,30 +48,27 @@ export class StringGeneratorPageComponent implements OnInit {
 
   public ngOnInit(): void {
 
-    combineLatest(
+    combineLatest<any[]>(
       this.customCharacters,
-      ...this.characterGroups.map(group => group.selected),
-      this.getCharacters.bind(this)
-    ).subscribe((characters: string) => {
-      if (characters !== this.characters.getValue()) {
-        this.characters.next(characters);
-      }
-    });
+      ...this.characterGroups.map(group => group.selected)
+    ).pipe(
+      map(([customCharacters, ...selectionStates]) =>
+        this.getCharacters(customCharacters, ...selectionStates)
+      ),
+      filter(characters => characters !== this.characters.getValue())
+    ).subscribe((characters: string) => this.characters.next(characters));
 
-    this.outputLengthInput.subscribe(input => {
-      if (!/^[0-9]+$/.test(input)) {
-        return;
-      }
-      const length = Math.min(Math.max(parseInt(input, 10), 0), 99999);
-      if (length !== this.outputLength.getValue()) {
-        this.outputLength.next(length);
-      }
-    });
+    this.outputLengthInput.pipe(
+      filter(input => /^[0-9]+$/.test(input)),
+      map(input => Math.min(Math.max(parseInt(input, 10), 0), 99999)),
+      filter(length => length !== this.outputLength.getValue())
+    ).subscribe(length => this.outputLength.next(length));
 
     combineLatest(
       this.characters,
-      this.outputLength,
-      this.getRandomString.bind(this)
+      this.outputLength
+    ).pipe(
+      map(([characters, length]) => this.getRandomString(characters, length))
     ).subscribe((output: string) => this.output.next(output));
 
   }
