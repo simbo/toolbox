@@ -27,6 +27,7 @@ export class TextfieldComponent
   @Input() public autocapitalize: boolean = false;
   @Input() public autosize: boolean = false;
   @Input() public size: string = 'auto';
+  @Input() public style: string;
   @Input() public maxlength: number;
 
   @ViewChild('textfield') public textfieldRef: ElementRef;
@@ -43,6 +44,7 @@ export class TextfieldComponent
   public get classList(): ClassList {
     return {
       [`is-size--${this.size}`]: true,
+      [`is-style--${this.style}`]: !!this.style,
       'has-autosize': this.hasAutosizeSupport
     };
   }

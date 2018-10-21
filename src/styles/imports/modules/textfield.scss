@@ -44,6 +44,16 @@
 
     }
 
+    #{$root}.is-style--pre & {
+      @extend %font-family--mono;
+      white-space: pre-wrap;
+      word-break: break-all;
+
+      &::placeholder {
+        @extend %font-family--sans;
+      }
+    }
+
   }
 
   &__input {
