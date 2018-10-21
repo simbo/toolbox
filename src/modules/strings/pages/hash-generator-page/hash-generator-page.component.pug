@@ -1,7 +1,6 @@
 .page--hash
 
   .spaced-section
-
     c-textfield(
       [rxModel] = "input",
       [multiline] = "true",
@@ -11,7 +10,6 @@
     )
 
   .spaced-section
-
     c-checkbox(
       [rxModel] = "saltEnabled",
       label = "add Salt"
@@ -20,7 +18,6 @@
     c-roller([expanded] = "saltEnabled | async")
 
       .spaced-section.is-follow-up
-
         c-textfield(
           [rxModel] = "salt",
           [multiline] = "true",
@@ -30,15 +27,12 @@
         )
 
       .spaced-section
-
         .item-row
-
           c-select.item-row__item(
             [rxModel] = "saltPosition",
             [choices] = "saltPositionChoices",
             label = "Position"
           )
-
           c-textfield.item-row__item(
             [rxModel] = "saltSeparator",
             size = "tiny",
@@ -46,7 +40,6 @@
           )
 
       .spaced-section
-
         c-textfield(
           [rxModel] = "hashContent.asObservable()",
           [readonly] = "true",
@@ -57,15 +50,12 @@
         )
 
   .spaced-section
-
     .item-row
-
       c-select.item-row__item(
         [rxModel] = "algorithm",
         [choices] = "algorithms",
         label = "Algorithm"
       )
-
       c-select.item-row__item(
         [rxModel] = "encoding",
         [choices] = "encodings",
@@ -73,7 +63,6 @@
       )
 
   .spaced-section
-
     c-textfield(
       [rxModel] = "output",
       [readonly] = "true",
