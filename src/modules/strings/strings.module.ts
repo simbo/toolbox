@@ -5,8 +5,9 @@ import { FormsModule } from '@angular/forms';
 import { ControlsModule } from '../controls/controls.module';
 import { StringPipesModule } from './pipes/string-pipes.module';
 import { StringsRoutingModule } from './strings-routing.module';
-import { HashGeneratorPageComponent } from './pages/hash-generator-page/hash-generator-page.component';
 import { SharedModule } from '../shared/shared.module';
+import { HashGeneratorPageComponent } from './pages/hash-generator-page/hash-generator-page.component';
+import { StringGeneratorPageComponent } from './pages/string-generator-page/string-generator-page.component';
 
 @NgModule({
   imports: [
@@ -18,7 +19,8 @@ import { SharedModule } from '../shared/shared.module';
     SharedModule
   ],
   declarations: [
-    HashGeneratorPageComponent
+    HashGeneratorPageComponent,
+    StringGeneratorPageComponent
   ],
   exports: [
     StringPipesModule

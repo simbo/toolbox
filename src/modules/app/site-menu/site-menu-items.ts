@@ -9,6 +9,10 @@ export const menuItems: MenuItem[] = [
   //   link: '/'
   // },
   {
+    label: 'Random String',
+    link: '/strings/random-string'
+  },
+  {
     label: 'Hash Generator',
     link: '/strings/hash-generator'
   },

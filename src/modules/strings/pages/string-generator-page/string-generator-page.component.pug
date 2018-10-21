@@ -1,0 +1,49 @@
+.page--random-string
+
+  .spaced-section
+    .textfield__label Character Groups
+    .item-row
+      c-checkbox.item-row__item(
+        *ngFor = "let group of characterGroups",
+        [rxModel] = "group.selected",
+        [label] = "group.name"
+      )
+
+  .spaced-section
+    c-textfield(
+      [rxModel] = "customCharacters",
+      label = "Custom Characters"
+    )
+
+  .spaced-section
+    c-textfield(
+      [rxModel] = "characters.asObservable()",
+      [readonly] = "true",
+      [multiline] = "true",
+      [autosize] = "true",
+      label = "Combined Characters Pool"
+    )
+
+  .spaced-section
+    c-textfield(
+      [rxModel] = "outputLengthInput",
+      [maxlength] = "5",
+      label = "Output Length"
+    )
+
+  .spaced-section
+    c-button(
+      (click) = "generate()",
+      icon = "dices",
+      label = "Generate"
+    )
+
+  .spaced-section
+    c-textfield(
+      [rxModel] = "output.asObservable()",
+      [readonly] = "true",
+      [multiline] = "true",
+      [autosize] = "true",
+      label = "Output",
+      placeholder = "Nothing to generate…"
+    )
