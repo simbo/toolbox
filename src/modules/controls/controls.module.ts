@@ -6,7 +6,6 @@ import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
 import { TextfieldComponent } from './textfield/textfield.component';
 import { SelectComponent } from './select/select.component';
-import { SelectableTextComponent } from './selectable-text/selectable-text.component';
 import { ButtonComponent } from './button/button.component';
 import { CheckboxComponent } from './checkbox/checkbox.component';
 
@@ -20,14 +19,12 @@ import { CheckboxComponent } from './checkbox/checkbox.component';
   declarations: [
     TextfieldComponent,
     SelectComponent,
-    SelectableTextComponent,
     ButtonComponent,
     CheckboxComponent
   ],
   exports: [
     TextfieldComponent,
     SelectComponent,
-    SelectableTextComponent,
     ButtonComponent,
     CheckboxComponent
   ]
