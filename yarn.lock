@@ -7015,6 +7015,11 @@ random-int@^1.0.0:
   resolved "https://registry.yarnpkg.com/random-int/-/random-int-1.0.0.tgz#e6a2ed3448ac9c6646a0657443b1c1521592ed08"
   integrity sha1-5qLtNEisnGZGoGV0Q7HBUhWS7Qg=
 
+random-item@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/random-item/-/random-item-1.0.0.tgz#16ee31626cb050c8a1686a5f0f42a6b99a2aaf11"
+  integrity sha1-Fu4xYmywUMihaGpfD0KmuZoqrxE=
+
 randomatic@^3.0.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/randomatic/-/randomatic-3.1.0.tgz#36f2ca708e9e567f5ed2ec01949026d50aa10116"

@@ -4,6 +4,7 @@ import { map, filter } from 'rxjs/operators';
 import * as uniqueRandomArray from 'unique-random-array';
 import * as arrayShuffle from 'array-shuffle';
 import * as arrayUnique from 'array-unique';
+import * as randomItem from 'random-item';
 
 interface CharacterGroup {
   name: string;
@@ -44,6 +45,7 @@ export class StringGeneratorPageComponent implements OnInit {
   public readonly customCharacters: BehaviorSubject<string> = new BehaviorSubject('');
   public readonly outputLengthInput: BehaviorSubject<string> = new BehaviorSubject('32');
   public readonly outputLength: BehaviorSubject<number> = new BehaviorSubject(0);
+  public readonly avoidRepetition: BehaviorSubject<boolean> = new BehaviorSubject(true);
   public readonly output: BehaviorSubject<string> = new BehaviorSubject('');
 
   public ngOnInit(): void {
@@ -66,9 +68,12 @@ export class StringGeneratorPageComponent implements OnInit {
 
     combineLatest(
       this.characters,
-      this.outputLength
+      this.outputLength,
+      this.avoidRepetition
     ).pipe(
-      map(([characters, length]) => this.getRandomString(characters, length))
+      map(([characters, length, avoidRepetition]) =>
+        this.getRandomString(characters, length, avoidRepetition)
+      )
     ).subscribe((output: string) => this.output.next(output));
 
   }
@@ -76,7 +81,8 @@ export class StringGeneratorPageComponent implements OnInit {
   public generate(): void {
     const characters = this.characters.getValue();
     const length = this.outputLength.getValue();
-    const output = this.getRandomString(characters, length);
+    const avoidRepetition = this.avoidRepetition.getValue();
+    const output = this.getRandomString(characters, length, avoidRepetition);
     this.output.next(output);
   }
 
@@ -90,12 +96,13 @@ export class StringGeneratorPageComponent implements OnInit {
     return arrayUnique(charactersPool).join('');
   }
 
-  public getRandomString(characters: string, length: number): string {
+  public getRandomString(characters: string, length: number, avoidRepetition: boolean): string {
     if (!characters.length) {
       return '';
     }
     const charactersPool = arrayShuffle(characters.split(''));
-    const randomCharacter: () => string = uniqueRandomArray(charactersPool);
+    const randomCharacter: () => string = avoidRepetition ?
+      uniqueRandomArray(charactersPool) : () => randomItem(charactersPool);
     const output = [];
     while (output.length < length) {
       output.push(randomCharacter());

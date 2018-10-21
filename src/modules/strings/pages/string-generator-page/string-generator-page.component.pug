@@ -39,6 +39,12 @@
     )
 
   .spaced-section
+    c-checkbox(
+      [rxModel] = "avoidRepetition",
+      data-label = "Avoid repeating characters"
+    )
+
+  .spaced-section
     c-button(
       (click) = "generate()",
       data-icon = "dices",
