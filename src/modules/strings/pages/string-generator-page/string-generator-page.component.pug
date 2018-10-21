@@ -12,6 +12,8 @@
   .spaced-section
     c-textfield(
       [rxModel] = "customCharacters",
+      [multiline] = "true",
+      [autosize] = "true",
       data-style = "pre",
       data-label = "Custom Characters",
       data-placeholder = "Add custom characters…"
@@ -32,6 +34,7 @@
       [rxModel] = "outputLengthInput",
       [maxlength] = "5",
       data-label = "Output Length",
+      data-size = "small"
       data-placeholder = "Set output length…"
     )
 
