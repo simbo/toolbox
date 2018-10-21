@@ -10,7 +10,7 @@
     .color-input__input
       c-textfield(
         [rxModel] = "input",
-        placeholder = "Paste a Hex or RGB value…"
+        data-placeholder = "Paste a Hex or RGB value…"
       )
 
     .color-input__hex {{ colorValue.hex | lowercase }}
@@ -20,8 +20,8 @@
     .color-input__btn-random
       c-button(
         (click) = "setRandomColor()",
-        icon = "dices",
-        style = "icon",
-        title = "Random Color"
+        data-icon = "dices",
+        data-style = "icon",
+        data-title = "Random Color"
       )
 

@@ -12,7 +12,8 @@
   .spaced-section
     c-textfield(
       [rxModel] = "customCharacters",
-      label = "Custom Characters"
+      data-label = "Custom Characters",
+      data-placeholder = "Add custom characters…"
     )
 
   .spaced-section
@@ -21,21 +22,23 @@
       [readonly] = "true",
       [multiline] = "true",
       [autosize] = "true",
-      label = "Combined Characters Pool"
+      data-style = "pre",
+      data-label = "Combined Characters Pool"
     )
 
   .spaced-section
     c-textfield(
       [rxModel] = "outputLengthInput",
       [maxlength] = "5",
-      label = "Output Length"
+      data-label = "Output Length",
+      data-placeholder = "Set output length…"
     )
 
   .spaced-section
     c-button(
       (click) = "generate()",
-      icon = "dices",
-      label = "Generate"
+      data-icon = "dices",
+      data-label = "Generate"
     )
 
   .spaced-section
@@ -44,6 +47,6 @@
       [readonly] = "true",
       [multiline] = "true",
       [autosize] = "true",
-      label = "Output",
-      placeholder = "Nothing to generate…"
+      data-label = "Output",
+      data-placeholder = "Nothing to generate…"
     )

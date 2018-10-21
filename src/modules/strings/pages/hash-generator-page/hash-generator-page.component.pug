@@ -5,14 +5,14 @@
       [rxModel] = "input",
       [multiline] = "true",
       [autosize] = "true",
-      label = "Input",
-      placeholder = "Paste your data here…"
+      data-label = "Input",
+      data-placeholder = "Paste your data here…"
     )
 
   .spaced-section
     c-checkbox(
       [rxModel] = "saltEnabled",
-      label = "add Salt"
+      data-label = "add Salt"
     )
 
     c-roller([expanded] = "saltEnabled | async")
@@ -22,8 +22,8 @@
           [rxModel] = "salt",
           [multiline] = "true",
           [autosize] = "true",
-          label = "Salt",
-          placeholder = "Add some salt…"
+          data-label = "Salt",
+          data-placeholder = "Add some salt…"
         )
 
       .spaced-section
@@ -31,12 +31,12 @@
           c-select.item-row__item(
             [rxModel] = "saltPosition",
             [choices] = "saltPositionChoices",
-            label = "Position"
+            data-label = "Position"
           )
           c-textfield.item-row__item(
             [rxModel] = "saltSeparator",
-            size = "tiny",
-            label = "Separator"
+            data-size = "tiny",
+            data-label = "Separator"
           )
 
       .spaced-section
@@ -45,8 +45,8 @@
           [readonly] = "true",
           [multiline] = "true",
           [autosize] = "true",
-          label = "Input with Salt",
-          placeholder = "Nothing to display…"
+          data-label = "Input with Salt",
+          data-placeholder = "Nothing to display…"
         )
 
   .spaced-section
@@ -54,12 +54,12 @@
       c-select.item-row__item(
         [rxModel] = "algorithm",
         [choices] = "algorithms",
-        label = "Algorithm"
+        data-label = "Algorithm"
       )
       c-select.item-row__item(
         [rxModel] = "encoding",
         [choices] = "encodings",
-        label = "Encoding"
+        data-label = "Encoding"
       )
 
   .spaced-section
@@ -68,6 +68,6 @@
       [readonly] = "true",
       [multiline] = "true",
       [autosize] = "true",
-      label = "Output",
-      placeholder = "Nothing to hash…"
+      data-label = "Output",
+      data-placeholder = "Nothing to hash…"
     )
