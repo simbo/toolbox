@@ -6,7 +6,8 @@ mixin textfield()
   input(
     type = "text",
     class = "textfield__input",
-    *ngIf = "!multiline"
+    *ngIf = "!multiline",
+    [maxlength] = "maxlength"
   )&attributes(attributes)
 
 .textfield([ngClass] = "classList")

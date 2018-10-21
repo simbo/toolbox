@@ -27,6 +27,7 @@ export class TextfieldComponent
   @Input() public autocapitalize: boolean = false;
   @Input() public autosize: boolean = false;
   @Input() public size: string = 'auto';
+  @Input() public maxlength: number;
 
   @ViewChild('textfield') public textfieldRef: ElementRef;
   public textfieldElement: HTMLElement;
