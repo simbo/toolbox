@@ -13,6 +13,10 @@ export const menuItems: MenuItem[] = [
     link: '/strings/random-string'
   },
   {
+    label: 'UUID',
+    link: '/strings/uuid'
+  },
+  {
     label: 'Hash Generator',
     link: '/strings/hash-generator'
   },

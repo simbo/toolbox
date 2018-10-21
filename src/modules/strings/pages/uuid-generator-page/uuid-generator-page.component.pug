@@ -1,0 +1,51 @@
+.page--uuid
+
+  .spaced-section
+    c-select(
+      [rxModel] = "version",
+      [choices] = "versions",
+      data-label = "UUID Version"
+    )
+
+    c-roller([expanded] = "['v3', 'v5'].indexOf(version | async) > -1")
+
+      .spaced-section.is-follow-up
+        c-select(
+          [rxModel] = "namespace",
+          [choices] = "namespaces",
+          data-label = "Namespace"
+        )
+
+        c-roller([expanded] = "namespace === 'custom'")
+
+          .spaced-section.is-follow-up
+            c-textfield(
+              [rxModel] = "input",
+              data-label = "Custom Namespace",
+              data-placeholder = "Enter a UUID…"
+            )
+
+      .spaced-section
+        c-textfield(
+          [rxModel] = "input",
+          data-label = "Value",
+          data-placeholder = "Enter a value…"
+        )
+
+  .spaced-section
+    c-button(
+      (click) = "generate()",
+      data-icon = "dices",
+      data-label = "Generate"
+    )
+
+  .spaced-section
+    c-textfield(
+      [rxModel] = "output.asObservable()",
+      [readonly] = "true",
+      [multiline] = "true",
+      [autosize] = "true",
+      data-label = "Output",
+      data-style = "pre",
+      data-placeholder = "Nothing to generate…"
+    )

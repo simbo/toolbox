@@ -7,6 +7,7 @@ import { ControlElementBase } from '../control-base/control-element-base';
 export interface SelectChoice {
   value: string;
   label: string;
+  [key: string]: any;
 }
 
 export type SelectChoices = SelectChoice[];

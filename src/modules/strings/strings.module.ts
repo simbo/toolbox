@@ -8,6 +8,7 @@ import { StringsRoutingModule } from './strings-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { HashGeneratorPageComponent } from './pages/hash-generator-page/hash-generator-page.component';
 import { StringGeneratorPageComponent } from './pages/string-generator-page/string-generator-page.component';
+import { UuidGeneratorPageComponent } from './pages/uuid-generator-page/uuid-generator-page.component';
 
 @NgModule({
   imports: [
@@ -20,7 +21,8 @@ import { StringGeneratorPageComponent } from './pages/string-generator-page/stri
   ],
   declarations: [
     HashGeneratorPageComponent,
-    StringGeneratorPageComponent
+    StringGeneratorPageComponent,
+    UuidGeneratorPageComponent
   ],
   exports: [
     StringPipesModule
