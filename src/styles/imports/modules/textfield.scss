@@ -23,7 +23,6 @@
   &__textarea {
     display: block;
     width: 100%;
-    min-width: 100%;
     padding: $padding-y $padding-x;
     line-height: $line-height;
     border: none;
@@ -74,6 +73,7 @@
 
   &__textarea {
     max-width: 100%;
+    min-width: 100%;
     height: textfield-height($rows);
     min-height: textfield-height($min-rows);
     max-height: textfield-height($max-rows);
