@@ -17,7 +17,7 @@ export class ColorInputComponent implements OnInit {
 
   public colorValue = new ColorValue();
 
-  private readonly input: BehaviorSubject<string>;
+  public readonly input: BehaviorSubject<string>;
 
   constructor() {
     this.input = new BehaviorSubject<string>(
