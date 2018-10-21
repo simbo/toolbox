@@ -31,15 +31,6 @@
   &__input {
     width: 14em;
     margin-bottom: .8em;
-
-    .textfield__input {
-      @extend %font-family--mono;
-
-      &::placeholder {
-        @extend %font-family--sans;
-      }
-    }
-
   }
 
   &__hex,
