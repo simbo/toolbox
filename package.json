@@ -43,6 +43,7 @@
     "@angular/platform-browser-dynamic": "^6.1.10",
     "@angular/router": "^6.1.10",
     "array-shuffle": "^1.0.1",
+    "array-unique": "^0.3.2",
     "autosize": "^4.0.2",
     "camelcase": "^5.0.0",
     "color": "^3.1.0",
