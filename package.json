@@ -9,20 +9,19 @@
   "repository": "github:simbo/toolbox",
   "bugs": "https://github.com/simbo/toolbox/issues",
   "scripts": {
-    "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --prod",
-    "ci:build": "ng build --prod --no-progress",
-    "test": "ng test --browsers=ChromeHeadlessNoSandbox",
-    "ci:test": "ng test --no-watch --no-progress --code-coverage --browsers=ChromeHeadlessNoSandbox",
+    "build": "ng build --prod --configHook ~webpack.config-hook.js",
+    "ci:build": "yarn run build --no-progress",
+    "test": "ng test --configHook ~webpack.config-hook.js --browsers=ChromeHeadlessNoSandbox",
+    "ci:test": "yarn run test --no-watch --no-progress --code-coverage",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
-    "lint": "ng lint && yarn run lint:styles",
+    "lint": "yarn run lint:scripts && yarn run lint:styles",
+    "lint:scripts": "ng lint",
     "lint:styles": "stylelint \"./src/**/*.(c|sc|sa)ss\"",
     "e2e": "ng e2e",
-    "analyzer": "ng build --prod --stats-json && webpack-bundle-analyzer ./dist/stats.json",
+    "analyzer": "yarn run build --stats-json && webpack-bundle-analyzer ./dist/stats.json",
     "check": "yarn run lint && yarn run ci:test && yarn run ci:build",
-    "preinstall": "npx use-yarn",
-    "postinstall": "node ./.ng-cli-webpack-hack/hack.js"
+    "preinstall": "npx use-yarn"
   },
   "husky": {
     "hooks": {
@@ -89,6 +88,7 @@
     "karma-jasmine-html-reporter": "^1.3.1",
     "karma-mocha-reporter": "^2.2.5",
     "marked": "^0.5.1",
+    "ngx-build-plus": "^7.0.2",
     "protractor": "~5.4.1",
     "pug": "^2.0.3",
     "pug-plain-loader": "^1.0.0",
