@@ -12,13 +12,7 @@ env:
 
 install: yarn
 
-before_script: yarn run lint
-
-script: yarn run ci:test
-
-after_script: yarn run coveralls
-
-before_deploy: yarn run ci:build
+script: yarn run ci:pipeline
 
 deploy:
   provider: pages

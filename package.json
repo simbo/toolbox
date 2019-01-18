@@ -29,6 +29,7 @@
     "ci:build": "yarn run build --no-progress",
     "ci:test": "yarn run test-once --no-progress --browsers=ChromeHeadless",
     "ci:e2e": "yarn run e2e-once",
+    "ci:pipeline": "yarn run lint && yarn run ci:test && yarn run ci:e2e && yarn run clean && yarn run ci:build",
     "clean": "rimraf ./dist",
     "bundle-analyzer": "yarn run clean && yarn run build --stats-json && webpack-bundle-analyzer ./dist/owcc/stats.json",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
