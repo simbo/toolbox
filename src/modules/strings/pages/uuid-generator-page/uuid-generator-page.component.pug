@@ -16,7 +16,7 @@
           data-label = "Namespace"
         )
 
-        c-roller([expanded] = "namespace === 'custom'")
+        c-roller([expanded] = "(namespace | async) === 'custom'")
 
           .spaced-section.is-follow-up
             c-textfield(

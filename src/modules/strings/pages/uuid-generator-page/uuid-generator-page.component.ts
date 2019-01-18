@@ -55,10 +55,10 @@ export class UuidGeneratorPageComponent implements OnInit {
       value: UuidNamespace.URL,
       label: 'URL (for URLs)'
     },
-    // {
-    //   value: UuidNamespace.Custom,
-    //   label: 'Custom'
-    // }
+    {
+      value: UuidNamespace.Custom,
+      label: 'Custom'
+    }
   ];
 
   public readonly version: BehaviorSubject<UuidVersion> = new BehaviorSubject(UuidVersion.v4);
