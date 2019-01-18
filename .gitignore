@@ -17,6 +17,10 @@
 .settings/
 *.sublime-workspace
 
+# cypress generated
+/e2e/videos
+/e2e/screenshots
+
 # IDE - VSCode
 .vscode/*
 !.vscode/settings.json
