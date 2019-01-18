@@ -12,7 +12,6 @@
     "node": "~10.15.0"
   },
   "scripts": {
-    "coveralls": "cat ./coverage/lcov.info | coveralls",
     "start": "yarn run serve",
     "serve": "yarn run serve:dev",
     "serve:dev": "ng serve --plugin ~webpack.plugin.js",
@@ -26,15 +25,17 @@
     "lint:scripts": "ng lint",
     "lint:styles": "stylelint \"./src/**/*.(c|sc|sa)ss\"",
     "e2e": "ng e2e",
-    "analyzer": "yarn run build --stats-json && webpack-bundle-analyzer ./dist/stats.json",
-    "check": "yarn run lint && yarn run ci:test && yarn run ci:build",
     "ci:build": "yarn run build --no-progress",
     "ci:test": "yarn run test-once --no-progress --browsers=ChromeHeadless",
+    "clean": "rimraf ./dist",
+    "bundle-analyzer": "yarn run clean && yarn run build --stats-json && webpack-bundle-analyzer ./dist/owcc/stats.json",
+    "coveralls": "cat ./coverage/lcov.info | coveralls",
+    "full-check": "yarn run lint && yarn run ci:test && yarn run ci:build",
     "preinstall": "npx use-yarn"
   },
   "husky": {
     "hooks": {
-      "pre-push": "yarn run check"
+      "pre-push": "yarn run full-check"
     }
   },
   "dependencies": {
@@ -98,6 +99,7 @@
     "protractor": "~5.4.2",
     "pug": "^2.0.3",
     "pug-plain-loader": "^1.0.0",
+    "rimraf": "^2.6.3",
     "stylelint": "^9.10.0",
     "stylelint-config-recommended": "^2.1.0",
     "stylelint-scss": "^3.5.1",
