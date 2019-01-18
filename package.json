@@ -38,7 +38,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "yarn run full-check"
+      "pre-push": "sh ./bin/ensure-clean-workspace.sh && yarn run full-check"
     }
   },
   "dependencies": {
