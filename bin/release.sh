@@ -34,7 +34,7 @@ printf "\nNew Version: \e[1m\e[93m$VERSION\e[0m\e[21m\e[K"
 printf "\n\nThis will run all tests, update package.json with the new version, add a tagged commit and push to origin."
 printf "\n\n\e[1mPress ENTER to continue or CTRL-C to cancel...\e[21m"
 read
-printf "\n"
+printf "\e[2A\e[K\n\e[K\n"
 
 yarn run full-check
 
