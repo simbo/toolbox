@@ -26,25 +26,31 @@ Development
 
 ### Usage
 
-  - `ng serve [--prod]`  
+See `package.json#scripts` for all scripts and details.
+
+  - `yarn run serve`  
     builds, serves and reloads at [localhost:4200](http://localhost:4200/)
 
-  - `ng build [--prod]`  
+  - `yarn run build`  
     builds to `dist/`
 
-  - `ng test`  
+  - `yarn run test`  
     unit tests via [Karma](https://karma-runner.github.io)
 
-  - `ng e2e`  
-    end-to-end tests via [Protractor](http://www.protractortest.org/)
+  - `yarn run e2e`  
+    end-to-end tests via [Cypress](https://www.cypress.io/)
 
   - `ng generate <schematic> [options]`  
-    i.e.: `ng generate component component-name` to generate a new component.  
+    e.g.: `ng generate component component-name` to generate a new component.  
     See `ng generate --help` for schematics.  
     See `ng generate <schematic> --help` for schematic options
 
-  - `yarn run analyzer`  
+  - `yarn run bundle-analyzer`  
     build and start bundle analyzer at [localhost:8888](http://localhost:8888/)
+
+  - `yarn run release`  
+    prepare and push a tagged release version (will be built by Travis CI and
+    pushed to GitHub Pages)
 
 
 ### More
@@ -52,13 +58,6 @@ Development
   - Angular CLI
       - [ReadMe](https://github.com/angular/angular-cli/blob/master/packages/angular/cli/README.md#documentation)
       - [Wiki](https://github.com/angular/angular-cli/wiki)
-
-
-Deployment
-----------
-
-Successfully tested builds on `master` are automatically published on GitHub
-Pages via Travis CI.
 
 
 License
