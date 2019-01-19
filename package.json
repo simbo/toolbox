@@ -34,6 +34,7 @@
     "bundle-analyzer": "yarn run clean && yarn run build --stats-json && webpack-bundle-analyzer ./dist/owcc/stats.json",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
     "full-check": "yarn run lint && yarn run ci:test && yarn run ci:build",
+    "release": "sh ./bin/release.sh",
     "preinstall": "npx use-yarn"
   },
   "husky": {
