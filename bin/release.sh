@@ -7,7 +7,10 @@ if ! [ "$(git symbolic-ref --short -q HEAD)" = "master" ]; then
   exit 1
 fi
 
-sh $(dirname "$0")/ensure-clean-workspace.sh
+SCRIPTDIR=$(dirname "$0")
+ROOTDIR=$(dirname "$SCRIPTDIR")
+
+sh $SCRIPTDIR/ensure-clean-workspace.sh
 
 VERSION=$1
 
@@ -37,8 +40,8 @@ yarn run full-check
 
 SEARCH='("version":[[:space:]]*").+(")'
 REPLACE="\1$VERSION\2"
-sed -i ".tmp" -E "s/$SEARCH/$REPLACE/g" "package.json"
-rm package.json.tmp
+sed -i ".tmp" -E "s/$SEARCH/$REPLACE/g" "$ROOTDIR/package.json"
+rm $ROOTDIR/package.json.tmp
 
 git add package.json
 git commit -m "bump version to $VERSION"
