@@ -18,6 +18,7 @@ deploy:
   provider: pages
   on:
     branch: master
+    tags: true
   github-token: "$GITHUB_TOKEN"
   local-dir: dist
   target-branch: gh-pages
