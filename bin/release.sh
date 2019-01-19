@@ -41,7 +41,7 @@ rm package.json.tmp
 git add package.json
 git commit -m "bump version to $VERSION"
 git tag -a "$VERSION" -m "$VERSION"
-git push origin --tags --no-verify
+git push origin --follow-tags --no-verify
 
 printf "\n\n\e[1m\e[92m✔  All done!\e[0m\e[21m"
 printf "\n\nGitHub: \e[34m\e[4mhttps://github.com/simbo/toolbox\e[24m\e[0m"
