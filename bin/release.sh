@@ -7,7 +7,7 @@ if ! [ "$(git symbolic-ref --short -q HEAD)" = "master" ]; then
   exit 1
 fi
 
-sh ./bin/ensure-clean-workspace.sh
+sh $(dirname "$0")/ensure-clean-workspace.sh
 
 VERSION=$1
 
@@ -18,6 +18,7 @@ printf "\nCurrent version: $CURRENT_VERSION\n"
 if [[ $VERSION = '' ]]; then
   printf "\nEnter the new version to create: "
   read VERSION
+  printf "\e[2A"
 fi
 
 if ! [[ $VERSION =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
@@ -25,7 +26,8 @@ if ! [[ $VERSION =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
   exit 1
 fi
 
-printf "\nNew Version: \e[1m\e[93m$VERSION\e[0m\e[21m"
+printf "\nNew Version: \e[1m\e[93m$VERSION\e[0m\e[21m\e[K"
+
 printf "\n\nThis will run all tests, update package.json with the new version, add a tagged commit and push to origin."
 printf "\n\n\e[1mPress ENTER to continue or CTRL-C to cancel...\e[21m"
 read
