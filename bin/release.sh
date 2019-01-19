@@ -40,7 +40,7 @@ rm package.json.tmp
 
 git add package.json
 git commit -m "bump version to $VERSION"
-git tag -a "$VVERSION" -m "$VVERSION"
+git tag -a "$VERSION" -m "$VERSION"
 git push origin --tags
 
 printf "\n\n\e[1m\e[92m✔  All done!\e[0m\e[21m"
