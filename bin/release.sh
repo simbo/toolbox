@@ -1,14 +1,13 @@
 #!/bin/sh
 
+set -e
+
 if ! [ "$(git symbolic-ref --short -q HEAD)" = "master" ]; then
-  printf "\n\e[91mYour current branch has to be \"master\" to create a release.\e[0m\n"
+  printf "\n\e[91mYour current branch has to be \"master\" to create a release.\e[0m\n\n"
   exit 1
 fi
 
-if ! [ -z "$(git status --porcelain)" ]; then
-  printf "\n\e[91mYour working tree is dirty. Please commit or stash first.\e[0m\n"
-  exit 1
-fi
+sh ./bin/ensure-clean-workspace.sh
 
 VERSION=$1
 
@@ -22,7 +21,7 @@ if [[ $VERSION = '' ]]; then
 fi
 
 if ! [[ $VERSION =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-  printf "\n\e[91m\"$VERSION\" is not a valid semver version.\e[0m\n"
+  printf "\n\e[91m\"$VERSION\" is not a valid semver version.\e[0m\n\n"
   exit 1
 fi
 
@@ -31,8 +30,6 @@ printf "\n\nThis will run all tests, update package.json with the new version, a
 printf "\n\n\e[1mPress ENTER to continue or CTRL-C to cancel...\e[21m"
 read
 printf "\n"
-
-set -e
 
 SEARCH='("version":[[:space:]]*").+(")'
 REPLACE="\1$VERSION\2"
