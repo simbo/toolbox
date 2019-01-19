@@ -17,11 +17,9 @@ Development
 
 ### Requirements
 
-  - node >= 8.11.2
+  - node >= 10.15.0
 
   - [`yarn`](https://yarnpkg.com/lang/en/) for package management
-
-  - globally installed [`@angular/cli`
 
 
 ### Usage
@@ -35,10 +33,10 @@ See `package.json#scripts` for all scripts and details.
     builds to `dist/`
 
   - `yarn run test`  
-    unit tests via [Karma](https://karma-runner.github.io)
+    unit tests using [Karma](https://karma-runner.github.io/) and [Jasmine](https://jasmine.github.io/)
 
   - `yarn run e2e`  
-    end-to-end tests via [Cypress](https://www.cypress.io/)
+    end-to-end tests using [Cypress](https://www.cypress.io/)
 
   - `ng generate <schematic> [options]`  
     e.g.: `ng generate component component-name` to generate a new component.  
