@@ -13,7 +13,7 @@ VERSION=$1
 
 CURRENT_VERSION=$(grep -m1 version package.json | awk -F: '{ print $2 }' | sed 's/[", ]//g')
 
-printf "\nCurrent version is $CURRENT_VERSION\n"
+printf "\nCurrent version: $CURRENT_VERSION\n"
 
 if [[ $VERSION = '' ]]; then
   printf "\nEnter the new version to create: "
@@ -31,12 +31,13 @@ printf "\n\n\e[1mPress ENTER to continue or CTRL-C to cancel...\e[21m"
 read
 printf "\n"
 
+yarn run full-check
+
 SEARCH='("version":[[:space:]]*").+(")'
 REPLACE="\1$VERSION\2"
 sed -i ".tmp" -E "s/$SEARCH/$REPLACE/g" "package.json"
 rm package.json.tmp
 
-yarn run full-check
 git add package.json
 git commit -m "bump version to $VERSION"
 git tag -a "$VERSION" -m "$VERSION"
