@@ -26,7 +26,8 @@ if ! [[ $VERSION =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
   exit 1
 fi
 
-printf "\nThis will update package.json to version \e[1m\e[93m$VERSION\e[0m\e[21m, add a tagged commit and push to origin."
+printf "\nNew Version: \e[1m\e[93m$VERSION\e[0m\e[21m"
+printf "\n\nThis will run all tests, update package.json with the new version, add a tagged commit and push to origin."
 printf "\n\n\e[1mPress ENTER to continue or CTRL-C to cancel...\e[21m"
 read
 printf "\n"
@@ -38,10 +39,11 @@ REPLACE="\1$VERSION\2"
 sed -i ".tmp" -E "s/$SEARCH/$REPLACE/g" "package.json"
 rm package.json.tmp
 
+yarn run full-check
 git add package.json
 git commit -m "bump version to $VERSION"
 git tag -a "$VERSION" -m "$VERSION"
-git push origin --tags
+git push origin --tags --no-verify
 
 printf "\n\n\e[1m\e[92m✔  All done!\e[0m\e[21m"
 printf "\n\nGitHub: \e[34m\e[4mhttps://github.com/simbo/toolbox\e[24m\e[0m"
